@@ -10,8 +10,18 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::get('/', 'UserController@getIndex'); 
 
-Route::get('/', function()
+Route::get('/laravel', function()
 {
 	return View::make('hello');
+});
+
+Route::get('/users', function()
+{
+    $users = app\models\User::all();
+
+    //die("DUNCAN DEBUG 100");
+
+    return View::make('users')->with('users', $users);
 });
