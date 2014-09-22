@@ -1,6 +1,6 @@
 <html>
     <body>
-        <h1>Sharon Hall</h1>
+        <h1>shn project</h1>
 
         @yield('content')
 

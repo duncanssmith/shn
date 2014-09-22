@@ -21,7 +21,5 @@ Route::get('/users', function()
 {
     $users = User::all();
 
-    //die("DUNCAN DEBUG 100");
-
     return View::make('users')->with('users', $users);
 });
