@@ -1,10 +1,10 @@
 <?php
 
-class UserController extends BaseController {
+class WorkController extends BaseController {
 
     /*
     |--------------------------------------------------------------------------
-    | User Controller
+    | Work Controller
     |--------------------------------------------------------------------------
     |
     | You may wish to use controllers instead of, or in addition to, Closure
@@ -17,7 +17,7 @@ class UserController extends BaseController {
 
     public function getIndex()
     {
-        return View::make('users');
+        return View::make('works');
     }
 
 }
