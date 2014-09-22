@@ -2,27 +2,22 @@
 
 class UserController extends BaseController {
 
-	/*
-	|--------------------------------------------------------------------------
-	| User Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'UserController@showWelcome');
-	|
-	*/
+    /*
+    |--------------------------------------------------------------------------
+    | User Controller
+    |--------------------------------------------------------------------------
+    |
+    | You may wish to use controllers instead of, or in addition to, Closure
+    | based routes. That's great! Here is an example controller method to
+    | get you started. To route to this controller, just add the route:
+    |
+    | Route::get('/', 'UserController@showWelcome');
+    |
+    */
 
-	public function getIndex()
-	{
-		return View::make('users');
+    public function getIndex()
+    {
+        return View::make('users');
     }
-
-        //Route::get('users', function()
-        //{
-        //        return View::make('users');
-        //});
 
 }

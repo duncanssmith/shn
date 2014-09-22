@@ -2,11 +2,8 @@
 
 @section('content')
 
-Hello
-
-Users: here
+Users:
     @foreach($users as $user)
-        <p>{{ $user->name }}</p>
+        <p>{{ $user->name }} {{ $user->email }}</p>
             @endforeach
-
 @stop
