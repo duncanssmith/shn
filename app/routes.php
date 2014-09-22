@@ -19,7 +19,7 @@ Route::get('/laravel', function()
 
 Route::get('/users', function()
 {
-    $users = app\models\User::all();
+    $users = User::all();
 
     //die("DUNCAN DEBUG 100");
 
