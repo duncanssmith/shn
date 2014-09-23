@@ -30,3 +30,10 @@ Route::get('/works', function()
 
     return View::make('works')->with('works', $works);
 });
+
+Route::get('/groups', function()
+{
+    $groups = Group::all();
+
+    return View::make('groups')->with('groups', $groups);
+});

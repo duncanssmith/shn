@@ -4,6 +4,7 @@
         <ul>
             <li><a href="/users">Users</a></li>
             <li><a href="/works">Works</a></li>
+            <li><a href="/groups">Groups</a></li>
         </ul>
 
         @yield('content')
