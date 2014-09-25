@@ -20,7 +20,7 @@ Works:
         <td>{{ $work->dimensions }}</td>
         <td>{{ $work->work_date }}</td>
 
-        <td><img src="public/images/{{ $work->reference }}.jpg"></td>
+        <td><img src="/media/images/64/sh_{{ $work->reference }}.jpg"></td>
         </tr>
     @endforeach
     </table>
