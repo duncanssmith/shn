@@ -1,4 +1,5 @@
 <?php
+use Work\Repositories\Work\WorkRepository;
 
 class WorkController extends BaseController {
 
@@ -15,10 +16,51 @@ class WorkController extends BaseController {
     |
     */
 
+    /**
+     * The Work Repository
+     *
+     * @var Work\Repositories\Work\WorkRepository
+     */
+    protected $workRepository;
+
+    /**
+     * Inject the WorkRepository
+     *
+     * @param Work\Repositories\Work\WorkRepository $WorkRepository
+     * @return void
+     */
+    public function __construct(WorkRepository $workRepository)
+    {
+        $this->workRepository = $workRepository;
+    }
+
     public function getIndex()
     {
         return View::make('works');
     }
 
+    public function index()
+    {
+        $works = null;
+        return View::make('works');
+    }
+
+    /**
+     * Display a single work by id
+     *
+     * @param int $id
+     * @return View
+     */
+    public function view($id)
+    {
+        $work = $this->workRepository->find($id);
+
+        if($work)
+        {
+            return View::make('work.view', compact('work'));
+        }
+
+        App::abort(404);
+    }
+
 }
-kk

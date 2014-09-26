@@ -10,11 +10,11 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::get('/', 'UserController@getIndex'); 
+Route::get('/', 'HomeController@getIndex');
 
-Route::get('/laravel', function()
+Route::get('/login', function()
 {
-	return View::make('hello');
+    return View::make('login');
 });
 
 Route::get('/users', function()
