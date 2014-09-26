@@ -192,7 +192,12 @@ class WorkController extends BaseController {
      */
     public function destroy($id)
     {
-        //
+        $work = Work::find($id);
+        $work->delete();
+
+        // redirect
+        Session::flash('message', 'Successfully deleted the work!');
+        return Redirect::to('works');
     }
 
 
