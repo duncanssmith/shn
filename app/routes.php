@@ -1,6 +1,9 @@
 <?php
 
 Route::resource('works', 'WorkController');
+
+Route::resource('groups', 'GroupController');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
