@@ -1,5 +1,9 @@
 <!-- app/views/users/edit.blade.php -->
 
+@extends('layout')
+
+@section('content')
+
 <!DOCTYPE html>
 <html>
 <head>

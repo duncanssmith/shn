@@ -1,5 +1,9 @@
 <!-- app/views/groups/index.blade.php -->
 
+@extends('layout')
+
+@section('content')
+
 <!DOCTYPE html>
 <html>
 <head>

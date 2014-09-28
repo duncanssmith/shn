@@ -1,5 +1,10 @@
 <!-- app/views/users/show.blade.php -->
 
+
+@extends('layout')
+
+@section('content')
+
 <!DOCTYPE html>
 <html>
 <head>
