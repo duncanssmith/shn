@@ -14,6 +14,17 @@
 */
 
 // CRUD Routes
+
+Route::get('profile', array('before' => 'auth.basic', function()
+{
+    // Only authenticated users may enter...
+}));
+
+Route::filter('auth.basic', function()
+{
+    return Auth::basic('username');
+});
+
 Route::resource('works', 'WorkController');
 
 Route::resource('groups', 'GroupController');
