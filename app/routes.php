@@ -1,8 +1,6 @@
 <?php
 
-Route::resource('works', 'WorkController');
-Route::resource('groups', 'GroupController');
-Route::resource('users', 'UserController');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +12,15 @@ Route::resource('users', 'UserController');
 | and give it the Closure to execute when that URI is requested.
 |
 */
+
+// CRUD Routes
+Route::resource('works', 'WorkController');
+
+Route::resource('groups', 'GroupController');
+
+Route::resource('users', 'UserController');
+
+// Other routes
 Route::get('/', 'HomeController@getIndex');
 
 Route::get('/login', function()

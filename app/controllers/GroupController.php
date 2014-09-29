@@ -22,7 +22,7 @@ class GroupController extends BaseController {
 
     public function index()
     {
-        $groups = group::all();
+        $groups = Group::all();
         return View::make('groups.index')
             ->with('groups', $groups);
     }
@@ -77,7 +77,7 @@ class GroupController extends BaseController {
                 ->withInput(Input::except('password'));
         } else {
             // store
-            $group = new group;
+            $group = new Group;
             $group->name       = Input::get('name');
             $group->save();
 
@@ -96,7 +96,7 @@ class GroupController extends BaseController {
     public function show($id)
     {
         // get the nerd
-        $group = group::find($id);
+        $group = Group::find($id);
 
         // show the view and pass the group to it
         return View::make('groups.show')
@@ -112,7 +112,7 @@ class GroupController extends BaseController {
     public function edit($id)
     {
         // get the group
-        $group = group::find($id);
+        $group = Group::find($id);
 
         // show the edit form and pass the group
         return View::make('groups.edit')
@@ -159,7 +159,7 @@ class GroupController extends BaseController {
      */
     public function destroy($id)
     {
-        $group = group::find($id);
+        $group = Group::find($id);
         $group->delete();
 
         // redirect

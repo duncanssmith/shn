@@ -22,7 +22,7 @@ class UserController extends BaseController {
 
     public function index()
     {
-        $users = user::all();
+        $users = User::all();
         return View::make('users.index')
             ->with('users', $users);
     }
@@ -78,7 +78,7 @@ class UserController extends BaseController {
                 ->withInput(Input::except('password'));
         } else {
             // store
-            $user = new user;
+            $user = new User;
             $user->name       = Input::get('name');
             $user->email      = Input::get('email');
             $user->save();
@@ -97,8 +97,8 @@ class UserController extends BaseController {
      */
     public function show($id)
     {
-        // get the nerd
-        $user = user::find($id);
+        // get the user
+        $user = User::find($id);
 
         // show the view and pass the user to it
         return View::make('users.show')
@@ -114,7 +114,7 @@ class UserController extends BaseController {
     public function edit($id)
     {
         // get the user
-        $user = user::find($id);
+        $user = User::find($id);
 
         // show the edit form and pass the user
         return View::make('users.edit')
@@ -144,7 +144,7 @@ class UserController extends BaseController {
                 ->withInput(Input::except('password'));
         } else {
             // store
-            $user = user::find($id);
+            $user = User::find($id);
             $user->name       = Input::get('name');
             $user->email      = Input::get('email');
             $user->save();
@@ -163,7 +163,7 @@ class UserController extends BaseController {
      */
     public function destroy($id)
     {
-        $user = user::find($id);
+        $user = User::find($id);
         $user->delete();
 
         // redirect
