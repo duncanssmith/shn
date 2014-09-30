@@ -4,15 +4,6 @@
 
 @section('content')
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Work edit</title>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-</head>
-<body>
-<div class="container">
-
 <nav class="navbar navbar-inverse">
 	<div class="navbar-header">
 		<a class="navbar-brand" href="{{ URL::to('works') }}">work Alert</a>
@@ -58,5 +49,5 @@
 {{ Form::close() }}
 
 </div>
-</body>
-</html>
+
+@stop

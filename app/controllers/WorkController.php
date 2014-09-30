@@ -43,7 +43,8 @@ class WorkController extends BaseController {
     {
         $works = Work::all();
         return View::make('works.index')
-            ->with('works', $works);
+            ->with('works', $works)
+            ->with('title', 'Works');
     }
 
     /**
@@ -72,7 +73,8 @@ class WorkController extends BaseController {
     public function create()
     {
         // load the create form (app/views/works/create.blade.php)
-        return View::make('works.create');
+        return View::make('works.create')
+            ->with('title', 'Work create');
     }
 
     /**
@@ -126,7 +128,8 @@ class WorkController extends BaseController {
 
         // show the view and pass the nerd to it
         return View::make('works.show')
-            ->with('work', $work);
+            ->with('work', $work)
+            ->with('title', 'Work show');
     }
 
     /**
@@ -142,7 +145,8 @@ class WorkController extends BaseController {
 
         // show the edit form and pass the work
         return View::make('works.edit')
-            ->with('work', $work);
+            ->with('work', $work)
+            ->with('title', 'Work edit');
     }
 
     /**
