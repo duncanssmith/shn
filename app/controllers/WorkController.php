@@ -108,7 +108,7 @@ class WorkController extends BaseController {
             $work->save();
 
             // redirect
-            Session::flash('message', 'Successfully created work!');
+            Session::flash('message', 'Successfully created work');
             return Redirect::to('works');
         }
     }
@@ -179,7 +179,7 @@ class WorkController extends BaseController {
             $work->save();
 
             // redirect
-            Session::flash('message', 'Successfully updated work!');
+            Session::flash('message', 'Successfully updated work');
             return Redirect::to('works');
         }
     }
@@ -196,7 +196,7 @@ class WorkController extends BaseController {
         $work->delete();
 
         // redirect
-        Session::flash('message', 'Successfully deleted the work!');
+        Session::flash('message', 'Successfully deleted the work');
         return Redirect::to('works');
     }
 

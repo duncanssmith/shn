@@ -84,7 +84,7 @@ class UserController extends BaseController {
             $user->save();
 
             // redirect
-            Session::flash('message', 'Successfully created user!');
+            Session::flash('message', 'Successfully created user');
             return Redirect::to('users');
         }
     }
@@ -150,7 +150,7 @@ class UserController extends BaseController {
             $user->save();
 
             // redirect
-            Session::flash('message', 'Successfully updated user!');
+            Session::flash('message', 'Successfully updated user');
             return Redirect::to('users');
         }
     }
@@ -167,7 +167,7 @@ class UserController extends BaseController {
         $user->delete();
 
         // redirect
-        Session::flash('message', 'Successfully deleted the user!');
+        Session::flash('message', 'Successfully deleted the user');
         return Redirect::to('users');
     }
 

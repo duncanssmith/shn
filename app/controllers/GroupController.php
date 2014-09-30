@@ -82,7 +82,7 @@ class GroupController extends BaseController {
             $group->save();
 
             // redirect
-            Session::flash('message', 'Successfully created group!');
+            Session::flash('message', 'Successfully created group');
             return Redirect::to('groups');
         }
     }
@@ -141,12 +141,12 @@ class GroupController extends BaseController {
                 ->withInput(Input::except('password'));
         } else {
             // store
-            $group = group::find($id);
+            $group = Group::find($id);
             $group->name       = Input::get('name');
             $group->save();
 
             // redirect
-            Session::flash('message', 'Successfully updated group!');
+            Session::flash('message', 'Successfully updated group');
             return Redirect::to('groups');
         }
     }
@@ -163,7 +163,7 @@ class GroupController extends BaseController {
         $group->delete();
 
         // redirect
-        Session::flash('message', 'Successfully deleted the group!');
+        Session::flash('message', 'Successfully deleted the group');
         return Redirect::to('groups');
     }
 
