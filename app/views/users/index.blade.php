@@ -25,8 +25,12 @@
 	<thead>
 		<tr>
 			<td>Id</td>
-			<td>Name</td>
+			<td>Username</td>
 			<td>Email</td>
+			<td>Password</td>
+			<td>Confirmation code</td>
+			<td>Remember token</td>
+			<td>Confirmed</td>
 			<td>Actions</td>
 		</tr>
 	</thead>
@@ -35,8 +39,12 @@
 		<tr>
 
         <td>{{ $user->id }}</td>
-        <td>{{ $user->name }}</td>
+        <td>{{ $user->username }}</td>
         <td>{{ $user->email }}</td>
+        <td>{{ $user->password }}</td>
+        <td>{{ $user->confirmation_code }}</td>
+        <td>{{ $user->remember_token }}</td>
+        <td>{{ $user->confirmed }}</td>
 
 			<!-- we will also add show, edit, and delete buttons -->
 			<td>

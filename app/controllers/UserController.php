@@ -68,8 +68,12 @@ class UserController extends BaseController {
         // validate
         // read more on validation at http://laravel.com/docs/validation
         $rules = array(
-            'name'      => 'required',
+            'username'      => 'required',
             'email'     => 'required',
+            'password'     => 'required',
+            'confirmation_code'     => 'required',
+            'remember_token'     => 'required',
+            'confirmed' => 'required',
         );
         $validator = Validator::make(Input::all(), $rules);
 
@@ -81,8 +85,12 @@ class UserController extends BaseController {
         } else {
             // store
             $user = new User;
-            $user->name       = Input::get('name');
+            $user->username       = Input::get('username');
             $user->email      = Input::get('email');
+            $user->password       = Input::get('password');
+            $user->confirmation_code      = Input::get('confirmation_code');
+            $user->remember_token       = Input::get('remember_token');
+            $user->confirmed      = Input::get('confirmed');
             $user->save();
 
             // redirect
