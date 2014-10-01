@@ -5,9 +5,6 @@
 @section('content')
 
 <nav class="navbar navbar-inverse">
-	<div class="navbar-header">
-		<a class="navbar-brand" href="{{ URL::to('works') }}">work Alert</a>
-	</div>
 	<ul class="nav navbar-nav">
 		<li><a href="{{ URL::to('works') }}">View All works</a></li>
 		<li><a href="{{ URL::to('works/create') }}">Create a work</a>
