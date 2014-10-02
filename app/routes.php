@@ -1,12 +1,11 @@
 <?php
 
+Route::get('login', 'SessionsController@create');
+
+Route::resource('sessions', 'SessionsController');
+
 // routes
 Route::get('/', 'HomeController@getIndex');
-
-Route::get('/login', function()
-{
-    return View::make('login')->with('title', 'Login');
-});
 
 //Route::get('profile', array('before' => 'auth.basic', function()
 //{
