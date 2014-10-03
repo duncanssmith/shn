@@ -4,7 +4,7 @@
 
 @section('nav')
 
-@include('users.nav')
+@include('nav')
 
 @stop
 

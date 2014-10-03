@@ -25,7 +25,8 @@ class UserController extends BaseController {
         $users = User::all();
         return View::make('users.index')
             ->with('users', $users)
-            ->with('title', 'Users');
+            ->with('title', 'Users')
+            ->with('controller', 'User');
     }
 
     /**

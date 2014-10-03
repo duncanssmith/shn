@@ -1,18 +1,16 @@
 <!-- app/views/groups/index.blade.php -->
 
-
 @extends('layout')
 
 @section('nav')
 
-@include('groups.nav')
+@include('nav')
 
 @stop
 
 @section('content')
 
-
-<h1>All the groups</h1>
+<h1>All the groups {{ $controller }}</h1>
 
 <!-- will be used to show any messages -->
 @if (Session::has('message'))
@@ -57,6 +55,5 @@
 </table>
 
 </div>
-
 
 @stop

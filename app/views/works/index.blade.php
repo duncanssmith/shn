@@ -4,7 +4,7 @@
 
 @section('nav')
 
-@include('works.nav')
+@include('nav')
 
 @stop
 

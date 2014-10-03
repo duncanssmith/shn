@@ -44,7 +44,8 @@ class WorkController extends BaseController {
         $works = Work::all();
         return View::make('works.index')
             ->with('works', $works)
-            ->with('title', 'Works');
+            ->with('title', 'Works')
+            ->with('controller', 'Work');
     }
 
     /**

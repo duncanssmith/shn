@@ -4,7 +4,7 @@
 
 @section('nav')
 
-@include('groups.nav')
+@include('nav')
 
 @stop
 

@@ -29,7 +29,8 @@ class GroupController extends BaseController {
             $groups = Group::all();
             return View::make('groups.index')
                 ->with('groups', $groups)
-                ->with('title', 'Groups');
+                ->with('title', 'Groups')
+                ->with('controller', 'group');
         } else {
             // User is not logged in
             Session::flash('message', 'Please log in');
