@@ -41,7 +41,8 @@ class UserController extends BaseController {
 
         if($user)
         {
-            return View::make('user.view', compact('user'));
+            return View::make('user.view', compact('user'))
+                ->with('controller', 'user');
         }
 
         App::abort(404);
@@ -56,7 +57,8 @@ class UserController extends BaseController {
     {
         // load the create form (app/views/users/create.blade.php)
         return View::make('users.create')
-            ->with('title', 'Users create');
+                ->with('title', 'Users create')
+                ->with('controller', 'user');
     }
 
     /**
@@ -114,7 +116,8 @@ class UserController extends BaseController {
         // show the view and pass the user to it
         return View::make('users.show')
             ->with('user', $user)
-            ->with('title', 'User show');
+            ->with('title', 'User show')
+            ->with('controller', 'user');
     }
 
     /**
@@ -131,7 +134,8 @@ class UserController extends BaseController {
         // show the edit form and pass the user
         return View::make('users.edit')
             ->with('user', $user)
-            ->with('title', 'User edit');
+            ->with('title', 'User edit')
+            ->with('controller', 'user');
     }
 
     /**

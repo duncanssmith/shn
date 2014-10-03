@@ -60,7 +60,8 @@ class WorkController extends BaseController {
 
         if($work)
         {
-            return View::make('work.view', compact('work'));
+            return View::make('work.view', compact('work'))
+            ->with('controller', 'work');
         }
 
         App::abort(404);
@@ -75,7 +76,8 @@ class WorkController extends BaseController {
     {
         // load the create form (app/views/works/create.blade.php)
         return View::make('works.create')
-            ->with('title', 'Work create');
+            ->with('title', 'Work create')
+            ->with('controller', 'work');
     }
 
     /**
@@ -130,7 +132,8 @@ class WorkController extends BaseController {
         // show the view and pass the nerd to it
         return View::make('works.show')
             ->with('work', $work)
-            ->with('title', 'Work show');
+            ->with('title', 'Work show')
+            ->with('controller', 'work');
     }
 
     /**
@@ -147,7 +150,8 @@ class WorkController extends BaseController {
         // show the edit form and pass the work
         return View::make('works.edit')
             ->with('work', $work)
-            ->with('title', 'Work edit');
+            ->with('title', 'Work edit')
+            ->with('controller', 'work');
     }
 
     /**

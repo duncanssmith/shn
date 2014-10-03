@@ -51,7 +51,8 @@ class GroupController extends BaseController {
         if($group)
         {
             return View::make('group.view', compact('group'))
-                ->with('title', 'Groups');;
+                ->with('title', 'Groups')
+                ->with('controller', 'group');
         }
 
         App::abort(404);
@@ -66,7 +67,8 @@ class GroupController extends BaseController {
     {
         // load the create form (app/views/groups/create.blade.php)
         return View::make('groups.create')
-            ->with('title', 'Group create');;
+            ->with('title', 'Group create')
+            ->with('controller', 'group');
     }
 
     /**
@@ -114,7 +116,8 @@ class GroupController extends BaseController {
         // show the view and pass the group to it
         return View::make('groups.show')
             ->with('group', $group)
-            ->with('title', 'Group show');;
+            ->with('title', 'Group show')
+            ->with('controller', 'group');
     }
 
     /**
@@ -131,7 +134,8 @@ class GroupController extends BaseController {
         // show the edit form and pass the group
         return View::make('groups.edit')
             ->with('group', $group)
-            ->with('title', 'Group edit');;
+            ->with('title', 'Group edit')
+            ->with('controller', 'group');
     }
 
     /**
