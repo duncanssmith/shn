@@ -23,6 +23,8 @@
                 </div>
             </nav>
 
+            @yield('nav')
+
             @yield('content')
 
         </div>

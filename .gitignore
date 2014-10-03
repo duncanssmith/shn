@@ -5,6 +5,8 @@
 composer.phar
 composer.lock
 .idea/*.xml
+/public/media/images/320/*
+/public/media/images/160/*
 
 .env.*.php
 .env.php

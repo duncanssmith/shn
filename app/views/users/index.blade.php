@@ -2,15 +2,13 @@
 
 @extends('layout')
 
+@section('nav')
+
+@include('users.nav')
+
+@stop
+
 @section('content')
-
-<nav class="navbar navbar-inverse">
-
-	<ul class="nav navbar-nav">
-		<li><a href="{{ URL::to('users') }}">View All users</a></li>
-		<li><a href="{{ URL::to('users/create') }}">Create a user</a>
-	</ul>
-</nav>
 
 <h1>All the users</h1>
 

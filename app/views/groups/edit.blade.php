@@ -2,14 +2,13 @@
 
 @extends('layout')
 
-@section('content')
+@section('nav')
 
-<nav class="navbar navbar-inverse">
-	<ul class="nav navbar-nav">
-		<li><a href="{{ URL::to('groups') }}">View All groups</a></li>
-		<li><a href="{{ URL::to('groups/create') }}">Create a group</a>
-	</ul>
-</nav>
+@include('groups.nav')
+
+@stop
+
+@section('content')
 
 <h1>Edit {{ $group->name }}</h1>
 

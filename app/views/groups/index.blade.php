@@ -1,16 +1,16 @@
 <!-- app/views/groups/index.blade.php -->
 
+
 @extends('layout')
+
+@section('nav')
+
+@include('groups.nav')
+
+@stop
 
 @section('content')
 
-<nav class="navbar navbar-inverse">
-
-	<ul class="nav navbar-nav">
-		<li><a href="{{ URL::to('groups') }}">View All groups</a></li>
-		<li><a href="{{ URL::to('groups/create') }}">Create a group</a>
-	</ul>
-</nav>
 
 <h1>All the groups</h1>
 

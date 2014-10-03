@@ -2,14 +2,13 @@
 
 @extends('layout')
 
-@section('content')
+@section('nav')
 
-<nav class="navbar navbar-inverse">
-	<ul class="nav navbar-nav">
-		<li><a href="{{ URL::to('works') }}">View All works</a></li>
-		<li><a href="{{ URL::to('works/create') }}">Create a work</a>
-	</ul>
-</nav>
+@include('works.nav')
+
+@stop
+
+@section('content')
 
 <h1>Showing {{ $work->name }}</h1>
 
