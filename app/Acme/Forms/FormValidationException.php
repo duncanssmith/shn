@@ -1,5 +1,7 @@
 <?php namespace Acme\Forms;
 
+use Illuminate\Support\MessageBag;
+
 class FormValidationException extends \Exception {
 
     /**
@@ -11,7 +13,7 @@ class FormValidationException extends \Exception {
      * @param string $message
      * @param MessageBag $errors
      */
-    function __construct($message, Illuminate\Support\MessageBag $errors)
+    function __construct($message, MessageBag $errors)
     {
         $this->errors = $errors;
 
