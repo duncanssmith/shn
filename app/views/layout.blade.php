@@ -5,9 +5,7 @@
         <title>{{$title}}</title>
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="/media/css/main.css">
-        <style>
-            .error {color:red; font-style:italic; font-size:.9em;}
-        </style>
+
     </head>
     <body>
 
