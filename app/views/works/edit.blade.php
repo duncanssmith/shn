@@ -18,7 +18,7 @@
 
 {{ Form::model($work, array('route' => array('works.update', $work->id), 'method' => 'PUT')) }}
 
-    <img src="/media/images/64/sh_{{$work->reference}}.jpg">
+    <img src="/media/images/320/sh_{{$work->reference}}.jpg">
 
 	<div class="form-group">
 		{{ Form::label('title', 'Title') }}
@@ -43,7 +43,7 @@
 		{{ Form::text('work_date', null, array('class' => 'form-control')) }}
 	</div>
 
-	{{ Form::submit('Edit the work!', array('class' => 'btn btn-primary')) }}
+	{{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}
 

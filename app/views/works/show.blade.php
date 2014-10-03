@@ -15,7 +15,7 @@
 
 	<div class="jumbotron text-center">
 		<h2>{{ $work->title }}</h2>
-		<img src="/media/images/64/sh_{{$work->reference}}.jpg">
+		<img src="/media/images/320/sh_{{$work->reference}}.jpg">
 		<p>
 			<strong>Reference:</strong> {{ $work->reference }}<br>
 			<strong>Media:</strong> {{ $work->media }}<br>

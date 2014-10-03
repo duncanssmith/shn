@@ -43,7 +43,7 @@
 		{{ Form::text('work_date', Input::old('work_date'), array('class' => 'form-control')) }}
 	</div>
 
-	{{ Form::submit('Create the work!', array('class' => 'btn btn-primary')) }}
+	{{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}
 

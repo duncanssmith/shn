@@ -23,7 +23,7 @@
 		{{ Form::text('name', null, array('class' => 'form-control')) }}
 	</div>
 
-	{{ Form::submit('Edit the group!', array('class' => 'btn btn-primary')) }}
+	{{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}
 

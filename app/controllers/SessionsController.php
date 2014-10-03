@@ -41,7 +41,7 @@ class SessionsController extends \BaseController {
 	{
         $this->loginForm->validate(Input::all());
 
-        return 'Success';
+        return View::make('hello')->with('title', 'Success');
 	}
 
 

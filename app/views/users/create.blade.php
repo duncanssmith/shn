@@ -48,7 +48,7 @@
 		{{ Form::text('confirmed', Input::old('confirmed'), array('class' => 'form-control')) }}
 	</div>
 
-	{{ Form::submit('Create the user!', array('class' => 'btn btn-primary')) }}
+	{{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}
 

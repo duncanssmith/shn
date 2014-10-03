@@ -31,8 +31,8 @@
 	@foreach($groups as $key => $group)
 		<tr>
 
-        <td>{{ $group->id }}</td>
-        <td>{{ $group->name }}</td>
+            <td>{{ $group->id }}</td>
+            <td>{{ $group->name }}</td>
 
 			<!-- we will also add show, edit, and delete buttons -->
 			<td>
