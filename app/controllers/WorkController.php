@@ -16,27 +16,10 @@ class WorkController extends BaseController {
     public function index()
     {
         $works = Work::all();
+
         return View::make('works.index')
             ->with('works', $works)
             ->with('title', 'Works');
-    }
-
-    /**
-     * Display a single work by id
-     *
-     * @param int $id
-     * @return View
-     */
-    public function view($id)
-    {
-        $work = $this->workRepository->find($id);
-
-        if($work)
-        {
-            return View::make('work.view', compact('work'));
-        }
-
-        App::abort(404);
     }
 
     /**

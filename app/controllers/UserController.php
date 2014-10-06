@@ -16,24 +16,6 @@ class UserController extends BaseController {
     }
 
     /**
-     * Display a single user by id
-     *
-     * @param int $id
-     * @return View
-     */
-    public function view($id)
-    {
-        $user = $this->userRepository->find($id);
-
-        if($user)
-        {
-            return View::make('user.view', compact('user'));
-        }
-
-        App::abort(404);
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return Response
@@ -72,12 +54,12 @@ class UserController extends BaseController {
         } else {
             // store
             $user = new User;
-            $user->username       = Input::get('username');
-            $user->email      = Input::get('email');
-            $user->password       = Input::get('password');
-            $user->confirmation_code      = Input::get('confirmation_code');
-            $user->remember_token       = Input::get('remember_token');
-            $user->confirmed      = Input::get('confirmed');
+            $user->username = Input::get('username');
+            $user->email = Input::get('email');
+            $user->password = Input::get('password');
+            $user->confirmation_code = Input::get('confirmation_code');
+            $user->remember_token = Input::get('remember_token');
+            $user->confirmed = Input::get('confirmed');
             $user->save();
 
             // redirect

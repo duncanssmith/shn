@@ -15,7 +15,7 @@
 
 @section('content')
 
-<h1>All the users</h1>
+<h1>Users</h1>
 
 <!-- will be used to show any messages -->
 @if (Session::has('message'))

@@ -24,6 +24,8 @@
 
             @section('nav')
 
+            Hello World this is the layout.master.blade.php nav section
+
             @show
 
             @yield('content')

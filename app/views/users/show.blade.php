@@ -15,7 +15,7 @@
 
 @section('content')
 
-<h1>Showing {{ $user->name }}</h1>
+<h1>{{ $user->name }}</h1>
 
 	<div class="jumbotron text-center">
 		<h2>{{ $user->username }}</h2>

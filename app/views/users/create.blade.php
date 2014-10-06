@@ -15,7 +15,7 @@
 
 @section('content')
 
-<h1>Create a user</h1>
+<h1>Add user</h1>
 
 <!-- if there are creation errors, they will show here -->
 {{ HTML::ul($errors->all()) }}

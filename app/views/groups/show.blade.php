@@ -16,7 +16,7 @@
 
 @section('content')
 
-<h1>Showing {{ $group->name }}</h1>
+<h1>{{ $group->name }}</h1>
 
 	<div class="jumbotron text-center">
 		<h2>{{ $group->name }}</h2>

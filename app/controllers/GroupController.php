@@ -25,25 +25,6 @@ class GroupController extends BaseController {
     }
 
     /**
-     * Display a single group by id
-     *
-     * @param int $id
-     * @return View
-     */
-    public function view($id)
-    {
-        $group = $this->groupRepository->find($id);
-
-        if($group)
-        {
-            return View::make('group.view', compact('group'))
-                ->with('title', 'Groups');
-        }
-
-        App::abort(404);
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return Response

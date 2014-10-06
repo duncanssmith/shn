@@ -17,6 +17,6 @@ class HomeController extends BaseController {
 
     public function getIndex()
     {
-        return View::make('hello')->with('title', 'SHN');
+        return View::make('hello')->with('title', 'shn');
     }
 }
