@@ -2,23 +2,10 @@
 
 class GroupController extends BaseController {
 
-    /*
-    |--------------------------------------------------------------------------
-    | Group Controller
-    |--------------------------------------------------------------------------
-    |
-    | You may wish to use controllers instead of, or in addition to, Closure
-    | based routes. That's great! Here is an example controller method to
-    | get you started. To route to this controller, just add the route:
-    |
-    | Route::get('/', 'UserController@showWelcome');
-    |
-    */
-
-    public function getIndex()
-    {
-        return View::make('groups');
-    }
+    /**
+     * The layout that should be used for responses.
+     */
+    protected $layout = 'layout.master';
 
     public function index()
     {
@@ -29,8 +16,7 @@ class GroupController extends BaseController {
             $groups = Group::all();
             return View::make('groups.index')
                 ->with('groups', $groups)
-                ->with('title', 'Groups')
-                ->with('controller', 'group');
+                ->with('title', 'Groups');
         } else {
             // User is not logged in
             Session::flash('message', 'Please log in');
@@ -51,8 +37,7 @@ class GroupController extends BaseController {
         if($group)
         {
             return View::make('group.view', compact('group'))
-                ->with('title', 'Groups')
-                ->with('controller', 'group');
+                ->with('title', 'Groups');
         }
 
         App::abort(404);
@@ -67,8 +52,7 @@ class GroupController extends BaseController {
     {
         // load the create form (app/views/groups/create.blade.php)
         return View::make('groups.create')
-            ->with('title', 'Group create')
-            ->with('controller', 'group');
+            ->with('title', 'Group create');
     }
 
     /**
@@ -116,8 +100,7 @@ class GroupController extends BaseController {
         // show the view and pass the group to it
         return View::make('groups.show')
             ->with('group', $group)
-            ->with('title', 'Group show')
-            ->with('controller', 'group');
+            ->with('title', 'Group show');
     }
 
     /**
@@ -134,8 +117,7 @@ class GroupController extends BaseController {
         // show the edit form and pass the group
         return View::make('groups.edit')
             ->with('group', $group)
-            ->with('title', 'Group edit')
-            ->with('controller', 'group');
+            ->with('title', 'Group edit');
     }
 
     /**

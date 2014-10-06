@@ -3,49 +3,22 @@
 
 class WorkController extends BaseController {
 
-    /*
-    |--------------------------------------------------------------------------
-    | Work Controller
-    |--------------------------------------------------------------------------
-    |
-    | You may wish to use controllers instead of, or in addition to, Closure
-    | based routes. That's great! Here is an example controller method to
-    | get you started. To route to this controller, just add the route:
-    |
-    | Route::get('/', 'UserController@showWelcome');
-    |
-    */
+    /**
+     * The layout that should be used for responses.
+     */
+    protected $layout = 'layout.master';
 
     /**
-     * The Work Repository
+     * List all the works
      *
-     * @var Work\Repositories\Work\WorkRepository
+     * @return mixed
      */
-    //protected $workRepository;
-
-    /**
-     * Inject the WorkRepository
-     *
-     * @param Work\Repositories\Work\WorkRepository $WorkRepository
-     * @return void
-     */
-//    public function __construct(WorkRepository $workRepository)
-//    {
-//        $this->workRepository = $workRepository;
-//    }
-
-//    public function getIndex()
-//    {
-//        return View::make('works');
-//    }
-
     public function index()
     {
         $works = Work::all();
         return View::make('works.index')
             ->with('works', $works)
-            ->with('title', 'Works')
-            ->with('controller', 'work');
+            ->with('title', 'Works');
     }
 
     /**
@@ -60,8 +33,7 @@ class WorkController extends BaseController {
 
         if($work)
         {
-            return View::make('work.view', compact('work'))
-            ->with('controller', 'work');
+            return View::make('work.view', compact('work'));
         }
 
         App::abort(404);
@@ -76,8 +48,7 @@ class WorkController extends BaseController {
     {
         // load the create form (app/views/works/create.blade.php)
         return View::make('works.create')
-            ->with('title', 'Work create')
-            ->with('controller', 'work');
+            ->with('title', 'Work create');
     }
 
     /**
@@ -105,8 +76,8 @@ class WorkController extends BaseController {
         } else {
             // store
             $work = new Work;
-            $work->title       = Input::get('title');
-            $work->reference      = Input::get('reference');
+            $work->title = Input::get('title');
+            $work->reference = Input::get('reference');
             $work->media = Input::get('media');
             $work->dimensions = Input::get('dimensions');
             $work->work_date = Input::get('work_date');
@@ -126,14 +97,13 @@ class WorkController extends BaseController {
      */
     public function show($id)
     {
-        // get the nerd
+        // get the work
         $work = Work::find($id);
 
         // show the view and pass the nerd to it
         return View::make('works.show')
             ->with('work', $work)
-            ->with('title', 'Work show')
-            ->with('controller', 'work');
+            ->with('title', 'Work show');
     }
 
     /**
@@ -150,8 +120,7 @@ class WorkController extends BaseController {
         // show the edit form and pass the work
         return View::make('works.edit')
             ->with('work', $work)
-            ->with('title', 'Work edit')
-            ->with('controller', 'work');
+            ->with('title', 'Work edit');
     }
 
     /**

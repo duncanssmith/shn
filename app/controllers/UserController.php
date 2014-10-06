@@ -2,31 +2,17 @@
 
 class UserController extends BaseController {
 
-    /*
-    |--------------------------------------------------------------------------
-    | User Controller
-    |--------------------------------------------------------------------------
-    |
-    | You may wish to use controllers instead of, or in addition to, Closure
-    | based routes. That's great! Here is an example controller method to
-    | get you started. To route to this controller, just add the route:
-    |
-    | Route::get('/', 'UserController@showWelcome');
-    |
-    */
-
-    public function getIndex()
-    {
-        return View::make('users');
-    }
+    /**
+     * The layout that should be used for responses.
+     */
+    protected $layout = 'layout.master';
 
     public function index()
     {
         $users = User::all();
         return View::make('users.index')
             ->with('users', $users)
-            ->with('title', 'Users')
-            ->with('controller', 'user');
+            ->with('title', 'Users');
     }
 
     /**
@@ -41,8 +27,7 @@ class UserController extends BaseController {
 
         if($user)
         {
-            return View::make('user.view', compact('user'))
-                ->with('controller', 'user');
+            return View::make('user.view', compact('user'));
         }
 
         App::abort(404);
@@ -57,8 +42,7 @@ class UserController extends BaseController {
     {
         // load the create form (app/views/users/create.blade.php)
         return View::make('users.create')
-                ->with('title', 'Users create')
-                ->with('controller', 'user');
+                ->with('title', 'Users create');
     }
 
     /**
@@ -116,8 +100,7 @@ class UserController extends BaseController {
         // show the view and pass the user to it
         return View::make('users.show')
             ->with('user', $user)
-            ->with('title', 'User show')
-            ->with('controller', 'user');
+            ->with('title', 'User show');
     }
 
     /**
@@ -134,8 +117,7 @@ class UserController extends BaseController {
         // show the edit form and pass the user
         return View::make('users.edit')
             ->with('user', $user)
-            ->with('title', 'User edit')
-            ->with('controller', 'user');
+            ->with('title', 'User edit');
     }
 
     /**
