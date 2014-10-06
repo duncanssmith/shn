@@ -28,6 +28,17 @@
 
             @show
 
+                Count: {{{ $count or 0 }}}
+                @if (isset($count) && $count == 1)
+                    record
+                @elseif (isset($count) && $count > 1)
+                    records
+                @else
+                    records
+                @endif
+
+
+
             @yield('content')
 
         </div>

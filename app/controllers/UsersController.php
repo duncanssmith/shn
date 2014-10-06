@@ -7,7 +7,6 @@
  */
 class UsersController extends Controller
 {
-
     /**
      * Displays the form for account creation
      *
