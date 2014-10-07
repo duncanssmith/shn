@@ -82,7 +82,7 @@ class RegistrationController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id = null)
+	public function destroy()
 	{
 		//
 	}
