@@ -3,7 +3,7 @@
     <head>
     	<meta charset="UTF-8">
         <title>{{$title}}</title>
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="/media/css/main.css">
     </head>
     <body>

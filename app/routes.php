@@ -2,10 +2,15 @@
 
 Route::get('login', 'SessionsController@create');
 
+Route::get('logout', 'SessionsController@destroy');
+
+Route::get('/', ['as' => 'home', 'uses' => 'PagesController@index']);
+
 Route::resource('sessions', 'SessionsController');
 
-// routes
-Route::get('/', 'HomeController@getIndex');
+Route::get('/register', 'RegistrationController@create');
+
+Route::resource('registration', 'RegistrationController');
 
 //Route::get('profile', array('before' => 'auth.basic', function()
 //{
@@ -18,37 +23,12 @@ Route::get('/', 'HomeController@getIndex');
 //});
 
 
-// CRUD Routes
-
+// CRUD
 Route::resource('works', 'WorkController');
 
 Route::resource('groups', 'GroupController');
 
 Route::resource('users', 'UserController');
-
-
-
-//Route::get('/users', function()
-//{
-//    $users = User::all();
-//
-//    return View::make('users')->with('users', $users);
-//});
-
-//Route::get('/works', function()
-//{
-//    $works = Work::all();
-//
-//    return View::make('works')->with('works', $works);
-//});
-//
-//Route::get('/groups', function()
-//{
-//    $groups = Group::all();
-//
-//    return View::make('groups')->with('groups', $groups);
-//});
-//
 
 // Confide routes
 //Route::get('users/create', 'UsersController@create');

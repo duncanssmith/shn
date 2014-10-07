@@ -1,52 +1,47 @@
-<?php use Acme\Forms\Login;
+<?php
 
-class SessionsController extends \BaseController {
-
-    protected $loginForm;
-
-    function __construct(Login $loginForm)
-    {
-        $this->loginForm = $loginForm;
-    }
+class RegistrationController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
+	 * GET /registration
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		//
+		return View::make('registration.index');
 	}
-
 
 	/**
 	 * Show the form for creating a new resource.
+	 * GET /registration/create
 	 *
 	 * @return Response
 	 */
 	public function create()
 	{
-		return View::make('sessions.create')
-            ->with('title', 'Log in');
+		return View::make('registration.create');
 	}
-
 
 	/**
 	 * Store a newly created resource in storage.
+	 * POST /registration
 	 *
 	 * @return Response
 	 */
 	public function store()
 	{
-        $this->loginForm->validate(Input::all());
+        $user = User::create(Input::only('username', 'email', 'password'));
 
-        return View::make('hello')->with('title', 'Success');
+        Auth::login($user);
+
+        return Redirect::home();
 	}
-
 
 	/**
 	 * Display the specified resource.
+	 * GET /registration/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -56,21 +51,21 @@ class SessionsController extends \BaseController {
 		//
 	}
 
-
 	/**
 	 * Show the form for editing the specified resource.
+	 * GET /registration/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function edit($id)
 	{
-		//
+        return View::make('registration.create');
 	}
-
 
 	/**
 	 * Update the specified resource in storage.
+	 * PUT /registration/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -80,19 +75,16 @@ class SessionsController extends \BaseController {
 		//
 	}
 
-
 	/**
 	 * Remove the specified resource from storage.
+	 * DELETE /registration/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy($id = null)
 	{
-		Auth::logout();
-
-        return Redirect::home();
+		//
 	}
-
 
 }

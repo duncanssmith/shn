@@ -1,6 +1,7 @@
 @import url(//fonts.googleapis.com/css?family=Open%20Sans%20Condensed:600);
 
 body {
+    padding-top: 50px;
     margin:0;
     font-family:'Open Sans Condensed', sans-serif;
     text-align:left;
