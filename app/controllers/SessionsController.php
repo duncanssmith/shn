@@ -10,17 +10,6 @@ class SessionsController extends \BaseController {
     }
 
 	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		//
-	}
-
-
-	/**
 	 * Show the form for creating a new resource.
 	 *
 	 * @return Response
@@ -39,45 +28,14 @@ class SessionsController extends \BaseController {
 	 */
 	public function store()
 	{
-        $this->loginForm->validate(Input::all());
+        $this->loginForm->validate($input = Input::only ('username', 'password'));
 
-        return View::make('hello')->with('title', 'Success');
-	}
+        if (Auth::attempt($input))
+        {
+            return Redirect::intended('/');
+        }
 
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
+        return Redirect::back('hello')->withInput()->withFlashMessage('Invalid credentials provided');
 	}
 
 

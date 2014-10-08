@@ -1,17 +1,19 @@
 <?php
 
+use Acme\Forms\RegistrationForm;
+
 class RegistrationController extends \BaseController {
 
-	/**
-	 * Display a listing of the resource.
-	 * GET /registration
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		return View::make('registration.index');
-	}
+    /**
+     * @var
+     */
+    private $registrationForm;
+
+    function __construct(RegistrationForm $registrationForm)
+    {
+        $this->registrationForm = $registrationForm;
+
+    }
 
 	/**
 	 * Show the form for creating a new resource.
@@ -32,59 +34,15 @@ class RegistrationController extends \BaseController {
 	 */
 	public function store()
 	{
-        $user = User::create(Input::only('username', 'email', 'password'));
+        $input = Input::only('username', 'email', 'password', 'password_confirmation');
+
+        $this->registrationForm->validate($input);
+
+        $user = User::create($input);
 
         Auth::login($user);
 
         return Redirect::home();
-	}
-
-	/**
-	 * Display the specified resource.
-	 * GET /registration/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /registration/{id}/edit
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-        return View::make('registration.create');
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 * PUT /registration/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 * DELETE /registration/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy()
-	{
-		//
 	}
 
 }
