@@ -15,6 +15,8 @@ Route::get('logout', ['as' => 'logout', 'uses' => 'SessionsController@destroy'])
 
 Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store', 'destroy']]);
 
+Route::controller('password', 'RemindersController');
+
 
 //Route::get('profile', array('before' => 'auth.basic', function()
 //{
