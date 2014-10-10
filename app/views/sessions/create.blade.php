@@ -22,6 +22,8 @@
 
     {{ Form::close() }}
 
+    <a href="/password/remind">Forgot password?</a>
+
 
     @if (Session::has('flash_message'))
     <div class="form-group">
