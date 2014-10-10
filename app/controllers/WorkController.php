@@ -168,6 +168,7 @@ class WorkController extends BaseController {
                 $work->title       = Input::get('title');
                 $work->reference       = Input::get('reference');
                 $work->media      = Input::get('media');
+                $work->dimensions = Input::get('dimensions');
                 $work->work_date = Input::get('work_date');
                 $work->save();
 
