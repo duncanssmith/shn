@@ -23,8 +23,17 @@ class GroupController extends BaseController {
         }
     }
 
+    /**
+     * This is the publicly viewable page, a group of works
+     * identified by the group id
+     *
+     * @param $id The id of the group requested
+     * @return mixed
+     *
+     */
     public function publicworks($id)
     {
+        // get the groups and the works in them
         $group = Group::with('Works')->find($id);
 
         // show the view and pass the group to it
