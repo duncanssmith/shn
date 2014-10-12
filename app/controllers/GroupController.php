@@ -23,6 +23,16 @@ class GroupController extends BaseController {
         }
     }
 
+    public function publicworks($id)
+    {
+        $group = Group::with('Works')->find($id);
+
+        // show the view and pass the group to it
+        return View::make('groups.public_show')
+            ->with('group', $group)
+            ->with('title', 'Works in group');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

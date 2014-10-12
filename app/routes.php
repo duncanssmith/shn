@@ -17,6 +17,8 @@ Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store',
 
 Route::controller('password', 'RemindersController');
 
+Route::get('publicgroup/{id}', ['uses' => 'GroupController@publicworks']);
+
 
 //Route::get('profile', array('before' => 'auth.basic', function()
 //{
