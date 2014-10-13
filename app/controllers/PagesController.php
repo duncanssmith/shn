@@ -10,13 +10,32 @@ class PagesController extends \BaseController {
 	 * @return mixed
 	 *
 	 */
+	public function publicgroups()
+	{
+		// get the groups and the works in them
+		$groups = Group::all();
+
+		// show the view and pass the group to it
+		return View::make('pages.groups')
+			->with('groups', $groups)
+			->with('title', 'Works in group');
+	}
+
+	/**
+	 * This is the publicly viewable page, a group of works
+	 * identified by the group id
+	 *
+	 * @param $id The id of the group requested
+	 * @return mixed
+	 *
+	 */
 	public function publicworks($id)
 	{
 		// get the groups and the works in them
 		$group = Group::with('Works')->find($id);
 
 		// show the view and pass the group to it
-		return View::make('pages.public')
+		return View::make('pages.group')
 			->with('group', $group)
 			->with('title', 'Works in group');
 	}

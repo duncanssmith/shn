@@ -38,7 +38,7 @@
 		<tr>
 
             <td>{{ $group->id }}</td>
-            <td>{{ $group->name }}</td>
+            <td><a href="/publicgroup/{{$group->id}}">{{ $group->name }}</a></td>
 
 			<!-- we will also add show, edit, and delete buttons -->
 			<td>

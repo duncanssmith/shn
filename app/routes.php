@@ -5,7 +5,9 @@ Route::get('/', ['as' => 'home', 'uses' => 'PagesController@index']);
 
 //Route::get('publicgroup/{id}', ['uses' => 'PagesController@publicworks']);
 
-Route::get('publicgroup/{id}', ['as' => 'public',  'uses' => 'PagesController@publicworks']);
+Route::get('/publicgroups', ['as' => 'public',  'uses' => 'PagesController@publicgroups']);
+
+Route::get('/publicgroup/{id}', ['as' => 'public',  'uses' => 'PagesController@publicworks']);
 
 # Registration
 Route::get('/register', 'RegistrationController@create')->before('guest');
