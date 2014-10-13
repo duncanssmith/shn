@@ -1,5 +1,4 @@
-<!-- app/views/groups/public_show.blade.php -->
-
+<!-- app/views/pages/public.blade.php -->
 
 @extends('...layout.master')
 

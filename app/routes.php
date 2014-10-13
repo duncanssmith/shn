@@ -1,9 +1,11 @@
 <?php
 
 # Home
-//Route::get('/', ['as' => 'home', 'uses' => 'PagesController@index']);
+Route::get('/', ['as' => 'home', 'uses' => 'PagesController@index']);
 
-Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
+//Route::get('publicgroup/{id}', ['uses' => 'PagesController@publicworks']);
+
+Route::get('publicgroup/{id}', ['as' => 'public',  'uses' => 'PagesController@publicworks']);
 
 # Registration
 Route::get('/register', 'RegistrationController@create')->before('guest');
@@ -19,7 +21,6 @@ Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store',
 
 Route::controller('password', 'RemindersController');
 
-Route::get('publicgroup/{id}', ['uses' => 'GroupController@publicworks']);
 
 //Route::get('profile', array('before' => 'auth.basic', function()
 //{
