@@ -103,9 +103,12 @@ class WorkController extends BaseController {
             // get the work
             $work = Work::find($id);
 
-            // show the view and pass the nerd to it
+            $groups = Group::all();
+
+            // show the view and pass the work to it
             return View::make('works.show')
                 ->with('work', $work)
+                ->with('groups', $groups)
                 ->with('title', 'Work show');
         } else {
             // User is not logged in

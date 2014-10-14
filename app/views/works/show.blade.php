@@ -28,6 +28,25 @@
 		</p>
 	</div>
 
+	<div>
+    <!-- if there are creation errors, they will show here -->
+        {{ HTML::ul($errors->all()) }}
+        {{ Form::open(array('url' => 'works')) }}
+        {{ Form::model($work, array('route' => array('works.update', $work->id), 'method' => 'PUT')) }}
+
+	    @foreach($groups as $group)
+
+        	<div class="form-group">
+        		{{ Form::label('group', $group->name) }}
+        		{{ Form::checkbox('group', null, array('class' => 'form-control')) }}
+        	</div>
+
+	    @endforeach
+
+	    {{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
+
+        {{ Form::close() }}
+
 </div>
 
 @stop
