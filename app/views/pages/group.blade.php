@@ -1,6 +1,6 @@
 <!-- app/views/pages/group.blade.php -->
 
-@extends('...layout.master')
+@extends('...layout.public')
 
 @section('nav')
 
@@ -18,14 +18,15 @@
 	<div>
 	    <table>
 	        <thead>
-	        <th>Image</th>
-	        <th>Id</th>
-	        <th>Title</th>
-	        <th>Media</th>
-	        <th>Dimensions</th>
-	        <th>Date</th>
+                <th>Image</th>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Media</th>
+                <th>Dimensions</th>
+                <th>Date</th>
 	        </thead>
-	    			@foreach($group->works as $work)
+	        <tbody>
+	    		@foreach($group->works as $work)
 	    			<tr>
 	    		        <td><img src="/media/images/64/sh_{{ $work->reference }}.jpg"></td>
                 	    <td>{{ $work->id }}</td>
@@ -34,7 +35,8 @@
                 	    <td>{{ $work->dimensions }}</td>
                 	    <td>{{ $work->work_date }}</td>
 	    			</tr>
-                	@endforeach
+                @endforeach
+            </tbody>
 
 	    </table>
 
