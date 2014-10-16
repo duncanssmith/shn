@@ -65,6 +65,9 @@
                 <!-- edit this work (uses the edit method found at GET /works/{id}/edit -->
                 <a class="btn btn-small btn-info" href="{{ URL::to('works/' . $work->id . '/edit') }}">Edit</a>
 
+                <!-- edit this work (uses the edit method found at GET /works/{id}/edit -->
+                <a class="btn btn-small btn-primary" href="{{ URL::to('assigngroupstowork/' . $work->id) }}">Assign</a>
+
             </td>
         </tr>
     @endforeach

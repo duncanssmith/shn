@@ -35,7 +35,6 @@ class GroupController extends BaseController {
 
     public function saveagroupofworks()
     {
-        
         $group->works()->attach(1, array('groups' => $groups));
     }
 
