@@ -10,7 +10,7 @@
 
         <div class="container">
 
-            <nav class="navbar navbar-inverse navbar-fixed-top">
+            <nav class="navbar navbar navbar-fixed-top">
                 <div class="navbar-header">
                     <ul class="nav navbar-nav">
 
