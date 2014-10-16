@@ -7,7 +7,11 @@ Route::get('/', ['as' => 'home', 'uses' => 'PagesController@index']);
 
 Route::get('/publicgroups', ['as' => 'public',  'uses' => 'PagesController@publicgroups']);
 
-Route::get('/publicgroup/{id}', ['as' => 'public',  'uses' => 'PagesController@publicworks']);
+Route::get('/publicgroup/{id}', ['as' => 'public',  'uses' => 'PagesController@publicgroup']);
+
+Route::get('/assigngroupstowork/{id}', ['as' => 'assign',  'uses' => 'GroupController@assignworktogrouporgroups']);
+
+Route::get('/savegroupsforwork', ['as' => 'savegroup',  'uses' => 'GroupController@saveagroupofworks']);
 
 # Registration
 Route::get('/register', 'RegistrationController@create')->before('guest');

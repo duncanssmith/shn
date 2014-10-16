@@ -25,6 +25,7 @@
 
                             <li><a href="/groups">Groups</a></li>
                             <li><a href="/works">Works</a></li>
+                            <li><a href="/assigngroupstowork/1">Assign work to groups</a></li>
                             <li><a href="/users">Users</a></li>
                             <li><a href="/logout">Logout</a></li>
 

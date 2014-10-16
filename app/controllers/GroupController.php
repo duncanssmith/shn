@@ -7,6 +7,41 @@ class GroupController extends BaseController {
      */
     protected $layout = 'layout.master';
 
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function assignworktogrouporgroups($id)
+    {
+        if (Auth::check()) {
+            // store
+            $work = Work::find($id);
+            $groups = Group::all();
+
+            // show the edit form and pass the group
+            return View::make('works.assign')
+                ->with('work', $work)
+                ->with('groups', $groups)
+                ->with('title', 'Assign the work to a group or groups');
+
+            // redirect
+            Session::flash('message', 'Successfully created group');
+            return Redirect::to('works');
+        } else {
+            Session::flash('message', 'Please log in');
+            return Redirect::to('/');
+        }
+    }
+
+    public function saveagroupofworks()
+    {
+        
+        $group->works()->attach(1, array('groups' => $groups));
+    }
+
+    /**
+     * @return mixed
+     */
     public function index()
     {
         if (Auth::check()) {

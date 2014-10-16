@@ -12,7 +12,7 @@ class PagesController extends \BaseController {
 	 */
 	public function publicgroups()
 	{
-		// get the groups and the works in them
+		// get the groups
 		$groups = Group::all();
 
 		// show the view and pass the group to it
@@ -29,7 +29,7 @@ class PagesController extends \BaseController {
 	 * @return mixed
 	 *
 	 */
-	public function publicworks($id)
+	public function publicgroup($id)
 	{
 		// get the groups and the works in them
 		$group = Group::with('Works')->find($id);
@@ -39,6 +39,7 @@ class PagesController extends \BaseController {
 			->with('group', $group)
 			->with('title', 'Works in group');
 	}
+
 
 	/**
 	 * Display a listing of the resource.
