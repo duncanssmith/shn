@@ -11,7 +11,7 @@
 	<div class="jumbotron text-center">
 		<h2>{{ $group->name }}</h2>
 		<p>
-			<strong>Id:</strong> {{ $group->id }}
+			Id: {{ $group->id }}
 		</p>
 	</div>
 
@@ -28,7 +28,7 @@
 	        <tbody>
 	    		@foreach($group->works as $work)
 	    			<tr>
-	    		        <td><img src="/media/images/64/sh_{{ $work->reference }}.jpg"></td>
+    		        <td><a href="/works/{{$work->id}}"><img src="/media/images/64/sh_{{ $work->reference }}.jpg"></a></td>
                 	    <td>{{ $work->id }}</td>
                 	    <td>{{ $work->title }}</td>
                 	    <td>{{ $work->media }}</td>
