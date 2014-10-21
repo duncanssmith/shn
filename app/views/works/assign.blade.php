@@ -26,10 +26,10 @@
 
     @foreach ($groups as $group)
 
-	<div class="form-group">
-		{{ Form::checkbox('id', null, array('class' => 'form-control')) }}
-		{{ Form::label('name', $group->name) }}
-	</div>
+    	<div class="form-group">
+    		{{ Form::checkbox('id', null, array('class' => 'form-control')) }}
+    		{{ Form::label('name', $group->name) }}
+    	</div>
 
     @endforeach
 

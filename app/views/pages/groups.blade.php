@@ -17,7 +17,7 @@
 	        <tbody>
 	    		@foreach($groups as $group)
 	    			<tr>
-                	    <td>{{ $group->id }}</td>
+                	    <td>{{ $group->id }} &nbsp;</td>
                 	    <td><a href="/publicgroup/{{$group->id}}">{{ $group->name }}</a></td>
 	    			</tr>
                 @endforeach
