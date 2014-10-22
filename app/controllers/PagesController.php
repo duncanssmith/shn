@@ -18,7 +18,7 @@ class PagesController extends \BaseController {
 		// show the view and pass the group to it
 		return View::make('pages.groups')
 			->with('groups', $groups)
-			->with('title', 'Works in group');
+			->with('title', 'Sharon Hall');
 	}
 
 	/**
@@ -37,9 +37,20 @@ class PagesController extends \BaseController {
 		// show the view and pass the group to it
 		return View::make('pages.group')
 			->with('group', $group)
-			->with('title', 'Works in group');
+			->with('title', 'Sharon Hall: '.$group->name);
 	}
 
+    /**
+     * 
+     */
+    public function publicwork($id)
+    {
+    	$work = Work::find($id);
+
+    	return View::make('pages.work')
+    	    ->with('work', $work)
+    	    ->with('title', $work->title);
+    }
 
 	/**
 	 * Display a listing of the resource.
@@ -49,29 +60,8 @@ class PagesController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('pages.index');
-	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 * GET /pages/create
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
-
-	/**
-	 * Store a newly created resource in storage.
-	 * POST /pages
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
+		return View::make('pages.index')
+		->with('title', 'SHN');
 	}
 
 	/**
@@ -85,41 +75,4 @@ class PagesController extends \BaseController {
 	{
 		//
 	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /pages/{id}/edit
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 * PUT /pages/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 * DELETE /pages/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
 }

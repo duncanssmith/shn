@@ -14,8 +14,8 @@
                 <div class="navbar-header">
                     <ul class="nav navbar-nav">
 
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/publicgroups">Public pages</a></li>
+                        <li><a href="/">...</a></li>
+                        <li><a href="/publicgroups">Sharon Hall</a></li>
 
                     </ul>
                 </div>

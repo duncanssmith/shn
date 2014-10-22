@@ -14,7 +14,7 @@
                 <div class="navbar-header">
                     <ul class="nav navbar-nav">
 
-                        <li><a href="/">Home</a></li>
+                        <li><a href="/">...</a></li>
                         <li><a href="/publicgroups">Public pages</a></li>
 
                         @if (Auth::guest())
@@ -36,11 +36,7 @@
 
             @section('nav')
 
-            Hello World this is the layout.master.blade.php nav section
-
             @show
-
-
 
             @yield('content')
 

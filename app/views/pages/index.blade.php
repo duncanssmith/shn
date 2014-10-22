@@ -1,14 +1,14 @@
-@extends('layout')
+@extends('layout.master')
 
 @section('content')
 
 <div class="starter-content">
 
 <h1>
-    {{ Auth::check() ?  "Welcome to SHN, ". Auth::user()->username : "Why don't you sign up?" }}
+    {{ Auth::check() ?  "Logged in ". Auth::user()->username : "You are not logged in." }}
 </h1>
 
-<p class="lead">Lorem ipsum dolor sit amet, conssectetur...</p>
+<p class="lead"></p>
 </div>
 
 @stop

@@ -9,20 +9,9 @@
 @section('content')
 
 	<div>
-	    <table>
-	        <thead>
-                <th>Id</th>
-                <th>Name</th>
-	        </thead>
-	        <tbody>
-	    		@foreach($groups as $group)
-	    			<tr>
-                	    <td>{{ $group->id }} &nbsp;</td>
-                	    <td><a href="/publicgroup/{{$group->id}}">{{ $group->name }}</a></td>
-	    			</tr>
-                @endforeach
-	        </tbody>
-	    </table>
+	    @foreach($groups as $group)
+           <p><a href="/publicgroup/{{$group->id}}">{{ $group->name }}</a></p>
+        @endforeach
 	</div>
 
 @stop

@@ -8,37 +8,21 @@
 
 @section('content')
 
-	<div class="jumbotron text-center">
+	<div class="text-left">
 		<h2>{{ $group->name }}</h2>
-		<p>
-			Id: {{ $group->id }}
-		</p>
 	</div>
 
 	<div>
-	    <table>
-	        <thead>
-                <th>Image</th>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Media</th>
-                <th>Dimensions</th>
-                <th>Date</th>
-	        </thead>
-	        <tbody>
-	    		@foreach($group->works as $work)
-	    			<tr>
-    		        <td><a href="/works/{{$work->id}}"><img src="/media/images/64/sh_{{ $work->reference }}.jpg"></a></td>
-                	    <td>{{ $work->id }}</td>
-                	    <td>{{ $work->title }}</td>
-                	    <td>{{ $work->media }}</td>
-                	    <td>{{ $work->dimensions }}</td>
-                	    <td>{{ $work->work_date }}</td>
-	    			</tr>
-                @endforeach
-            </tbody>
 
-	    </table>
+	    @foreach($group->works as $work)
+    		<p>
+    	    	<a href="/publicwork/{{$work->id}}"><img src="/media/images/64/sh_{{ $work->reference }}.jpg"></a>
+                {{ $work->title }},
+                {{ $work->media }},
+                {{ $work->dimensions }},
+                {{ $work->work_date }}
+            </p>
+        @endforeach
 
 	</div>
 

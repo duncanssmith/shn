@@ -9,6 +9,8 @@ Route::get('/publicgroups', ['as' => 'public',  'uses' => 'PagesController@publi
 
 Route::get('/publicgroup/{id}', ['as' => 'public',  'uses' => 'PagesController@publicgroup']);
 
+Route::get('/publicwork/{id}', ['as' => 'public',  'uses' => 'PagesController@publicwork']);
+
 Route::get('/assigngroupstowork/{id}', ['as' => 'assign',  'uses' => 'GroupController@assignworktogrouporgroups']);
 
 Route::get('/savegroupsforwork', ['as' => 'savegroup',  'uses' => 'GroupController@saveagroupofworks']);
