@@ -6,7 +6,8 @@
 	"require": {
 		"laravel/framework": "4.2.*",
                 "twitter/bootstrap":"*",
-		"laracasts/validation": "~1.0"
+		"laracasts/validation": "~1.0",
+        "intervention/image": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
