@@ -1,3 +1,10 @@
 <?php
 
-class Text extends Eloquent {}
+class Text extends Eloquent {
+
+    public function groups()
+    {
+        return $this->belongsToMany('Group');
+    }
+
+}

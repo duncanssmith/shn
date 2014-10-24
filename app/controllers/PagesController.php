@@ -32,7 +32,7 @@ class PagesController extends \BaseController {
 	public function publicgroup($id)
 	{
 		// get the groups and the works in them
-		$group = Group::with('Works')->find($id);
+		$group = Group::with('Works')->with('Texts')->find($id);
 
 		// show the view and pass the group to it
 		return View::make('pages.group')
@@ -50,6 +50,30 @@ class PagesController extends \BaseController {
     	return View::make('pages.work')
     	    ->with('work', $work)
     	    ->with('title', $work->title);
+    }
+
+
+	public function publictexts()
+	{
+		// get the groups
+        $texts = Text::all();
+
+        // show the view and pass the group to it
+        return View::make('pages.texts')
+        ->with('texts', $texts)
+        ->with('title', 'Sharon Hall Texts');
+	}
+
+    /**
+     *
+     */
+    public function publictext($id)
+    {
+        $text = Text::find($id);
+
+        return View::make('pages.text')
+        ->with('text', $text)
+        ->with('title', $text->title);
     }
 
 	/**

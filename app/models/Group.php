@@ -6,4 +6,10 @@ class Group extends Eloquent {
     {
         return $this->belongsToMany('Work');
     }
+
+    public function texts()
+    {
+        return $this->belongsToMany('Text');
+    }
+
 }

@@ -15,7 +15,8 @@
                     <ul class="nav navbar-nav">
 
                         <li><a href="/">...</a></li>
-                        <li><a href="/publicgroups">Sharon Hall</a></li>
+                        <li><a href="/publicgroups">Groups</a></li>
+                        <li><a href="/publictexts">Texts</a></li>
 
                     </ul>
                 </div>

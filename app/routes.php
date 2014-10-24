@@ -11,6 +11,10 @@ Route::get('/publicgroup/{id}', ['as' => 'public',  'uses' => 'PagesController@p
 
 Route::get('/publicwork/{id}', ['as' => 'public',  'uses' => 'PagesController@publicwork']);
 
+Route::get('/publictexts', ['as' => 'public',  'uses' => 'PagesController@publictexts']);
+
+Route::get('/publictext/{id}', ['as' => 'public',  'uses' => 'PagesController@publictext']);
+
 Route::get('/assigngroupstowork/{id}', ['as' => 'assign',  'uses' => 'GroupController@assignworktogrouporgroups']);
 
 Route::get('/savegroupsforwork', ['as' => 'savegroup',  'uses' => 'GroupController@saveagroupofworks']);
