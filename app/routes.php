@@ -46,6 +46,8 @@ Route::resource('works', 'WorkController');
 
 Route::resource('groups', 'GroupController');
 
+Route::resource('texts', 'TextController');
+
 Route::resource('users', 'UserController');
 
 // Confide routes
