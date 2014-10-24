@@ -68,7 +68,14 @@ class TextController extends BaseController {
             } else {
                 // store
                 $text = new Text;
-                $text->title       = Input::get('title');
+                $text->title  = Input::get('title');
+                $text->author = Input::get('author');
+                $text->year  = Input::get('year');
+                $text->description  = Input::get('description');
+                $text->content  = Input::get('content');
+                $text->publication  = Input::get('publication');
+                $text->publication_date  = Input::get('publication_date');
+
                 $text->save();
 
                 // redirect
@@ -140,7 +147,7 @@ class TextController extends BaseController {
             // validate
             // read more on validation at http://laravel.com/docs/validation
             $rules = array(
-                'name'       => 'required'
+                'title'       => 'required'
             );
             $validator = Validator::make(Input::all(), $rules);
 
@@ -152,7 +159,13 @@ class TextController extends BaseController {
             } else {
                 // store
                 $text = Text::find($id);
-                $text->name       = Input::get('name');
+                $text->title  = Input::get('title');
+                $text->author = Input::get('author');
+                $text->year  = Input::get('year');
+                $text->description  = Input::get('description');
+                $text->content  = Input::get('content');
+                $text->publication  = Input::get('publication');
+                $text->publication_date  = Input::get('publication_date');
                 $text->save();
 
                 // redirect

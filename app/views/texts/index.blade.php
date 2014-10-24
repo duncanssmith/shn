@@ -18,7 +18,7 @@
 		@if (isset($count))
 			{{{ $count or 0 }}}
 		@endif
-    Groups</h1>
+    Texts</h1>
 
 <!-- will be used to show any messages -->
 @if (Session::has('message'))
