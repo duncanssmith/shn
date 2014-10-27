@@ -8,10 +8,12 @@
 
 @section('content')
 
-	<div>
+	<div class="nav-collapse collapse">
+	    <ul class="nav">
 	    @foreach($texts as $text)
-           <p><a href="/publictext/{{$text->id}}">{{ $text->title }}</a></p>
+           <li><a href="/publictext/{{$text->id}}">{{ $text->title }}</a></li>
         @endforeach
+        </ul>
 	</div>
 
 @stop
