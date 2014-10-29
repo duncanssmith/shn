@@ -1,3 +1,6 @@
+<!-- not in use -->
+
+
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -9,11 +12,12 @@
           </button>
           <a class="navbar-brand" href="#">SHN</a>
         </div>
+
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
 
-            <li><a href="/publicgroups">Public pages</a></li>
+            <li><a href="/publicgroups">Public pages XXXX</a></li>
 
             @if (Auth::guest())
 

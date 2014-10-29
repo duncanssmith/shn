@@ -7,7 +7,7 @@
 	<div class="nav-collapse collapse">
 	    <ul class="nav">
 	    @foreach($groups as $group)
-	        <li><a href="/publicgroup/{{$group->id}}">{{ $group->name }}</a></li>
+	        <li><a href="/publicgroup/{{$group->id}}" >{{ $group->name }}</a></li>
         @endforeach
         </ul>
 	</div>
@@ -29,5 +29,15 @@
         @endforeach
         </ul>
 	</div>
+
+
+<div class="dropdown">
+  <a data-toggle="dropdown" href="#">Dropdown here...</a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+	    @foreach($groups as $group)
+	        <li><a href="/publicgroup/{{$group->id}}">{{ $group->name }}</a></li>
+        @endforeach
+  </ul>
+</div>
 
 @stop

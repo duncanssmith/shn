@@ -4,7 +4,7 @@
 
 @section('nav')
 
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar">
         <ul class="nav navbar-nav">
             <li><a href="{{ URL::to('groups') }}">List groups</a></li>
             <li><a href="{{ URL::to('groups/create') }}">Add group</a>
@@ -39,15 +39,18 @@
 			<!-- we will also add show, edit, and delete buttons -->
 			<td>
 
-                <a  href="#" id="deleteButton" class="btn btn-danger submit-delete"> Delete </a>
-
                 {{--{{ Html::link(URL::route('Groups.destroy',$event->id), 'Delete', array('class' => 'btn btn-small btn-danger delete-event', 'data-title'=>'Delete group', 'data-content' => 'Are you sure you want to delete this groups?', 'onClick'=>'return false;')) }}--}}
 
 				<!-- show the group (uses the show method found at GET /groups/{id} -->
-				<a class="btn btn-small btn-success" href="{{ URL::to('groups/' . $group->id) }}">Show</a>
+				<a class="btn btn-sm btn-success" href="{{ URL::to('groups/' . $group->id) }}">Show</a>
 
 				<!-- edit this group (uses the edit method found at GET /groups/{id}/edit -->
-				<a class="btn btn-small btn-info" href="{{ URL::to('groups/' . $group->id . '/edit') }}">Edit</a>
+				<a class="btn btn-sm btn-info" href="{{ URL::to('groups/' . $group->id . '/edit') }}">Edit</a>
+                <!-- Button trigger modal -->
+                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#item-delete">
+                    Delete 
+                </button>
+
 
 			</td>
 		</tr>
@@ -87,7 +90,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
     $('#deleteButton').click( function() {
-        $('#idem-delete').modal('show');
+        $('#item-delete').modal('show');
         return false;
     });
 });  

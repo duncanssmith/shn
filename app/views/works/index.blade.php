@@ -4,7 +4,7 @@
 
 @section('nav')
 
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar">
         <ul class="nav navbar-nav">
             <li><a href="{{ URL::to('works') }}">List works</a></li>
             <li><a href="{{ URL::to('works/create') }}">Add work</a>
@@ -53,16 +53,16 @@
                 <!-- we will add this later since its a little more complicated than the other two buttons -->
                 {{ Form::open(array('url' => 'works/' . $work->id, 'class' => 'pull-right')) }}
                     {{ Form::hidden('_method', 'DELETE') }}
-                    {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
+                    {{ Form::submit('Delete', array('class' => 'btn btn-sm btn-danger')) }}
                 {{ Form::close() }}
                 <!-- show the work (uses the show method found at GET /works/{id} -->
-                <a class="btn btn-small btn-success" href="{{ URL::to('works/' . $work->id) }}">Show</a>
+                <a class="btn btn-sm btn-success" href="{{ URL::to('works/' . $work->id) }}">Show</a>
 
                 <!-- edit this work (uses the edit method found at GET /works/{id}/edit -->
-                <a class="btn btn-small btn-info" href="{{ URL::to('works/' . $work->id . '/edit') }}">Edit</a>
+                <a class="btn btn-sm btn-info" href="{{ URL::to('works/' . $work->id . '/edit') }}">Edit</a>
 
                 <!-- edit this work (uses the edit method found at GET /works/{id}/edit -->
-                <a class="btn btn-small btn-primary" href="{{ URL::to('assigngroupstowork/' . $work->id) }}">Assign</a>
+                <a class="btn btn-sm btn-primary" href="{{ URL::to('assigngroupstowork/' . $work->id) }}">Assign</a>
 
             </td>
         </tr>

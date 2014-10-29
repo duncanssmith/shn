@@ -4,7 +4,7 @@
 
 @section('nav')
 
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar">
         <ul class="nav navbar-nav">
             <li><a href="{{ URL::to('texts') }}">List texts</a></li>
             <li><a href="{{ URL::to('texts/create') }}">Add text</a>
