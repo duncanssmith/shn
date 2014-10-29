@@ -13,8 +13,7 @@ class UserController extends BaseController {
             $users = User::all();
             return View::make('users.index')
                 ->with('users', $users)
-                ->with('title', 'Users')
-                ->with('count', count($users));
+                ->with('title', 'Users');
         } else {
             // User is not logged in
             Session::flash('message', 'Please log in');

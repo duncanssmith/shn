@@ -32,12 +32,11 @@
                         @endforeach
                     </ul>
                 </div>
-                |
                 <div class="navbar-header dropdown">
                     <a data-toggle="dropdown" href="/publictexts">Texts</a>
                     <ul class="nav navbar-nav dropdown-menu" role="menu" aria-labelledby="dLabel">
                     @foreach($texts as $text)
-                        <li><a href="/publicgroup/{{$group->id}}">{{ $text->title }}</a></li>
+                        <li><a href="/publictext/{{$text->id}}">{{ $text->title }}</a></li>
                     @endforeach
 
                     </ul>

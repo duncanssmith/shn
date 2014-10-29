@@ -18,8 +18,7 @@ class TextController extends BaseController {
             $texts = Text::paginate(3);
             return View::make('texts.index')
                 ->with('texts', $texts)
-                ->with('title', 'Texts')
-                ->with('count', count($texts));
+                ->with('title', 'Texts');
         } else {
             // User is not logged in
             Session::flash('message', 'Please log in');

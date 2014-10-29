@@ -22,8 +22,7 @@ class WorkController extends BaseController {
 
             return View::make('works.index')
                 ->with('works', $works)
-                ->with('title', 'Works')
-                ->with('count', count($works));
+                ->with('title', 'Works');
         } else {
             // User is not logged in
             Session::flash('message', 'Please log in');

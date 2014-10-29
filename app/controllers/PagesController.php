@@ -36,9 +36,14 @@ class PagesController extends \BaseController {
 		// get the groups and the works in them
 		$group = Group::with('Works')->with('Texts')->find($id);
 
+        $texts = Text::all();
+        $groups = Group::all();		
+
 		// show the view and pass the group to it
 		return View::make('pages.group')
 			->with('group', $group)
+			->with('groups', $groups)
+			->with('texts', $texts)
 			->with('title', 'Sharon Hall: '.$group->name);
 	}
 

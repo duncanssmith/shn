@@ -51,10 +51,13 @@
 
                 <!-- delete the work (uses the destroy method DESTROY /works/{id} -->
                 <!-- we will add this later since its a little more complicated than the other two buttons -->
-                {{ Form::open(array('url' => 'works/' . $work->id, 'class' => 'pull-right')) }}
+<!--                 {{ Form::open(array('url' => 'works/' . $work->id, 'class' => 'pull-right')) }}
                     {{ Form::hidden('_method', 'DELETE') }}
                     {{ Form::submit('Delete', array('class' => 'btn btn-sm btn-danger')) }}
-                {{ Form::close() }}
+                {{ Form::close() }} -->
+
+
+
                 <!-- show the work (uses the show method found at GET /works/{id} -->
                 <a class="btn btn-sm btn-success" href="{{ URL::to('works/' . $work->id) }}">Show</a>
 
@@ -63,6 +66,11 @@
 
                 <!-- edit this work (uses the edit method found at GET /works/{id}/edit -->
                 <a class="btn btn-sm btn-primary" href="{{ URL::to('assigngroupstowork/' . $work->id) }}">Assign</a>
+
+                <!-- Button trigger modal -->
+                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#item-delete">
+                    Delete 
+                </button>
 
             </td>
         </tr>
@@ -74,5 +82,28 @@
 
 </div>
 
+<!-- Are you sure you want to delete this? modal /////////////////////////////////// -->
+<div id="item-delete" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Delete</h4>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this work?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <!-- delete the group (uses the destroy method DESTROY /groups/{id} -->
+                <!-- we will add this later since its a little more complicated than the other two buttons -->
+                {{ Form::open(array('url' => 'works/' . $work->id, 'class' => 'pull-right')) }}
+                {{ Form::hidden('_method', 'DELETE') }}
+                {{ Form::submit('Delete', array('class' => 'btn btn-danger ')) }}
+                {{ Form::close() }}
+            </div>
+        </div>
+    </div>
+</div>
 
 @stop
