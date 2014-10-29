@@ -14,10 +14,12 @@ class PagesController extends \BaseController {
 	{
 		// get the groups
 		$groups = Group::all();
+		$texts = Text::all();
 
 		// show the view and pass the group to it
 		return View::make('pages.groups')
 			->with('groups', $groups)
+			->with('texts', $texts)
 			->with('title', 'Sharon Hall');
 	}
 

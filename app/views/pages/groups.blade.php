@@ -4,13 +4,13 @@
 
 @section('nav')
 
-	<div class="nav-collapse collapse">
+<!-- 	<div class="nav-collapse ">
 	    <ul class="nav">
 	    @foreach($groups as $group)
 	        <li><a href="/publicgroup/{{$group->id}}" >{{ $group->name }}</a></li>
         @endforeach
         </ul>
-	</div>
+	</div> -->
 	
 @stop
 
@@ -32,7 +32,7 @@
 
 
 <div class="dropdown">
-  <a data-toggle="dropdown" href="#">Dropdown here...</a>
+  <a data-toggle="dropdown" href="#">Groups</a>
   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 	    @foreach($groups as $group)
 	        <li><a href="/publicgroup/{{$group->id}}">{{ $group->name }}</a></li>
