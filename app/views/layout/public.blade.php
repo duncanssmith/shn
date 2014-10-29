@@ -36,8 +36,8 @@
                 <div class="navbar-header dropdown">
                     <a data-toggle="dropdown" href="/publictexts">Texts</a>
                     <ul class="nav navbar-nav dropdown-menu" role="menu" aria-labelledby="dLabel">
-                    @foreach($groups as $group)
-                        <li><a href="/publicgroup/{{$group->id}}">{{ $group->name }}</a></li>
+                    @foreach($texts as $text)
+                        <li><a href="/publicgroup/{{$group->id}}">{{ $text->title }}</a></li>
                     @endforeach
 
                     </ul>
@@ -49,16 +49,6 @@
             Hello World this is the layout.master.blade.php nav section
 
             @show
-
-<div class="dropdown">
-  <a data-toggle="dropdown" href="#">Groups</a>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-        @foreach($groups as $group)
-            <li><a href="/publicgroup/{{$group->id}}">{{ $group->name }}</a></li>
-        @endforeach
-  </ul>
-</div>
-
 
 
             @yield('content')
