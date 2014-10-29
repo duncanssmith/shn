@@ -13,9 +13,9 @@ class TextController extends BaseController {
      */
     public function index()
     {
+        // If the user is logged in...
         if (Auth::check()) {
-            // The user is logged in...
-            $texts = Text::all();
+            $texts = Text::paginate(3);
             return View::make('texts.index')
                 ->with('texts', $texts)
                 ->with('title', 'Texts')
@@ -34,6 +34,7 @@ class TextController extends BaseController {
      */
     public function create()
     {
+        // If the user is logged in...
         // load the create form (app/views/texts/create.blade.php)
         if (Auth::check()) {
             return View::make('texts.create')
@@ -52,6 +53,7 @@ class TextController extends BaseController {
      */
     public function store()
     {
+        // If the user is logged in...
         if (Auth::check()) {
             // validate
             // read more on validation at http://laravel.com/docs/validation
@@ -97,6 +99,7 @@ class TextController extends BaseController {
      */
     public function show($id)
     {
+        // If the user is logged in...
         if (Auth::check()) {
             // get the text
             $text = Text::find($id);
@@ -120,6 +123,7 @@ class TextController extends BaseController {
      */
     public function edit($id)
     {
+        // If the user is logged in...
         if (Auth::check()) {
             // get the text
             $text = Text::find($id);
@@ -143,6 +147,7 @@ class TextController extends BaseController {
      */
     public function update($id)
     {
+        // If the user is logged in...
         if (Auth::check()) {
             // validate
             // read more on validation at http://laravel.com/docs/validation
@@ -177,7 +182,6 @@ class TextController extends BaseController {
             Session::flash('message', 'Please log in');
             return Redirect::to('/');
         }
-
     }
 
     /**
@@ -188,6 +192,7 @@ class TextController extends BaseController {
      */
     public function destroy($id)
     {
+        // If the user is logged in...
         if (Auth::check()) {
             $text = Text::find($id);
             $text->delete();

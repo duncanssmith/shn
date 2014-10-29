@@ -14,11 +14,7 @@
 @stop
 
 @section('content')
-    <h1>
-		@if (isset($count))
-			{{{ $count or 0 }}}
-		@endif
-    Texts</h1>
+    <h1> {{ $texts->getTotal() }} Texts</h1>
 
 <!-- will be used to show any messages -->
 @if (Session::has('message'))
@@ -77,7 +73,7 @@
 	@endforeach
 	</tbody>
 </table>
-
+{{ $texts->links()}}
 </div>
 
 @stop

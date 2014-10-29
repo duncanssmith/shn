@@ -15,8 +15,10 @@ class WorkController extends BaseController {
      */
     public function index()
     {
+        // Check user is logged in
         if (Auth::check()) {
-            $works = Work::all();
+
+            $works = Work::paginate(6);
 
             return View::make('works.index')
                 ->with('works', $works)
@@ -36,8 +38,8 @@ class WorkController extends BaseController {
      */
     public function create()
     {
+        // Check user is logged in
         if (Auth::check()) {
-            // load the create form (app/views/works/create.blade.php)
             return View::make('works.create')
                 ->with('title', 'Work create');
         } else {
@@ -54,6 +56,7 @@ class WorkController extends BaseController {
      */
     public function store()
     {
+        // Check user is logged in
         if (Auth::check()) {
             // validate
             // read more on validation at http://laravel.com/docs/validation
@@ -99,6 +102,7 @@ class WorkController extends BaseController {
      */
     public function show($id)
     {
+        // Check user is logged in
         if (Auth::check()) {
             // get the work
             $work = Work::find($id);
@@ -125,6 +129,7 @@ class WorkController extends BaseController {
      */
     public function edit($id)
     {
+        // Check user is logged in
         if (Auth::check()) {
             // get the work
             $work = Work::find($id);
@@ -148,6 +153,7 @@ class WorkController extends BaseController {
      */
     public function update($id)
     {
+        // Check user is logged in
         if (Auth::check()) {
             // validate
             // read more on validation at http://laravel.com/docs/validation
@@ -194,6 +200,7 @@ class WorkController extends BaseController {
      */
     public function destroy($id)
     {
+        // Check user is logged in
         if (Auth::check()) {
             $work = Work::find($id);
             $work->delete();
@@ -207,6 +214,4 @@ class WorkController extends BaseController {
             return Redirect::to('/');
         }
     }
-
-
 }

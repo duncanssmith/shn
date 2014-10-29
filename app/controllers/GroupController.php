@@ -43,17 +43,23 @@ class GroupController extends BaseController {
      */
     public function index()
     {
+        // Check the user is logged in...
         if (Auth::check()) {
-            // The user is logged in...
-            $groups = Group::all();
+
+            // paginate
+            $groups = Group::paginate(9);
+
             return View::make('groups.index')
                 ->with('groups', $groups)
                 ->with('title', 'Groups')
                 ->with('count', count($groups));
+
         } else {
+
             // User is not logged in
             Session::flash('message', 'Please log in');
             return Redirect::to('/');
+
         }
     }
 
