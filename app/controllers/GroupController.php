@@ -15,7 +15,8 @@ class GroupController extends BaseController {
     {
         if (Auth::check()) {
             // store
-            $work = Work::find($id);
+            $work = Work::find($id)->with('Groups');
+            var_dump($work); die();
             $groups = Group::all();
 
             // show the edit form and pass the group
@@ -107,7 +108,7 @@ class GroupController extends BaseController {
             } else {
                 // store
                 $group = new Group;
-                $group->name       = Input::get('name');
+                $group->name = Input::get('name');
                 $group->save();
 
                 // redirect
