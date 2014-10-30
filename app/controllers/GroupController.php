@@ -52,13 +52,9 @@ class GroupController extends BaseController {
 
             // paginate
             $groups = Group::paginate(9);
-            $groups_nav = Group::all();
-            $texts_nav = Text::all();
 
             return View::make('groups.index')
                 ->with('groups', $groups)
-                ->with('groups_nav', $groups_nav)
-                ->with('texts_nav', $texts_nav)
                 ->with('title', 'Groups');
 
         } else {
