@@ -1,11 +1,11 @@
 <?php
 
 # Home
-Route::get('/', ['as' => 'home', 'uses' => 'PagesController@index']);
+Route::get('/secure', ['as' => 'home', 'uses' => 'PagesController@index']);
 
 //Route::get('publicgroup/{id}', ['uses' => 'PagesController@publicworks']);
 
-Route::get('/publicgroups', ['as' => 'public',  'uses' => 'PagesController@publicgroups']);
+Route::get('/', ['as' => 'public',  'uses' => 'PagesController@home']);
 
 Route::get('/publicgroup/{id}', ['as' => 'public',  'uses' => 'PagesController@publicgroup']);
 

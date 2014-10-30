@@ -4,17 +4,12 @@
 
 @section('nav')
 
-    <nav class="navbar navbar">
-        <ul class="nav navbar-nav">
-            <li><a href="{{ URL::to('users') }}"><i class="icon-list">List</i></a></li>
-            <li><a href="{{ URL::to('users/create') }}"><i class"icon-plus">Add</i></a>
-        </ul>
-    </nav>
+@include('users.partials.nav')
 
 @stop
 
 @section('content')
-    <!-- <h1> {{ $users->getTotal() }} Users</h1> -->
+    <!-- <h1>  Users</h1> -->
 
 <!-- will be used to show any messages -->
 @if (Session::has('message'))
@@ -41,23 +36,22 @@
 			<!-- we will also add show, edit, and delete buttons -->
 			<td>
 
-				<!-- delete the user (uses the destroy method DESTROY /users/{id} -->
-				<!-- we will add this later since its a little more complicated than the other two buttons -->
-		        {{ Form::open(array('url' => 'users/' . $user->id, 'class' => 'pull-right')) }}
-                {{ Form::hidden('_method', 'DELETE') }}
-                {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
-                {{ Form::close() }}
 				<!-- show the user (uses the show method found at GET /users/{id} -->
-				<a class="btn btn-small btn-success" href="{{ URL::to('users/' . $user->id) }}">Show</a>
+				<a class="btn btn-smll btn-success" href="{{ URL::to('users/' . $user->id) }}">Show</a>
 
 				<!-- edit this user (uses the edit method found at GET /users/{id}/edit -->
 				<a class="btn btn-small btn-info" href="{{ URL::to('users/' . $user->id . '/edit') }}">Edit</a>
+
+				<!-- Button trigger modal -->
+                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#item-delete">Delete</button>
 
 			</td>
 		</tr>
 	@endforeach
 	</tbody>
 </table>
+
+
 
 </div>
 

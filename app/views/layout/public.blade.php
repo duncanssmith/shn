@@ -15,30 +15,10 @@
         <div class="container">
 
             <nav class="navbar navbar-fixed-top">
-<!--                 <div class="navbar-header">
+                <div class="navbar-header">
                     <ul class="nav navbar-nav" role="menu" aria-labelledby="dLabel">
-                        <li><a href="/">...</a></li>
-                        <li><a href="/publicgroups">Groups</a></li>
-                        <li><a href="/publictexts">Texts</a></li>
-                        <li><a href="/publicgroups" data-toggle="dropdown">Groups</a> </li>
-                        <li><a href="/publictexts" data-toggle="dropdown">Texts</a></li>
-                    </ul>
-                </div> -->
-                <div class="navbar-header dropdown">
-                    <a data-toggle="dropdown" href="/publicgroups">Groups</a>
-                    <ul class="nav navbar-nav dropdown-menu" role="menu" aria-labelledby="dLabel">
-                        @foreach($groups as $group)
-                            <li><a href="/publicgroup/{{$group->id}}">{{ $group->name }}</a></li>
-                        @endforeach
-                    </ul>
-                </div>
-                <div class="navbar-header dropdown">
-                    <a data-toggle="dropdown" href="/publictexts">Texts</a>
-                    <ul class="nav navbar-nav dropdown-menu" role="menu" aria-labelledby="dLabel">
-                    @foreach($texts as $text)
-                        <li><a href="/publictext/{{$text->id}}">{{ $text->title }}</a></li>
-                    @endforeach
-
+                        <li><a href="/secure">...</a></li>
+                        <li><a href="/">Home</a></li>
                     </ul>
                 </div>
             </nav>

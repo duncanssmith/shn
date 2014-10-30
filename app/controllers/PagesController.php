@@ -10,14 +10,14 @@ class PagesController extends \BaseController {
 	 * @return mixed
 	 *
 	 */
-	public function publicgroups()
+	public function home()
 	{
 		// get the groups
 		$groups = Group::all();
 		$texts = Text::all();
 
 		// show the view and pass the group to it
-		return View::make('pages.groups')
+		return View::make('pages.home')
 			->with('groups', $groups)
 			->with('texts', $texts)
 			->with('title', 'Sharon Hall');

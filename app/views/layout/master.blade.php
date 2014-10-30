@@ -18,8 +18,8 @@
                 <div class="navbar-header">
                     <ul class="nav navbar-nav">
 
-                        <li><a href="/">...</a></li>
-                        <li><a href="/publicgroups">Public pages</a></li>
+                        <li><a href="/secure">...</a></li>
+                        <li><a href="/">Home</a></li>
 
                         @if (Auth::guest())
 
