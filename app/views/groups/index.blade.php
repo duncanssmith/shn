@@ -41,10 +41,9 @@
 
 				<!-- edit this group (uses the edit method found at GET /groups/{id}/edit -->
 				<a class="btn btn-sm btn-info" href="{{ URL::to('groups/' . $group->id . '/edit') }}">Edit</a>
+
                 <!-- Button trigger modal -->
-                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#item-delete">
-                    Delete 
-                </button>
+                <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#item-delete">Delete</button>
 
 
 			</td>
@@ -69,12 +68,12 @@
                 Are you sure you want to delete this item?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
 				<!-- delete the group (uses the destroy method DESTROY /groups/{id} -->
 				<!-- we will add this later since its a little more complicated than the other two buttons -->
 		        {{ Form::open(array('url' => 'groups/' . $group->id, 'class' => 'pull-right')) }}
                     {{ Form::hidden('_method', 'DELETE') }}
-                {{ Form::submit('Delete', array('class' => 'btn btn-danger ')) }}
+                {{ Form::submit('Delete', array('class' => 'btn btn-sm btn-danger ')) }}
                     {{--{{ Form::submit('Delete', array('class' => 'btn btn-danger delete-event ', 'data-title' => 'Delete group', 'data-content')) }}--}}
                 {{ Form::close() }}
             </div>

@@ -46,13 +46,13 @@
 			<!-- we will also add show, edit, and delete buttons -->
 			<td>
 				<!-- show the text (uses the show method found at GET /texts/{id} -->
-				<a class="btn btn-small btn-success" href="{{ URL::to('texts/' . $text->id) }}">Show</a>
+				<a class="btn btn-sm btn-success" href="{{ URL::to('texts/' . $text->id) }}">Show</a>
 
 				<!-- edit this text (uses the edit method found at GET /texts/{id}/edit -->
-				<a class="btn btn-small btn-info" href="{{ URL::to('texts/' . $text->id . '/edit') }}">Edit</a>
+				<a class="btn btn-sm btn-info" href="{{ URL::to('texts/' . $text->id . '/edit') }}">Edit</a>
 
 				<!-- Button triggers modal -->
-                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#item-delete">Delete</button>
+                <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#item-delete">Delete</button>
 
 			</td>
 		</tr>
@@ -76,12 +76,12 @@
                 Are you sure you want to delete this text?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
                 <!-- delete the group (uses the destroy method DESTROY /groups/{id} -->
                 <!-- we will add this later since its a little more complicated than the other two buttons -->
                 {{ Form::open(array('url' => 'texts/' . $text->id, 'class' => 'pull-right')) }}
                 {{ Form::hidden('_method', 'DELETE') }}
-                {{ Form::submit('Delete', array('class' => 'btn btn-danger ')) }}
+                {{ Form::submit('Delete', array('class' => 'btn btn-sm btn-danger ')) }}
                 {{ Form::close() }}
             </div>
         </div>

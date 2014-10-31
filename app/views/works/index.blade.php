@@ -50,10 +50,10 @@
                 <a class="btn btn-sm btn-info" href="{{ URL::to('works/' . $work->id . '/edit') }}">Edit</a>
 
                 <!-- edit this work (uses the edit method found at GET /works/{id}/edit -->
-                <a class="btn btn-sm btn-primary" href="{{ URL::to('assigngroupstowork/' . $work->id) }}">Assign</a>
+                <a class="btn btn-sm btn-primary" href="{{ URL::to('assign_works/' . $work->id) }}">Assign</a>
 
                 <!-- Button trigger modal -->
-                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#item-delete">Delete</button>
+                <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#item-delete">Delete</button>
 
             </td>
         </tr>
@@ -77,12 +77,12 @@
                 Are you sure you want to delete this work?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
                 <!-- delete the group (uses the destroy method DESTROY /groups/{id} -->
                 <!-- we will add this later since its a little more complicated than the other two buttons -->
                 {{ Form::open(array('url' => 'works/' . $work->id, 'class' => 'pull-right')) }}
                 {{ Form::hidden('_method', 'DELETE') }}
-                {{ Form::submit('Delete', array('class' => 'btn btn-danger ')) }}
+                {{ Form::submit('Delete', array('class' => 'btn btn-sm btn-danger ')) }}
                 {{ Form::close() }}
             </div>
         </div>

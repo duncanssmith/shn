@@ -10,7 +10,7 @@ class UserController extends BaseController {
     public function index()
     {
         if (Auth::check()) {
-            $users = User::paginate(5);
+            $users = User::paginate(3);
             return View::make('users.index')
                 ->with('users', $users)
                 ->with('title', 'Users');

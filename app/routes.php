@@ -11,13 +11,13 @@ Route::get('/publicgroup/{id}', ['as' => 'public',  'uses' => 'PagesController@p
 
 Route::get('/publicwork/{id}', ['as' => 'public',  'uses' => 'PagesController@publicwork']);
 
-Route::get('/publictexts', ['as' => 'public',  'uses' => 'PagesController@publictexts']);
+Route::get('/publictexts', ['as' => 'publictexts',  'uses' => 'PagesController@publictexts']);
 
-Route::get('/publictext/{id}', ['as' => 'public',  'uses' => 'PagesController@publictext']);
+Route::get('/publictext/{id}', ['as' => 'publictext',  'uses' => 'PagesController@publictext']);
 
-Route::get('/assigngroupstowork/{id}', ['as' => 'assign',  'uses' => 'GroupController@assignworktogrouporgroups']);
+Route::get('/assign_works/{id}', ['as' => 'assign_works',  'uses' => 'GroupController@assign_works']);
 
-Route::get('/savegroupsforwork', ['as' => 'savegroup',  'uses' => 'GroupController@saveagroupofworks']);
+Route::post('/save_assigned_works', ['as' => 'save_assigned_works',  'uses' => 'GroupController@save_assigned_works']);
 
 # Registration
 Route::get('/register', 'RegistrationController@create')->before('guest');

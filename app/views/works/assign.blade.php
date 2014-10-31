@@ -11,26 +11,41 @@
 @section('content')
 
 <h1>Assign {{ $work->title }} to one or more groups</h1>
-<p>Select which groups you want this work to appear in.</p>
+<p>Select the groups you want this work to appear in.</p>
 <!-- if there are creation errors, they will show here -->
 {{ HTML::ul($errors->all()) }}
 
-{{ Form::model($work, array('route' => array('works.update', $work->id), 'method' => 'PUT')) }}
+<?php //var_dump("<pre>", $arr); die();?>
 
-    <img src="/media/images/160/sh_{{$work->reference}}.jpg">
+{{ Form::model($work, array('route' => array('save_assigned_works'), 'method' => 'POST')) }}
 
-    @foreach ($groups as $group)
+    {{ Form::hidden('work_id', $work->id) }}
+
+    <img src="/media/images/64/sh_{{$work->reference}}.jpg">
 
     	<div class="form-group">
-    		{{ Form::checkbox('id', 0, null, array('class' => 'form-control')) }}
-    		{{ Form::label('name', $group->name) }}
+            @foreach ($groups as $group)
+        		{{ Form::checkbox('groups_data[]', $group->id, in_array($group->id, $arr)) }}
+        		{{ Form::label('name', $group->name) }}
+            @endforeach
     	</div>
-
-    @endforeach
 
 	{{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}
+
+<br>
+
+Work "{{ $work->title }}" is in these groups:
+
+<br>
+
+@foreach ($links as $link)
+
+    {{ $link->id  }}
+    {{ $link->name }}
+
+@endforeach
 
 </div>
 

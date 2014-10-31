@@ -11,22 +11,31 @@ class GroupController extends BaseController {
      * @param $id
      * @return mixed
      */
-    public function assignworktogrouporgroups($id)
+    public function assign_works($id)
     {
         if (Auth::check()) {
             // store
-            $work = Work::find($id)->with('Groups');
-            var_dump($work); die();
+            $work = Work::find($id);
+
+            $links = $work->groups;
+
+            $arr = array();
+            foreach ($work->groups as $link){
+                $arr[] = $link->pivot->group_id;
+            }
+            
             $groups = Group::all();
 
             // show the edit form and pass the group
             return View::make('works.assign')
                 ->with('work', $work)
+                ->with('links', $links)
+                ->with('arr', $arr)
                 ->with('groups', $groups)
                 ->with('title', 'Assign the work to a group or groups');
 
             // redirect
-            Session::flash('message', 'Successfully created group');
+            Session::flash('message', 'Successfully assigned work to group(s)');
             return Redirect::to('works');
         } else {
             Session::flash('message', 'Please log in');
@@ -38,9 +47,26 @@ class GroupController extends BaseController {
      * 
      *  
      */
-    public function saveagroupofworks()
+    public function save_assigned_works()
     {
-        $group->works()->attach(1, array('groups' => $groups));
+        if (Auth::check()) {
+
+            $work = Work::find($_POST['work_id']);
+
+            // only sync the pivot table data if there is any
+            if (isset($_POST['groups_data'])) {
+                $work->groups()->sync(array_values($_POST['groups_data']));
+            }
+
+            Session::flash('message', 'Successfully assigned work to group(s)');
+            return Redirect::to('assign_works/'.$work->id);
+
+        } else {
+
+            Session::flash('message', 'Please log in');
+
+            return Redirect::to('/');
+        }
     }
 
     /**

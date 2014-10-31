@@ -27,26 +27,6 @@
 		{{ Form::email('email', null, array('class' => 'form-control')) }}
 	</div>
 
-	<div class="form-user">
-		{{ Form::label('password', 'Password') }}
-		{{ Form::password('password', null, array('class' => 'form-control')) }}
-	</div>
-
-	<div class="form-user">
-		{{ Form::label('confirmation_code', 'Confirmation code') }}
-		{{ Form::text('confirmation_code', null, array('class' => 'form-control')) }}
-	</div>
-
-	<div class="form-user">
-		{{ Form::label('remember_token', 'Remember token') }}
-		{{ Form::text('remember_token', null, array('class' => 'form-control')) }}
-	</div>
-
-	<div class="form-user">
-		{{ Form::label('confirmed', 'Confirmed') }}
-		{{ Form::text('confirmed', null, array('class' => 'form-control')) }}
-	</div>
-
 	{{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}
