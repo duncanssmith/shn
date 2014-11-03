@@ -18,7 +18,7 @@
             <nav class="navbar navbar-fixed-top">
                 <div class="navbar-header">
                     <ul class="nav navbar-nav" role="menu" aria-labelledby="dLabel">
-                        <li><a href="/secure">...</a></li>
+                        <li><a href="/secure"><i class="fa fa-gear"></i></a></li>
                         <li><a href="/">Home</a></li>
                     </ul>
                 </div>

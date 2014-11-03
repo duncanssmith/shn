@@ -42,12 +42,16 @@
 
 
 <div class="dropdown">
-  <a data-toggle="dropdown" href="#">Texts</a>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-	    @foreach($texts as $text)
-	        <li><a href="/publictext/{{$text->id}}">{{ $text->title }}</a></li>
+    <a data-toggle="dropdown" href="#">Texts</a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+	      @foreach($texts as $text)
+	          <li><a href="/publictext/{{$text->id}}">{{ $text->title }}</a></li>
         @endforeach
-  </ul>
+    </ul>
+</div>
+
+<div>
+    <a href="/publiccv">CV</a>
 </div>
 
 @stop

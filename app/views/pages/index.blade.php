@@ -5,7 +5,7 @@
 <div class="starter-content">
 
 <h1>
-    {{ Auth::check() ?  "Logged in ". Auth::user()->username : "You are not logged in." }}
+    {{ Auth::check() ?  "Logged in ". Auth::user()->username : "" }}
 </h1>
 
 <p class="lead"></p>

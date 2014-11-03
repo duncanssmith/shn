@@ -15,6 +15,8 @@ Route::get('/publictexts', ['as' => 'publictexts',  'uses' => 'PagesController@p
 
 Route::get('/publictext/{id}', ['as' => 'publictext',  'uses' => 'PagesController@publictext']);
 
+Route::get('/publiccv', ['as' => 'publictext',  'uses' => 'PagesController@publiccv']);
+
 Route::get('/assign_works/{id}', ['as' => 'assign_works',  'uses' => 'GroupController@assign_works']);
 
 Route::post('/save_assigned_works', ['as' => 'save_assigned_works',  'uses' => 'GroupController@save_assigned_works']);

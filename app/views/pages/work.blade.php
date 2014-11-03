@@ -14,9 +14,9 @@
 		<h2>{{ $work->title }}</h2>
 		<a href=""><img src="/media/images/320/sh_{{$work->reference}}.jpg"></a>
 		<p>
-			Media: {{ $work->media }}<br>
-			Dimensions: {{ $work->dimensions }}<br>
-			Work date: {{ $work->work_date }}
+			{{ $work->media }}<br>
+			{{ $work->dimensions }}<br>
+			{{ $work->work_date }}
 		</p>
 	</div>
 

@@ -13,17 +13,20 @@
 	</div>
 
 	<div>
-
+        <?php $i = 0?>
+        <table>
 	    @foreach($group->works as $work)
-    		<p>
-    	    	<a href="/publicwork/{{$work->id}}"><img src="/media/images/64/sh_{{ $work->reference }}.jpg"></a>
-                {{ $work->title }},
-                {{ $work->media }},
-                {{ $work->dimensions }},
+        <tr>
+    		<td>
+    	    	<a href="/publicwork/{{$work->id}}"><img src="/media/images/64/sh_{{ $work->reference }}.jpg"></a><br>
+                {{ $work->title }} <br>
+                {{ $work->media }} <br>
+                {{ $work->dimensions }} <br>
                 {{ $work->work_date }}
-            </p>
+            </td>
+        </tr>    
         @endforeach
-
+        </table>
 	</div>
 
 @stop

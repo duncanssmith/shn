@@ -77,10 +77,15 @@ class PagesController extends \BaseController {
     public function publictext($id)
     {
         $text = Text::find($id);
-
         return View::make('pages.text')
         ->with('text', $text)
         ->with('title', $text->title);
+    }
+
+    public function publiccv()
+    {
+        return View::make('pages.cv')
+        ->with('title', 'CV');
     }
 
 	/**
