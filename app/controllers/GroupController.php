@@ -56,6 +56,8 @@ class GroupController extends BaseController {
             // only sync the pivot table data if there is any
             if (isset($_POST['groups_data'])) {
                 $work->groups()->sync(array_values($_POST['groups_data']));
+            } else {
+                $work->groups()->detach();
             }
 
             Session::flash('message', 'Successfully assigned work to group(s)');

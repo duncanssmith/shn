@@ -4,12 +4,12 @@ class Group extends Eloquent {
 
     public function works()
     {
-        return $this->belongsToMany('Work');
+        return $this->belongsToMany('Work')->withTimestamps();
     }
 
     public function texts()
     {
-        return $this->belongsToMany('Text');
+        return $this->belongsToMany('Text')->withTimestamps();
     }
 
 }
