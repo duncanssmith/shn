@@ -16,7 +16,7 @@
 
 	    @foreach($group->works as $work)
             <br>
-	    	<a id="modal-{{ $work->reference }}" data-toggle="modal" data-target="#item-show-{{ $work->reference }}" ><img src="/media/images/64/sh_{{ $work->reference }}.jpg"></a><br>
+	    	<a id="modal-{{ $work->reference }}" data-toggle="modal" data-target="#item-show-{{ $work->reference }}" ><img src="/media/images/120/sh_{{ $work->reference }}.jpg"></a><br>
             {{ $work->title }} <br>
             {{ $work->media }} <br>
             {{ $work->dimensions }} <br>
@@ -32,8 +32,8 @@
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
                             <h4 class="modal-title">{{ $work->title }}</h4>
                         </div>
-                        <div class="modal-body">
-                            <img src="/media/images/64/sh_{{ $work->reference }}.jpg"><br>
+                        <div class="modal-body ">
+                            <img src="/media/images/320/sh_{{ $work->reference }}.jpg">
                         </div>
                         <div class="modal-footer">
                             <h6 class="modal-title pull-left">{{ $work->media }}</h6><br>
