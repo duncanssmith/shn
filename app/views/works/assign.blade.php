@@ -10,12 +10,10 @@
 
 @section('content')
 
-<h1>Assign {{ $work->title }} to one or more groups</h1>
+<h1>{{ $work->title }}, {{ $work->work_date }}</h1>
 <p>Select the groups you want this work to appear in.</p>
 <!-- if there are creation errors, they will show here -->
 {{ HTML::ul($errors->all()) }}
-
-<?php //var_dump("<pre>", $arr); die();?>
 
 {{ Form::model($work, array('route' => array('save_assigned_works'), 'method' => 'POST')) }}
 
@@ -36,14 +34,22 @@
 
 <br>
 
-Work "{{ $work->title }}" is in these groups:
+@if (sizeof($links) > 0)
+
+    Work "{{ $work->title }}" is in groups:
+
+@else
+
+    This work is not in any groups
+
+@endif
 
 <br>
 
 @foreach ($links as $link)
 
-    {{ $link->id  }}
     {{ $link->name }}
+    ({{ $link->id  }})
 
 @endforeach
 
