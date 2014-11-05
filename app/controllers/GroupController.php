@@ -11,7 +11,71 @@ class GroupController extends BaseController {
      * @param $id
      * @return mixed
      */
-    public function assign_works($id)
+    public function assign_text($id)
+    {
+        if (Auth::check()) {
+            // store
+            $text = Text::find($id);
+
+            $links = $text->groups;
+
+            $arr = array();
+            foreach ($text->groups as $link){
+                $arr[] = $link->pivot->group_id;
+            }
+            
+            $groups = Group::all();
+
+            // show the edit form and pass the group
+            return View::make('texts.assign')
+                ->with('text', $text)
+                ->with('links', $links)
+                ->with('arr', $arr)
+                ->with('groups', $groups)
+                ->with('title', 'Assign the text to a group or groups');
+
+            // redirect
+            Session::flash('message', 'Successfully assigned text to group(s)');
+            return Redirect::to('texts');
+        } else {
+            Session::flash('message', 'Please log in');
+            return Redirect::to('/');
+        }
+    }
+
+    /**
+     * 
+     *  
+     */
+    public function save_assigned_text()
+    {
+        if (Auth::check()) {
+
+            $text = Text::find($_POST['text_id']);
+
+            // only sync the pivot table data if there is any
+            if (isset($_POST['groups_data'])) {
+                $text->groups()->sync(array_values($_POST['groups_data']));
+            } else {
+                $text->groups()->detach();
+            }
+
+            Session::flash('message', 'Successfully assigned text to group(s)');
+            return Redirect::to('assign_text/'.$text->id);
+
+        } else {
+
+            Session::flash('message', 'Please log in');
+
+            return Redirect::to('/');
+        }
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function assign_work($id)
     {
         if (Auth::check()) {
             // store
@@ -47,7 +111,7 @@ class GroupController extends BaseController {
      * 
      *  
      */
-    public function save_assigned_works()
+    public function save_assigned_work()
     {
         if (Auth::check()) {
 
@@ -61,7 +125,7 @@ class GroupController extends BaseController {
             }
 
             Session::flash('message', 'Successfully assigned work to group(s)');
-            return Redirect::to('assign_works/'.$work->id);
+            return Redirect::to('assign_work/'.$work->id);
 
         } else {
 

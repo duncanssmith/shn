@@ -19,13 +19,15 @@
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <td>ID</td>
+            <td>Id</td>
             <td>Image</td>
             <td>Title</td>
             <td>Reference</td>
             <td>Media</td>
             <td>Dimensions</td>
             <td>Date</td>
+            <td>Description</td>
+            <td>Notes</td>
             <td>Actions</td>
         </tr>
     </thead>
@@ -40,6 +42,8 @@
         <td>{{ $work->media }}</td>
         <td>{{ $work->dimensions }}</td>
         <td>{{ $work->work_date }}</td>
+        <td>{{ $work->description }}</td>
+        <td>{{ $work->notes }}</td>
 
             <!-- we will also add show, edit, and delete buttons -->
             <td>
@@ -50,7 +54,7 @@
                 <a class="btn btn-sm btn-info" href="{{ URL::to('works/' . $work->id . '/edit') }}">Edit</a>
 
                 <!-- edit this work (uses the edit method found at GET /works/{id}/edit -->
-                <a class="btn btn-sm btn-primary" href="{{ URL::to('assign_works/' . $work->id) }}">Assign</a>
+                <a class="btn btn-sm btn-primary" href="{{ URL::to('assign_work/' . $work->id) }}">Assign</a>
 
                 <!-- Button trigger modal -->
                 <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#item-delete">Delete</button>

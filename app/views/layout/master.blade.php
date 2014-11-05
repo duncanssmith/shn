@@ -19,7 +19,7 @@
                 <div class="navbar-header">
                     <ul class="nav navbar-nav">
 
-                        <li><a href="/">Home</a></li>
+                    <li><a href="/">Sharon Hall</a></li>
 
                         @if (Auth::guest())
 

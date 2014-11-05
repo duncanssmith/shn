@@ -15,7 +15,7 @@
 <!-- if there are creation errors, they will show here -->
 {{ HTML::ul($errors->all()) }}
 
-{{ Form::model($work, array('route' => array('save_assigned_works'), 'method' => 'POST')) }}
+{{ Form::model($work, array('route' => array('save_assigned_work'), 'method' => 'POST')) }}
 
     {{ Form::hidden('work_id', $work->id) }}
 

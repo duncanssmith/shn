@@ -15,11 +15,11 @@ class CreateWorksTable extends Migration {
             Schema::create('works', function($table)
             {
                 $table->increments('id');
-                $table->string('reference');
-                $table->string('title');
-                $table->string('media');
-                $table->string('dimensions');
-                $table->date('work_date');
+                $table->string('reference', 16)->nullable();
+                $table->string('title', 255)->nullable();
+                $table->string('media', 255)->nullable();
+                $table->string('dimensions', 32)->nullable();
+                $table->string('work_date', 32)->nullable();
                 $table->timestamps();
             });
 		//

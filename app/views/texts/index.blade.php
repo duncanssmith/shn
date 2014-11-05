@@ -51,6 +51,9 @@
 				<!-- edit this text (uses the edit method found at GET /texts/{id}/edit -->
 				<a class="btn btn-sm btn-info" href="{{ URL::to('texts/' . $text->id . '/edit') }}">Edit</a>
 
+                <!-- edit this work (uses the edit method found at GET /works/{id}/edit -->
+                <a class="btn btn-sm btn-primary" href="{{ URL::to('assign_text/' . $text->id) }}">Assign</a>
+
 				<!-- Button triggers modal -->
                 <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#item-delete">Delete</button>
 

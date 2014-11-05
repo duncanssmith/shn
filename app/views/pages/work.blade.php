@@ -16,7 +16,9 @@
 		<p>
 			{{ $work->media }}<br>
 			{{ $work->dimensions }}<br>
-			{{ $work->work_date }}
+			{{ $work->work_date }}<br>
+			{{ $work->description }}<br>
+			{{ $work->notes }}
 		</p>
 	</div>
 

@@ -17,9 +17,13 @@ Route::get('/publictext/{id}', ['as' => 'publictext',  'uses' => 'PagesControlle
 
 Route::get('/publiccv', ['as' => 'publictext',  'uses' => 'PagesController@publiccv']);
 
-Route::get('/assign_works/{id}', ['as' => 'assign_works',  'uses' => 'GroupController@assign_works']);
+Route::get('/assign_work/{id}', ['as' => 'assign_work',  'uses' => 'GroupController@assign_work']);
 
-Route::post('/save_assigned_works', ['as' => 'save_assigned_works',  'uses' => 'GroupController@save_assigned_works']);
+Route::post('/save_assigned_work', ['as' => 'save_assigned_work',  'uses' => 'GroupController@save_assigned_work']);
+
+Route::get('/assign_text/{id}', ['as' => 'assign_text',  'uses' => 'GroupController@assign_text']);
+
+Route::post('/save_assigned_text', ['as' => 'save_assigned_text',  'uses' => 'GroupController@save_assigned_text']);
 
 # Registration
 Route::get('/register', 'RegistrationController@create')->before('guest');

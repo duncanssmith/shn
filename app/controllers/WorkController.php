@@ -61,9 +61,7 @@ class WorkController extends BaseController {
             // read more on validation at http://laravel.com/docs/validation
             $rules = array(
                 'title'      => 'required',
-                'reference'  => 'required',
-                'media'      => 'required',
-                'dimensions' => 'required',
+                'reference'  => 'unique'
             );
             $validator = Validator::make(Input::all(), $rules);
 
@@ -75,11 +73,13 @@ class WorkController extends BaseController {
         } else {
             // store
             $work = new Work;
-            $work->title = Input::get('title');
-            $work->reference = Input::get('reference');
-            $work->media = Input::get('media');
-            $work->dimensions = Input::get('dimensions');
-            $work->work_date = Input::get('work_date');
+            $work->title       = Input::get('title');
+            $work->reference   = Input::get('reference');
+            $work->media       = Input::get('media');
+            $work->dimensions  = Input::get('dimensions');
+            $work->work_date   = Input::get('work_date');
+            $work->description = Input::get('description');
+            $work->notes       = Input::get('notes');
             $work->save();
 
             // redirect
@@ -158,10 +158,6 @@ class WorkController extends BaseController {
             // read more on validation at http://laravel.com/docs/validation
             $rules = array(
                 'title'       => 'required',
-                'reference'      => 'required',
-                'media'       => 'required',
-                'dimensions'      => 'required',
-                'work_date' => 'required'
             );
             $validator = Validator::make(Input::all(), $rules);
 
@@ -178,6 +174,8 @@ class WorkController extends BaseController {
                 $work->media      = Input::get('media');
                 $work->dimensions = Input::get('dimensions');
                 $work->work_date = Input::get('work_date');
+                $work->description = Input::get('description');
+                $work->notes = Input::get('notes');
                 $work->save();
 
                 // redirect

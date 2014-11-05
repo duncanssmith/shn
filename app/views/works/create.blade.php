@@ -15,7 +15,12 @@
 <!-- if there are creation errors, they will show here -->
 {{ HTML::ul($errors->all()) }}
 
-{{ Form::open(array('url' => 'works')) }}
+{{ Form::open(array('url' => 'works', 'files' => true)) }}
+
+	<div class="form-group">
+		{{ Form::label('image', 'Image') }}
+		{{ Form::file('image', Input::old('image'), array('class' => 'form-control')) }}
+	</div>
 
 	<div class="form-group">
 		{{ Form::label('title', 'Title') }}
@@ -40,6 +45,16 @@
 	<div class="form-group">
 		{{ Form::label('work_date', 'Work date') }}
 		{{ Form::text('work_date', Input::old('work_date'), array('class' => 'form-control')) }}
+	</div>
+
+	<div class="form-group">
+		{{ Form::label('description', 'Description') }}
+		{{ Form::text('description', Input::old('description'), array('class' => 'form-control')) }}
+	</div>
+
+	<div class="form-group">
+		{{ Form::label('notes', 'Notes') }}
+		{{ Form::text('notes', Input::old('notes'), array('class' => 'form-control')) }}
 	</div>
 
 	{{ Form::submit('Save', array('class' => 'btn btn-primary')) }}

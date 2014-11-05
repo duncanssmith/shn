@@ -38,12 +38,16 @@ class PagesController extends \BaseController {
 
         $texts = Text::all();
         $groups = Group::all();		
+        $i = 0;
+        $columns = 4;
 
 		// show the view and pass the group to it
 		return View::make('pages.group')
 			->with('group', $group)
 			->with('groups', $groups)
 			->with('texts', $texts)
+			->with('i', $i)
+			->with('columns', $columns)
 			->with('title', 'Sharon Hall: '.$group->name);
 	}
 

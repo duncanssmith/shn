@@ -42,6 +42,16 @@
 		{{ Form::text('work_date', null, array('class' => 'form-control')) }}
 	</div>
 
+	<div class="form-group">
+		{{ Form::label('description', 'Description') }}
+		{{ Form::text('description', null, array('class' => 'form-control')) }}
+	</div>
+
+	<div class="form-group">
+		{{ Form::label('notes', 'Notes') }}
+		{{ Form::text('notes', null, array('class' => 'form-control')) }}
+	</div>
+
 	{{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}

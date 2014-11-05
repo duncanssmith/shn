@@ -7,7 +7,8 @@
 		"laravel/framework": "4.2.*",
         "twitter/bootstrap":"*",
 		"laracasts/validation": "~1.0",
-        "intervention/image": "dev-master"
+        "intervention/image": "dev-master",
+        "doctrine/dbal": "v2.4.2"
 	},
 	"autoload": {
 		"classmap": [
