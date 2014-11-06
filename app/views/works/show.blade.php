@@ -19,7 +19,9 @@
 			<strong>Reference:</strong> {{ $work->reference }}<br>
 			<strong>Media:</strong> {{ $work->media }}<br>
 			<strong>Dimensions:</strong> {{ $work->dimensions }}<br>
-			<strong>Work date:</strong> {{ $work->work_date }}
+			<strong>Work date:</strong> {{ $work->work_date }}<br>
+			<strong>Description:</strong> {{ $work->description }}<br>
+			<strong>Notes:</strong> {{ $work->notes }}
 		</p>
 	</div>
 

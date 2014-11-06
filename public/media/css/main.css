@@ -31,7 +31,9 @@ h1 {
 
 .error {color:red; font-style:italic; font-size:.9em;}
 
+
 .work-container {
+    border: 0px solid #f00;
     width: 200px;
     padding: 10px 40px ;
     font-size: 0.8em;

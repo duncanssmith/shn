@@ -19,19 +19,20 @@
                 <div class="navbar-header">
                     <ul class="nav navbar-nav" role="menu" aria-labelledby="dLabel">
                         <li><a href="/secure"><i class="fa fa-gear"></i></a></li>
-                        <li><a href="/">Home</a></li>
+                        <li><a href="/"><i class="fa fa-home"></i></a></li>
                     </ul>
                 </div>
             </nav>
 
             @section('nav')
 
-            Hello World this is the layout.master.blade.php nav section
+            Hello World this is the layout.public.blade.php nav section
 
             @show
 
+            @section('content')
 
-            @yield('content')
+            @show
 
         </div>
 

@@ -23,21 +23,6 @@
             @endforeach
         </ul>
     </div>  
-<!-- 
-    <div class="dropdown">
-        <a data-toggle="dropdown" href="#">Texts</a>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-            <li><a href="/publiccv">Curriculum Vitae</a></li>
-                @foreach($texts as $text)
-                    <li><a href="/publictext/{{$text->id}}">{{ $text->title }}</a></li>
-                @endforeach
-        </ul>
-
-<!--         <a  data-toggle="dropdown" href="#">CV</a>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-            <li><a href="/publiccv">CV</a></li>
-        </ul>
-    </div>	 -->
 
 @stop
 
