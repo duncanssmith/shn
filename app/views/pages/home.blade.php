@@ -5,6 +5,9 @@
 @section('nav')
 
 @stop
+
+
+@section('content')
     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
         <span><i class="fa fa-bars"></i></span>
     </a>
@@ -25,8 +28,6 @@
         </ul>
     </div>  
 
-
-@section('content')
 
 
 

@@ -7,6 +7,7 @@
 @stop
 
 
+@section('content')
     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
         <span><i class="fa fa-bars"></i></span>
     </a>
@@ -28,7 +29,6 @@
     </div> 
 
 
-@section('content')
 	<div class="text-left">
 		<h2>{{ $group->name }}</h2>
 	</div>
