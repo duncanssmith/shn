@@ -6,6 +6,7 @@
             <ul class="nav navbar-nav" role="menu" aria-labelledby="dLabel">
                 <li class="dropdown" role="presentation"><a href="/secure"><i class="fa fa-gear"></i></a></li>
                 <li class="dropdown" role="presentation"><a href="/"><i class="fa fa-home"></i></a></li> 
+                <li class="dropdown" role="presentation"><a href="/publicgroup/17"><i class="fa fa-clock-o"></i></a></li> 
 
                 <li class="dropdown" role="presentation">
                     <a href="#" data-toggle="dropdown"><span class="fa fa-bars"></span></a>
