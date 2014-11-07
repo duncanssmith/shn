@@ -1,11 +1,7 @@
 <?php
 
-
-
 # Home
 Route::get('/secure', ['as' => 'home', 'uses' => 'PagesController@index']);
-
-//Route::get('publicgroup/{id}', ['uses' => 'PagesController@publicworks']);
 
 Route::get('/', ['as' => 'public',  'uses' => 'PagesController@home']);
 

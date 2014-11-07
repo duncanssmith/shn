@@ -1,10 +1,12 @@
 <!-- app/views/groups/create.blade.php -->
 
-@extends('...layout.master')
+@extends('...layout.secure')
 
 @section('nav')
 
-@include('groups.partials.nav')
+    @include('partials.nav_secure')
+
+    @include('partials.subnav_secure')
 
 @stop
 

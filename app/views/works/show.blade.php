@@ -1,10 +1,12 @@
 <!-- app/views/works/show.blade.php -->
 
-@extends('...layout.master')
+@extends('...layout.secure')
 
 @section('nav')
 
-@include('works.partials.nav')
+    @include('partials.nav_secure')
+
+    @include('partials.subnav_secure')
 
 @stop
 

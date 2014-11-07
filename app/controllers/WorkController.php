@@ -6,7 +6,7 @@ class WorkController extends BaseController {
     /**
      * The layout that should be used for responses.
      */
-    protected $layout = 'layout.master';
+    protected $layout = 'layout.secure';
 
     /**
      * List all the works
@@ -22,6 +22,7 @@ class WorkController extends BaseController {
 
             return View::make('works.index')
                 ->with('works', $works)
+                ->with('entity', 'work')
                 ->with('title', 'Works');
         } else {
             // User is not logged in
@@ -40,6 +41,7 @@ class WorkController extends BaseController {
         // Check user is logged in
         if (Auth::check()) {
             return View::make('works.create')
+                ->with('entity', 'work')
                 ->with('title', 'Work create');
         } else {
             // User is not logged in
@@ -65,27 +67,32 @@ class WorkController extends BaseController {
             );
             $validator = Validator::make(Input::all(), $rules);
 
+            if (Input::hasFile('image')) {
+                // Check we got an uploaded file
+                die("FILE WAS UPLOADED");
+            }
+
             // process the login
             if ($validator->fails()) {
                 return Redirect::to('works/create')
                     ->withErrors($validator)
                     ->withInput(Input::except('password'));
-        } else {
-            // store
-            $work = new Work;
-            $work->title       = Input::get('title');
-            $work->reference   = Input::get('reference');
-            $work->media       = Input::get('media');
-            $work->dimensions  = Input::get('dimensions');
-            $work->work_date   = Input::get('work_date');
-            $work->description = Input::get('description');
-            $work->notes       = Input::get('notes');
-            $work->save();
+            } else {
+                // store
+                $work = new Work;
+                $work->title       = Input::get('title');
+                $work->reference   = Input::get('reference');
+                $work->media       = Input::get('media');
+                $work->dimensions  = Input::get('dimensions');
+                $work->work_date   = Input::get('work_date');
+                $work->description = Input::get('description');
+                $work->notes       = Input::get('notes');
+                $work->save();
 
-            // redirect
-            Session::flash('message', 'Successfully created work');
-            return Redirect::to('works');
-        }
+                // redirect
+                Session::flash('message', 'Successfully created work');
+                return Redirect::to('works');
+            }
         } else {
             // User is not logged in
             Session::flash('message', 'Please log in');
@@ -111,6 +118,7 @@ class WorkController extends BaseController {
             // show the view and pass the work to it
             return View::make('works.show')
                 ->with('work', $work)
+                ->with('entity', 'work')
                 ->with('groups', $groups)
                 ->with('title', 'Work show');
         } else {
@@ -136,6 +144,7 @@ class WorkController extends BaseController {
             // show the edit form and pass the work
             return View::make('works.edit')
                 ->with('work', $work)
+                ->with('entity', 'work')
                 ->with('title', 'Work edit');
         } else {
             // User is not logged in

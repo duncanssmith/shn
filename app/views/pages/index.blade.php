@@ -1,4 +1,12 @@
-@extends('layout.master')
+<!-- app/views/pages/index.blade.php -->
+
+@extends('layout.secure')
+
+@section('nav')
+
+    @include('partials.nav_secure')
+
+@stop
 
 @section('content')
 

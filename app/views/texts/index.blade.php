@@ -1,10 +1,12 @@
 <!-- app/views/texts/index.blade.php -->
 
-@extends('...layout.master')
+@extends('...layout.secure')
 
 @section('nav')
 
-@include('texts.partials.nav')
+    @include('partials.nav_secure')
+
+    @include('partials.subnav_secure')
 
 @stop
 

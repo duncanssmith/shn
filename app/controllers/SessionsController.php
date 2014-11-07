@@ -35,7 +35,7 @@ class SessionsController extends \BaseController {
             return Redirect::intended('/');
         }
 
-        return Redirect::back('hello')->withInput()->withFlashMessage('Invalid credentials provided');
+        return Redirect::back('login')->withInput()->withFlashMessage('Invalid credentials provided');
 	}
 
 

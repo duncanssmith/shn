@@ -4,30 +4,11 @@
 
 @section('nav')
 
+    @include('partials.nav_public')
+
 @stop
 
-
 @section('content')
-    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span><i class="fa fa-bars"></i></span>
-    </a>
-    <div class="nav-collapse collapse">
-        <ul class="nav">
-        @foreach($group_list as $item)
-            <li><a href="/publicgroup/{{$item->id}}" >{{ $item->name }}</a></li>
-        @endforeach
-        </ul>
-    </div>
-
-    <div class="dropdown">
-        <a data-toggle="dropdown" href="#">Groups</a>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-            @foreach($group_list as $item)
-                <li><a href="/publicgroup/{{$item->id}}">{{ $item->name }}</a></li>
-            @endforeach
-        </ul>
-    </div> 
-
 
 	<div class="text-left">
 		<h2>{{ $group->name }}</h2>
@@ -50,7 +31,7 @@
     	    	<a id="modal-{{ $work->reference }}" data-toggle="modal" data-target="#item-show-{{ $work->reference }}" ><img src="/media/images/120/sh_{{ $work->reference }}.jpg"></a><br>
 
                 <p>{{ $work->title }} </p>
-<!--                 {{ $work->media }} <br>
+        <!--    {{ $work->media }} <br>
                 {{ $work->dimensions }} <br>
                 {{ $work->work_date }} -->
                 <!-- Button trigger modal -->

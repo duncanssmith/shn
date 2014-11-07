@@ -1,9 +1,9 @@
 <!-- app/views/users/edit.blade.php -->
 
-@extends('...layout.master')
+@extends('...layout.secure')
 
 @section('nav')
-
+    @include('partials.nav_secure')
 @include('users.partials.nav')
 
 @stop

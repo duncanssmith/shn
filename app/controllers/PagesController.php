@@ -2,6 +2,11 @@
 
 class PagesController extends \BaseController {
 
+    /**
+     * The layout that should be used for responses.
+     */
+    protected $layout = 'layout.public';
+
 	/**
 	 * This is the publicly viewable page, a group of works
 	 * identified by the group id
@@ -16,10 +21,13 @@ class PagesController extends \BaseController {
 		$groups = Group::all();
 		$texts = Text::all();
 
+        $group_list = Group::all();
+
 		// show the view and pass the group to it
 		return View::make('pages.home')
 			->with('groups', $groups)
 			->with('texts', $texts)
+			->with('group_list', $group_list)
 			->with('title', 'Sharon Hall');
 	}
 
@@ -56,9 +64,11 @@ class PagesController extends \BaseController {
     public function publicwork($id)
     {
     	$work = Work::find($id);
+    	$group_list = Group::all();
 
     	return View::make('pages.work')
     	    ->with('work', $work)
+			->with('group_list', $group_list)
     	    ->with('title', $work->title);
     }
 
@@ -67,11 +77,13 @@ class PagesController extends \BaseController {
 	{
 		// get the groups
         $texts = Text::all();
+    	$group_list = Group::all();
 
         // show the view and pass the group to it
         return View::make('pages.texts')
-        ->with('texts', $texts)
-        ->with('title', 'Sharon Hall Texts');
+            ->with('texts', $texts)
+	        ->with('group_list', $group_list)
+            ->with('title', 'Sharon Hall Texts');
 	}
 
     /**
@@ -80,14 +92,20 @@ class PagesController extends \BaseController {
     public function publictext($id)
     {
         $text = Text::find($id);
+    	$group_list = Group::all();
+
         return View::make('pages.text')
         ->with('text', $text)
+	    ->with('group_list', $group_list)
         ->with('title', $text->title);
     }
 
     public function publiccv()
     {
+    	$group_list = Group::all();
+
         return View::make('pages.cv')
+	    ->with('group_list', $group_list)
         ->with('title', 'CV');
     }
 
@@ -99,7 +117,10 @@ class PagesController extends \BaseController {
 	 */
 	public function index()
 	{
+    	$group_list = Group::all();
+    	
 		return View::make('pages.index')
+	    ->with('group_list', $group_list)
 		->with('title', 'SHN');
 	}
 

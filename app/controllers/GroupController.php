@@ -5,7 +5,7 @@ class GroupController extends BaseController {
     /**
      * The layout that should be used for responses.
      */
-    protected $layout = 'layout.master';
+    protected $layout = 'layout.secure';
 
     /**
      * @param $id
@@ -148,6 +148,7 @@ class GroupController extends BaseController {
 
             return View::make('groups.index')
                 ->with('groups', $groups)
+                ->with('entity', 'group')
                 ->with('title', 'Groups');
 
         } else {
@@ -169,6 +170,7 @@ class GroupController extends BaseController {
         // load the create form (app/views/groups/create.blade.php)
         if (Auth::check()) {
             return View::make('groups.create')
+                ->with('entity', 'group')
                 ->with('title', 'Group create');
         } else {
             // User is not logged in
@@ -229,6 +231,7 @@ class GroupController extends BaseController {
             // show the view and pass the group to it
             return View::make('groups.show')
                 ->with('group', $group)
+                ->with('entity', 'group')
                 ->with('title', 'Group show');
         } else {
             // User is not logged in
@@ -252,6 +255,7 @@ class GroupController extends BaseController {
             // show the edit form and pass the group
             return View::make('groups.edit')
                 ->with('group', $group)
+                ->with('entity', 'group')
                 ->with('title', 'Group edit');
         } else {
             // User is not logged in

@@ -14,7 +14,7 @@ class NavigationComposer {
 	{
         $nav_data = \Group::lists('id', 'name');
 
-        $nav_data = [1 => 'one', 2 => 'two'];
+        //$nav_data = [1 => 'one', 2 => 'two'];
 
         $view->with('nav', $nav_data);
 

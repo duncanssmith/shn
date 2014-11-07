@@ -4,6 +4,8 @@
 
 @section('nav')
 
+    @include('partials.nav_public')
+
 @stop
 
 @section('content')

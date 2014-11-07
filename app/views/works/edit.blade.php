@@ -1,10 +1,12 @@
 <!-- app/views/works/edit.blade.php -->
 
-@extends('...layout.master')
+@extends('...layout.secure')
 
 @section('nav')
 
-@include('works.partials.nav')
+    @include('partials.nav_secure')
+
+    @include('partials.subnav_secure')
 
 @stop
 
@@ -18,6 +20,11 @@
 {{ Form::model($work, array('route' => array('works.update', $work->id), 'method' => 'PUT')) }}
 
     <img src="/media/images/160/sh_{{$work->reference}}.jpg">
+
+	<div class="form-group">
+		{{ Form::label('image', 'Image') }}
+		{{ Form::file('image', Input::old('image'), array('class' => ' btn btn-primary')) }}
+	</div>
 
 	<div class="form-group">
 		{{ Form::label('title', 'Title') }}

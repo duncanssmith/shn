@@ -1,4 +1,3 @@
-
 <?php
 
 class TextController extends BaseController {
@@ -6,7 +5,7 @@ class TextController extends BaseController {
     /**
      * The layout that should be used for responses.
      */
-    protected $layout = 'layout.master';
+    protected $layout = 'layout.secure';
 
     /**
      * @return mixed
@@ -18,6 +17,7 @@ class TextController extends BaseController {
             $texts = Text::paginate(3);
             return View::make('texts.index')
                 ->with('texts', $texts)
+                ->with('entity', 'text')
                 ->with('title', 'Texts');
         } else {
             // User is not logged in
@@ -37,6 +37,7 @@ class TextController extends BaseController {
         // load the create form (app/views/texts/create.blade.php)
         if (Auth::check()) {
             return View::make('texts.create')
+                ->with('entity', 'text')
                 ->with('title', 'Text create');
         } else {
             // User is not logged in
@@ -106,6 +107,7 @@ class TextController extends BaseController {
             // show the view and pass the text to it
             return View::make('texts.show')
                 ->with('text', $text)
+                ->with('entity', 'text')
                 ->with('title', 'Text show');
         } else {
             // User is not logged in
@@ -130,6 +132,7 @@ class TextController extends BaseController {
             // show the edit form and pass the text
             return View::make('texts.edit')
                 ->with('text', $text)
+                ->with('entity', 'text')
                 ->with('title', 'Text edit');
         } else {
             // User is not logged in
