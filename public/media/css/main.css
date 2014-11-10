@@ -43,3 +43,10 @@ h1 {
 .icon-white {
     color: #fff;
 }
+
+.top-photo {
+    background: #282828 url('../images/Home/sh_0300.jpg') no-repeat top center;
+    min-height: 285px;
+    background-size: cover;
+    color: #fff;
+}
