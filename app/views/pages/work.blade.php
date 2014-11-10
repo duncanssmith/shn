@@ -22,6 +22,7 @@
 			{{ $work->description }}<br>
 			{{ $work->notes }}
 		</p>
+		<a href="/publicgroup/{{ $_GET['group'] }}" class="btn btn-sm btn-default">Back</a>
 	</div>
 
 @stop

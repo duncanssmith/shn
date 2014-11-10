@@ -35,7 +35,7 @@
                 {{ $work->dimensions }} <br>
                 {{ $work->work_date }} -->
                 <!-- Button trigger modal -->
-                <a id="modal-{{ $work->reference }}" href="/publicwork/{{$work->id}}" class="btn btn-sm btn-default">Show</a>
+                <a id="modal-{{ $work->reference }}" href="/publicwork/{{$work->id}}?group={{ $group->id}}" class="btn btn-sm btn-default">Show</a>
                         <!-- Image display modal ////////////////////////////////////////////////////////// -->
             <div id="item-show-{{ $work->reference }}" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog">
