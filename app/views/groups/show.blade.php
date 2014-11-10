@@ -19,6 +19,10 @@
 		<p>
 			<strong>Id:</strong> {{ $group->id }}
 		</p>
+		<h2>{{ $group->order }}</h2>
+		<p>
+			<strong>Order:</strong> {{ $group->order }}
+		</p>
 	</div>
 
 </div>

@@ -24,6 +24,12 @@
 		{{ Form::text('name', Input::old('name'), array('class' => 'form-control')) }}
 	</div>
 
+    <div class="form-group">
+		{{ Form::label('order', 'Order') }}
+		{{ Form::text('order', Input::old('order'), array('class' => 'form-control')) }}
+	</div>
+
+
 	{{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}

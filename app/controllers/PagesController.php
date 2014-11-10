@@ -42,9 +42,12 @@ class PagesController extends \BaseController {
 	public function publicgroup($id)
 	{
 		// get the groups and the works in them
-		$group = Group::with('Works')->with('Texts')->find($id);
+		$group = Group::with('Works')
+		   ->with('Texts')
+		   ->orderBy('order', 'asc')
+		   ->find($id);
 
-        $group_list = Group::all();		
+        $group_list = Group::orderBy('order', 'asc')->get();		
         $i = 0;
         $columns = 4;
 
@@ -63,7 +66,7 @@ class PagesController extends \BaseController {
     public function publicwork($id)
     {
     	$work = Work::find($id);
-    	$group_list = Group::all();
+    	$group_list = Group::orderBy('order', 'asc')->get();
 
     	return View::make('pages.work')
     	    ->with('work', $work)
@@ -76,7 +79,7 @@ class PagesController extends \BaseController {
 	{
 		// get the groups
         $texts = Text::all();
-    	$group_list = Group::all();
+    	$group_list = Group::orderBy('order', 'asc')->get();
 
         // show the view and pass the group to it
         return View::make('pages.texts')
@@ -91,7 +94,7 @@ class PagesController extends \BaseController {
     public function publictext($id)
     {
         $text = Text::find($id);
-    	$group_list = Group::all();
+    	$group_list = Group::orderBy('order', 'asc')->get();
 
         return View::make('pages.text')
         ->with('text', $text)
@@ -101,7 +104,7 @@ class PagesController extends \BaseController {
 
     public function publiccv()
     {
-    	$group_list = Group::all();
+    	$group_list = Group::orderBy('order', 'asc')->get();
 
         return View::make('pages.cv')
 	    ->with('group_list', $group_list)
@@ -116,7 +119,7 @@ class PagesController extends \BaseController {
 	 */
 	public function index()
 	{
-    	$group_list = Group::all();
+    	$group_list = Group::orderBy('order', 'asc')->get();
     	
 		return View::make('pages.index')
 	    ->with('group_list', $group_list)

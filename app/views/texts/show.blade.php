@@ -26,6 +26,7 @@
 		<p>{{ $text->publication }}</p>
 		<p>{{ $text->publication_date }}</p>
 		<p>{{ $text->content }}</p>
+		<p><b>Order:</b> {{ $text->order }}</p>
 
 	</div>
 

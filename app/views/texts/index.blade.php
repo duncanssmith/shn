@@ -29,6 +29,7 @@
 			<td>Content</td>
 			<td>Publication</td>
 			<td>Publication date</td>
+            <td>Order</td>
 			<td>Actions</td>
 		</tr>
 	</thead>
@@ -44,6 +45,7 @@
             <td title="{{$text->content}}"><i class="fa fa-list"></i></td>
             <td>{{ $text->publication }}</td>
             <td>{{ $text->publication_date }}</td>
+            <td>{{ $text->order }}</td>
 
 			<!-- we will also add show, edit, and delete buttons -->
 			<td>

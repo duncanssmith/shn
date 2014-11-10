@@ -146,7 +146,7 @@ class GroupController extends BaseController {
         if (Auth::check()) {
 
             // paginate
-            $groups = Group::paginate(9);
+            $groups = Group::orderBy('order', 'asc')->paginate(9);
 
             return View::make('groups.index')
                 ->with('groups', $groups)
@@ -205,6 +205,7 @@ class GroupController extends BaseController {
                 // store
                 $group = new Group;
                 $group->name = Input::get('name');
+                $group->order = Input::get('order');
                 $group->save();
 
                 // redirect
@@ -291,6 +292,7 @@ class GroupController extends BaseController {
                 // store
                 $group = Group::find($id);
                 $group->name       = Input::get('name');
+                $group->order       = Input::get('order');
                 $group->save();
 
                 // redirect

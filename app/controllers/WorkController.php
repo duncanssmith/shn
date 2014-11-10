@@ -85,6 +85,7 @@ class WorkController extends BaseController {
                 $work->work_date   = Input::get('work_date');
                 $work->description = Input::get('description');
                 $work->notes       = Input::get('notes');
+                $work->order       = Input::get('order');                
                 $work->save();
 
                 //var_dump($work->id); die();
@@ -198,6 +199,7 @@ class WorkController extends BaseController {
                 $work->work_date = Input::get('work_date');
                 $work->description = Input::get('description');
                 $work->notes = Input::get('notes');
+                $work->order       = Input::get('order');                
                 $work->save();
 
                 // redirect

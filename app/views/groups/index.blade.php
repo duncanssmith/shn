@@ -22,7 +22,8 @@
 	<thead>
 		<tr>
 			<td>Id</td>
-			<td>Name</td>
+            <td>Name</td>
+			<td>Order</td>
             <td>Works</td>
             <td>Texts</td>
 			<td>Actions</td>
@@ -34,6 +35,7 @@
 
             <td>{{ $group->id }}</td>
             <td><a href="/publicgroup/{{$group->id}}">{{ $group->name }}</a></td>
+            <td>{{ $group->order }}</td>
             <td>{{ $group->works()->count() }}</a></td>
             <td>{{ $group->texts()->count() }}</a></td>
 

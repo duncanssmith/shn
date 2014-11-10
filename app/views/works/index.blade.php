@@ -30,6 +30,7 @@
             <td>Date</td>
             <td>Description</td>
             <td>Notes</td>
+            <td>Order</td>
             <td>Actions</td>
         </tr>
     </thead>
@@ -46,6 +47,7 @@
         <td>{{ $work->work_date }}</td>
         <td>{{ $work->description }}</td>
         <td>{{ $work->notes }}</td>
+        <td>{{ $work->order }}</td>
 
             <!-- we will also add show, edit, and delete buttons -->
             <td>

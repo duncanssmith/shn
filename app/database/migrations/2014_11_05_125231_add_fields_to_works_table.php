@@ -14,11 +14,11 @@ class AddFieldsToWorksTable extends Migration {
 	{
 		Schema::table('works', function(Blueprint $table)
 		{
-			$table->string('description', 256)->nullable();
-			$table->string('notes', 256)->nullable();
+			// $table->string('description', 256)->nullable();
+			// $table->string('notes', 256)->nullable();
 		});
 
-		DB::select(DB::raw('ALTER TABLE `works` CHANGE COLUMN `work_date` `work_date` VARCHAR(32) DEFAULT NULL AFTER `dimensions`;'));
+		// DB::select(DB::raw('ALTER TABLE `works` CHANGE COLUMN `work_date` `work_date` VARCHAR(32) DEFAULT NULL AFTER `dimensions`;'));
 	}
 
 	/**
@@ -28,12 +28,12 @@ class AddFieldsToWorksTable extends Migration {
 	 */
 	public function down()
 	{
-		DB::select(DB::raw('ALTER TABLE `works` CHANGE COLUMN `work_date` `work_date` DATE DEFAULT NULL;'));
+		// DB::select(DB::raw('ALTER TABLE `works` CHANGE COLUMN `work_date` `work_date` DATE DEFAULT NULL;'));
 
 		Schema::table('works', function(Blueprint $table)
 		{
-		    $table->dropColumn('notes');
-		    $table->dropColumn('description');
+		  //   $table->dropColumn('notes');
+		  //   $table->dropColumn('description');
 		});
 	}
 

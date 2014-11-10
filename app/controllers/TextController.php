@@ -77,6 +77,7 @@ class TextController extends BaseController {
                 $text->content  = Input::get('content');
                 $text->publication  = Input::get('publication');
                 $text->publication_date  = Input::get('publication_date');
+                $text->order  = Input::get('order');
 
                 $text->save();
 
@@ -173,6 +174,7 @@ class TextController extends BaseController {
                 $text->content  = Input::get('content');
                 $text->publication  = Input::get('publication');
                 $text->publication_date  = Input::get('publication_date');
+                $text->order  = Input::get('order');
                 $text->save();
 
                 // redirect
