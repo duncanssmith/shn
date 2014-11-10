@@ -44,7 +44,6 @@ class PagesController extends \BaseController {
 		// get the groups and the works in them
 		$group = Group::with('Works')->with('Texts')->find($id);
 
-        $texts = Text::all();
         $group_list = Group::all();		
         $i = 0;
         $columns = 4;

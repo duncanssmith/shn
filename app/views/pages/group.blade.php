@@ -30,7 +30,7 @@
 
     	    	<a id="modal-{{ $work->reference }}" data-toggle="modal" data-target="#item-show-{{ $work->reference }}" ><img src="/media/images/120/sh_{{ $work->reference }}.jpg"></a><br>
 
-                <p>{{ $work->title }} </p>
+               <!--  <p>{{ $work->title }} </p> -->
         <!--    {{ $work->media }} <br>
                 {{ $work->dimensions }} <br>
                 {{ $work->work_date }} -->

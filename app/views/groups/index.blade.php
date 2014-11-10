@@ -24,6 +24,7 @@
 			<td>Id</td>
 			<td>Name</td>
             <td>Works</td>
+            <td>Texts</td>
 			<td>Actions</td>
 		</tr>
 	</thead>
@@ -34,6 +35,7 @@
             <td>{{ $group->id }}</td>
             <td><a href="/publicgroup/{{$group->id}}">{{ $group->name }}</a></td>
             <td>{{ $group->works()->count() }}</a></td>
+            <td>{{ $group->texts()->count() }}</a></td>
 
 			<!-- we will also add show, edit, and delete buttons -->
 			<td>

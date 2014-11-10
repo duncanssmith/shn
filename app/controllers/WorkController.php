@@ -59,21 +59,19 @@ class WorkController extends BaseController {
     {
         // Check user is logged in
         if (Auth::check()) {
+            // init vars
+            $destination_path = '/Users/duncansmith/Sites/shn.local/public/dsscript/uploads';
             // validate
             // read more on validation at http://laravel.com/docs/validation
             $rules = array(
                 'title'      => 'required',
-                'reference'  => 'unique'
+                'reference'  => 'required|unique:works'
             );
             $validator = Validator::make(Input::all(), $rules);
 
-            if (Input::hasFile('image')) {
-                // Check we got an uploaded file
-                die("FILE WAS UPLOADED");
-            }
-
             // process the login
             if ($validator->fails()) {
+                var_dump($validator->fails()); die();
                 return Redirect::to('works/create')
                     ->withErrors($validator)
                     ->withInput(Input::except('password'));
@@ -88,6 +86,21 @@ class WorkController extends BaseController {
                 $work->description = Input::get('description');
                 $work->notes       = Input::get('notes');
                 $work->save();
+
+                //var_dump($work->id); die();
+                if ($photo = Input::file('image')) {
+                    // Check we got an uploaded file
+                    if (Input::file('image')->isValid())
+                    {
+                        Input::file('image')->move($destinationPath);
+                        //Input::file('image')->move($destinationPath, $work->id);
+                    }
+                } else {
+                    $work->delete();
+                    die('no photo file was not uploaded'); 
+
+                }
+
 
                 // redirect
                 Session::flash('message', 'Successfully created work');

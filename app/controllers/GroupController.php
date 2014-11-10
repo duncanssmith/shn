@@ -31,6 +31,7 @@ class GroupController extends BaseController {
                 ->with('text', $text)
                 ->with('links', $links)
                 ->with('arr', $arr)
+                ->with('entity', 'text')
                 ->with('groups', $groups)
                 ->with('title', 'Assign the text to a group or groups');
 
@@ -93,6 +94,7 @@ class GroupController extends BaseController {
             // show the edit form and pass the group
             return View::make('works.assign')
                 ->with('work', $work)
+                ->with('entity', 'work')
                 ->with('links', $links)
                 ->with('arr', $arr)
                 ->with('groups', $groups)

@@ -41,7 +41,7 @@
             <td>{{ $text->author }}</td>
             <td>{{ $text->description }}</td>
             <td>{{ $text->year }}</td>
-            <td>{{ $text->content }}</td>
+            <td title="{{$text->content}}"><i class="fa fa-list"></i></td>
             <td>{{ $text->publication }}</td>
             <td>{{ $text->publication_date }}</td>
 
