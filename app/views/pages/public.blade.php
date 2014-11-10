@@ -12,7 +12,7 @@
 
 @section('content')
 
-	<div class="jumbotron text-center">
+	<div class="text-left">
 		<h2>{{ $group->name }}</h2>
 		<p>
 			Id: {{ $group->id }}

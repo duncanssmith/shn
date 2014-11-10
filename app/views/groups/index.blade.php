@@ -11,7 +11,8 @@
 @stop
 
 @section('content')
-    <h1> {{ $groups->getTotal() }} Groups</h1>
+    <h1> Groups</h1>
+    <p> {{ $groups->getTotal() }}</p>
 
 <!-- will be used to show any messages -->
 @if (Session::has('message'))

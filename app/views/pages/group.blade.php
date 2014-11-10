@@ -65,11 +65,13 @@
 
     <div>
         @foreach($group->texts as $text)
-            <br>
-            {{ $text->title }} <br>
-            {{ $work->author }} <br>
-            {{ $work->year }} <br>
-            {{ $text->content }}
+        <div class="text-container">
+        <br>
+            <h4>{{ $text->title }}</h4> <br>
+            {{ $text->content }}<br>
+            {{ $text->author }} <br>
+            {{ $text->year }} <br>
+        </div>
         @endforeach
     </div>
 
