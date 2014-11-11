@@ -17,8 +17,8 @@ class CreateGroupWorkTable extends Migration {
         Schema::create('group_work', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->integer('work_id');
-            $table->integer('group_id');
+            $table->integer('work_id')->unsigned();
+            $table->integer('group_id')->unsigned();
             $table->timestamps();
         });
 	}
@@ -36,8 +36,8 @@ class CreateGroupWorkTable extends Migration {
         Schema::create('work_group', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->integer('work_id');
-            $table->integer('group_id');
+            $table->integer('work_id')->unsigned();
+            $table->integer('group_id')->unsigned();
             $table->timestamps();
         });
 	}

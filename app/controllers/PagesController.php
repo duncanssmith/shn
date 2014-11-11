@@ -21,7 +21,7 @@ class PagesController extends \BaseController {
 		$groups = Group::all();
 		$texts = Text::all();
 
-        $group_list = Group::all();
+        $group_list = Group::orderBy('order', 'asc')->get();
 
 		// show the view and pass the group to it
 		return View::make('pages.home')
