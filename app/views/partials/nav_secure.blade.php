@@ -1,24 +1,49 @@
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-fixed-top">
+
         <div class="navbar-header">
+
+        <div class="navbar-collapse collapse" role="navigation">
+
             <ul class="nav navbar-nav">
-                <li><a href="/"><i class="fa fa-home icon-white"></i> Sharon Hall</a></li>
-                <li><a href="/publicgroup/17"><i class="fa fa-clock-o icon-white"></i> Current</a></li>
+
+                <li class="dropdown" role="presentation"><a href="/" title="home"><i class="fa fa-home"></i></a></li> 
+                <li class="dropdown" role="presentation"><a href="/publicgroup/17" title="current work"><i class="fa fa-clock-o"></i></a></li> 
+
+                <li class="dropdown" role="presentation">
+                    <a href="#" data-toggle="dropdown" title="explore"><span class="fa fa-bars"></span></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                        @foreach($group_list as $item)
+                            <li><a href="/publicgroup/{{$item->id}}">{{ $item->name }}</a></li>
+                        @endforeach
+                    </ul>
+                </li>
 
                 @if (Auth::guest())
 
-                    <li><a href="/login">Login</a></li>
-
                 @else
-
-                <li><a href="/groups"><i class="fa fa-folder icon-white"></i> Groups</a></li>
-                <li><a href="/works"><i class="fa fa-heart icon-white"></i> Works</a></li>
-                <li><a href="/texts"><i class="fa fa-file-text icon-white"></i> Texts</a></li>
-                <li><a href="/users"><i class="fa fa-group icon-white"></i> Users</a></li>
-                <li><a href="#"><i class="fa fa-user"></i> {{ Auth::check() ?  Auth::user()->username : "" }}</a></li>
-                <li><a href="/logout">Logout</a></li>
+                
+                <li><a href="/" title="home"><i class="fa fa-home icon-white"></i> </a></li>
+                <li><a href="/publicgroup/17" title="current work"><i class="fa fa-clock-o icon-white"></i> </a></li>
+                <li><a href="/groups" title="groups"><i class="fa fa-folder icon-white"></i> </a></li>
+                <li><a href="/works" title="works"><i class="fa fa-paint-brush icon-white"></i> </a></li>
+                <li><a href="/texts" title="texts"><i class="fa fa-file-text icon-white"></i> </a></li>
+                <li><a href="/users" title="users"><i class="fa fa-group icon-white"></i></a></li>
 
                 @endif
 
+            </ul>
+        </div>
+        </div>
+        <div class="navbar-header pull-right">
+            <ul class="nav navbar-nav">
+
+                @if (Auth::guest())
+
+                    <li><a href="/login" title="log in"><i class="fa fa-key icon-white"></i> </a></li>
+                @else
+                    <li><a href="#" title="logged in as"><i class="fa fa-user icon-white"></i> {{ Auth::check() ?  Auth::user()->username : "" }}</a></li>
+                    <li><a href="/logout" title="log out"><i class="fa fa-key icon-white"></i> </a></li>
+                @endif  
             </ul>
         </div>
     </nav>

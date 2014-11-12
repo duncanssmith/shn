@@ -18,8 +18,8 @@
         <table>
 	    @foreach($group->works as $work)
 
-            @if($i % $columns == 0)
-                @if($i==0)
+            @if ($i % $columns == 0)
+                @if ($i==0)
             <tr>
                 @else
             </tr>
@@ -31,9 +31,9 @@
     	    	<a id="modal-{{ $work->reference }}" data-toggle="modal" data-target="#item-show-{{ $work->reference }}" ><img src="/media/images/120/sh_{{ $work->reference }}.jpg"></a><br>
 
                <!--  <p>{{ $work->title }} </p> -->
-        <!--    {{ $work->media }} <br>
-                {{ $work->dimensions }} <br>
-                {{ $work->work_date }} -->
+               <!--    {{ $work->media }} <br>
+                       {{ $work->dimensions }} <br>
+                       {{ $work->work_date }} -->
                 <!-- Button trigger modal -->
                 <a id="modal-{{ $work->reference }}" href="/publicwork/{{$work->id}}?group={{ $group->id}}" class="btn btn-sm btn-default"><i class="fa fa-arrow-right" style="color:#999;"></i> Show</a>
                         <!-- Image display modal ////////////////////////////////////////////////////////// -->
