@@ -19,6 +19,8 @@ class GroupController extends BaseController {
 
             $links = $text->groups;
 
+            $group_list = Group::orderBy('order', 'asc')->get();
+
             $arr = array();
             foreach ($text->groups as $link){
                 $arr[] = $link->pivot->group_id;
@@ -28,6 +30,7 @@ class GroupController extends BaseController {
 
             // show the edit form and pass the group
             return View::make('texts.assign')
+                ->with('group_list', $group_list)               
                 ->with('text', $text)
                 ->with('links', $links)
                 ->with('arr', $arr)
@@ -62,7 +65,7 @@ class GroupController extends BaseController {
             }
 
             Session::flash('message', 'Successfully assigned text to group(s)');
-            return Redirect::to('assign_text/'.$text->id);
+            return Redirect::to('texts');
 
         } else {
 
@@ -84,6 +87,8 @@ class GroupController extends BaseController {
 
             $links = $work->groups;
 
+            $group_list = Group::orderBy('order', 'asc')->get();
+
             $arr = array();
             foreach ($work->groups as $link){
                 $arr[] = $link->pivot->group_id;
@@ -91,8 +96,11 @@ class GroupController extends BaseController {
             
             $groups = Group::all();
 
+            $group_list = Group::orderBy('order', 'asc')->get();
+
             // show the edit form and pass the group
             return View::make('works.assign')
+                ->with('group_list', $group_list)               
                 ->with('work', $work)
                 ->with('entity', 'work')
                 ->with('links', $links)
@@ -127,7 +135,7 @@ class GroupController extends BaseController {
             }
 
             Session::flash('message', 'Successfully assigned work to group(s)');
-            return Redirect::to('assign_work/'.$work->id);
+            return Redirect::to('works');
 
         } else {
 
@@ -147,9 +155,11 @@ class GroupController extends BaseController {
 
             // paginate
             $groups = Group::orderBy('order', 'asc')->paginate(9);
+            $group_list = Group::orderBy('order', 'asc')->get();
 
             return View::make('groups.index')
                 ->with('groups', $groups)
+                ->with('group_list', $group_list)
                 ->with('entity', 'group')
                 ->with('title', 'Groups');
 
@@ -171,7 +181,11 @@ class GroupController extends BaseController {
     {
         // load the create form (app/views/groups/create.blade.php)
         if (Auth::check()) {
+
+            $group_list = Group::orderBy('order', 'asc')->get();
+
             return View::make('groups.create')
+                ->with('group_list', $group_list)
                 ->with('entity', 'group')
                 ->with('title', 'Group create');
         } else {
@@ -231,8 +245,11 @@ class GroupController extends BaseController {
             // get the group
             $group = Group::find($id);
 
+            $group_list = Group::orderBy('order', 'asc')->get();
+
             // show the view and pass the group to it
             return View::make('groups.show')
+                ->with('group_list', $group_list)
                 ->with('group', $group)
                 ->with('entity', 'group')
                 ->with('title', 'Group show');
@@ -255,8 +272,11 @@ class GroupController extends BaseController {
             // get the group
             $group = Group::find($id);
 
+            $group_list = Group::orderBy('order', 'asc')->get();
+
             // show the edit form and pass the group
             return View::make('groups.edit')
+                ->with('group_list', $group_list)
                 ->with('group', $group)
                 ->with('entity', 'group')
                 ->with('title', 'Group edit');
