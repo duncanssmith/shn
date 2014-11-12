@@ -97,8 +97,8 @@ class WorkController extends BaseController {
                         //Input::file('image')->move($destinationPath, $work->id);
                     }
                 } else {
-                    $work->delete();
-                    die('no photo file was not uploaded'); 
+                    //$work->delete();
+                    //die('no photo file was uploaded'); 
 
                 }
 
