@@ -1,6 +1,6 @@
 <!-- app/views/groups/create.blade.php -->
 
-@extends('...layout.secure')
+@extends('...layout.main')
 
 @section('nav')
 

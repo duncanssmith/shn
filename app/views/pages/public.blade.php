@@ -1,6 +1,6 @@
 <!-- app/views/pages/public.blade.php -->
 
-@extends('...layout.secure')
+@extends('...layout.main')
 
 @section('nav')
 

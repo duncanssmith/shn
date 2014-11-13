@@ -1,7 +1,7 @@
 <!-- app/views/texts/show.blade.php -->
 
 
-@extends('...layout.secure')
+@extends('...layout.main')
 
 @section('nav')
 

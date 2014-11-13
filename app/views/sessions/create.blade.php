@@ -1,4 +1,10 @@
-@extends('layout.secure')
+@extends('layout.main')
+
+@section('nav')
+
+   
+
+@stop
 
 @section('content')
 

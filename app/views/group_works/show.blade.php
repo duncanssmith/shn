@@ -1,6 +1,6 @@
 <!-- app/views/group_works/show.blade.php -->
 
-@extends('...layout.public')
+@extends('...layout.main')
 
 @section('nav')
 

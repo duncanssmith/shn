@@ -11,12 +11,14 @@
         <script src="{{ asset('/media/js/vendor/twitter/bootstrap/js/bootstrap.min.js') }}"></script>
     </head>
 
-    <body>
+    <body class="top-photo">
         @section('nav')
         @show
 
         <div class="container">
+
             @yield('content')
+
         </div>
 
     </body>
