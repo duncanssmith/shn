@@ -1,5 +1,11 @@
 @extends('...layout.main')
 
+@section('nav')
+
+    @include('...partials.nav_secure')
+
+@stop
+
 @section('content')
 
     <h1>Reset your password</h1>

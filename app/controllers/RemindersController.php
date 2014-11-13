@@ -9,7 +9,11 @@ class RemindersController extends Controller {
 	 */
 	public function getRemind()
 	{
-		return View::make('password.remind')->with('title', 'Password reminder');
+		$group_list = Group::orderBy('order', 'asc')->get();
+
+		return View::make('password.remind')
+	        ->with('title', 'Password reminder')
+		    ->with('group_list', $group_list);
 	}
 
 	/**
@@ -37,9 +41,14 @@ class RemindersController extends Controller {
 	 */
 	public function getReset($token = null)
 	{
+
 		if (is_null($token)) App::abort(404);
 
-		return View::make('password.reset')->with('token', $token);
+		$group_list = Group::orderBy('order', 'asc')->get();
+
+		return View::make('password.reset')
+		    ->with('token', $token)
+		    ->with('group_list', $group_list);
 	}
 
 	/**

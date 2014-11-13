@@ -12,7 +12,9 @@
     </head>
 
     <body class="top-photo">
+
         @section('nav')
+        hello
         @show
 
         <div class="container">
