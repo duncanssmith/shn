@@ -9,12 +9,12 @@
         <link rel="stylesheet" href="/media/css/main.css">
         <script src="{{ asset('/media/js/vendor/jquery/jquery-2.1.1.min.js') }}"></script>
         <script src="{{ asset('/media/js/vendor/twitter/bootstrap/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('/media/js/vendor/ckeditor/ckeditor.js') }}"></script>
     </head>
 
     <body class="top-photo">
 
         @section('nav')
-        hello
         @show
 
         <div class="container">

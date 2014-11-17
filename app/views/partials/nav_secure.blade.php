@@ -39,7 +39,7 @@
 
                     <li><a href="/login" title="log in"><i class="fa fa-key icon-white"></i> </a></li>
                 @else
-                    <li><a href="#" title="logged in as"><i class="fa fa-user icon-white"></i> {{ Auth::check() ?  Auth::user()->username : "" }}</a></li>
+                    <li class="dropdown" role="presentation" ><a href="#" title="logged in as"><i class="fa fa-user icon-white"></i></a> {{ Auth::check() ?  Auth::user()->username : "" }}</li>
                     <li><a href="/logout" title="log out"><i class="fa fa-key icon-white"></i> </a></li>
                 @endif  
             </ul>
