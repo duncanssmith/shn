@@ -15,7 +15,7 @@
 
 <h1>{{ $text->name }}</h1>
 
-	<div class="jumbotron text-center">
+	<div class="text-left">
 		<h2>{{ $text->title }}</h2>
 		<p>
 			<strong>Id:</strong> {{ $text->id }}

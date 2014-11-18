@@ -5,15 +5,15 @@ Route::get('/secure', ['as' => 'home', 'uses' => 'PagesController@index']);
 
 Route::get('/', ['as' => 'public',  'uses' => 'PagesController@home']);
 
-Route::get('/publicgroup/{id}', ['as' => 'public',  'uses' => 'PagesController@publicgroup']);
+Route::get('/page/{id}', ['as' => 'public',  'uses' => 'PagesController@pagegroup']);
 
-Route::get('/publicwork/{id}', ['as' => 'public',  'uses' => 'PagesController@publicwork']);
+Route::get('/pagework/{id}', ['as' => 'public',  'uses' => 'PagesController@pagework']);
 
-Route::get('/publictexts', ['as' => 'publictexts',  'uses' => 'PagesController@publictexts']);
+Route::get('/pagetexts', ['as' => 'pagetexts',  'uses' => 'PagesController@pagetexts']);
 
-Route::get('/publictext/{id}', ['as' => 'publictext',  'uses' => 'PagesController@publictext']);
+Route::get('/pagetext/{id}', ['as' => 'pagetext',  'uses' => 'PagesController@pagetext']);
 
-Route::get('/publiccv', ['as' => 'publictext',  'uses' => 'PagesController@publiccv']);
+Route::get('/pagecv', ['as' => 'pagetext',  'uses' => 'PagesController@pagecv']);
 
 Route::get('/assign_work/{id}', ['as' => 'assign_work',  'uses' => 'GroupController@assign_work']);
 

@@ -35,7 +35,7 @@
 		<tr>
 
             <td>{{ $group->id }}</td>
-            <td><a href="/publicgroup/{{$group->id}}">{{ $group->name }}</a></td>
+            <td><a href="/page/{{$group->id}}">{{ $group->name }}</a></td>
             <td>{{ $group->order }}</td>
             <td>{{ $group->works()->count() }}</a></td>
             <td>{{ $group->texts()->count() }}</a></td>

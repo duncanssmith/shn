@@ -39,7 +39,7 @@ class PagesController extends \BaseController {
 	 * @return mixed
 	 *
 	 */
-	public function publicgroup($id)
+	public function pagegroup($id)
 	{
 		// get the groups and the works in them
 		$group = Group::with('Works')
@@ -63,7 +63,7 @@ class PagesController extends \BaseController {
     /**
      * 
      */
-    public function publicwork($id)
+    public function pagework($id)
     {
     	$work = Work::find($id);
     	$group_list = Group::orderBy('order', 'asc')->get();
@@ -75,7 +75,7 @@ class PagesController extends \BaseController {
     }
 
 
-	public function publictexts()
+	public function pagetexts()
 	{
 		// get the groups
         $texts = Text::all();
@@ -91,7 +91,7 @@ class PagesController extends \BaseController {
     /**
      *
      */
-    public function publictext($id)
+    public function pagetext($id)
     {
         $text = Text::find($id);
     	$group_list = Group::orderBy('order', 'asc')->get();
@@ -102,7 +102,7 @@ class PagesController extends \BaseController {
         ->with('title', $text->title);
     }
 
-    public function publiccv()
+    public function pagecv()
     {
     	$group_list = Group::orderBy('order', 'asc')->get();
 

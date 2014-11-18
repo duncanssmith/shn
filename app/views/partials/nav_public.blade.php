@@ -13,7 +13,7 @@
                         </a>
                     </li> 
                     <li class="dropdown" role="presentation">
-                        <a href="/publicgroup/17" title="current work">
+                        <a href="/page/17" title="current work">
                             <!--<i class="fa fa-clock-o"></i>-->
                             Recent work
                         </a>
@@ -25,7 +25,7 @@
                         </a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                             @foreach($group_list as $item)
-                                <li><a href="/publicgroup/{{$item->id}}">{{ $item->name }}</a></li>
+                                <li><a href="/page/{{$item->id}}">{{ $item->name }}</a></li>
                             @endforeach
                         </ul>
                     </li>

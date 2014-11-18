@@ -11,7 +11,7 @@
 	<div class="nav-collapse collapse">
 	    <ul class="nav">
 	    @foreach($texts as $text)
-           <li><a href="/publictext/{{$text->id}}">{{ $text->title }}</a></li>
+           <li><a href="/pagetext/{{$text->id}}">{{ $text->title }}</a></li>
         @endforeach
         </ul>
 	</div>

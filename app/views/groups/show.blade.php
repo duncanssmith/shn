@@ -14,7 +14,7 @@
 
 <h1>{{ $group->name }}</h1>
 
-	<div class="jumbotron text-center">
+	<div class="text-left">
 		<h2>{{ $group->name }}</h2>
 		<p>
 			<strong>Id:</strong> {{ $group->id }}
