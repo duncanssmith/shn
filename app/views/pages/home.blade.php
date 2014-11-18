@@ -9,5 +9,4 @@
 @stop
 
 @section('content')
-<h1>Sharon Hall</h1>
 @stop

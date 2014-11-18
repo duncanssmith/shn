@@ -13,7 +13,7 @@
         <script src="//cdn.ckeditor.com/4.4.5/basic/ckeditor.js"></script>
     </head>
 
-    <body class="top-photo">
+    <body class="xtop-photo">
 
         @section('nav')
         @show

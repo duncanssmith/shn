@@ -22,10 +22,10 @@
 
                     @else
                     
-                        <li><a href="/groups" title="groups"><i class="fa fa-folder icon-white"></i> </a></li>
-                        <li><a href="/works" title="works"><i class="fa fa-paint-brush icon-white"></i> </a></li>
-                        <li><a href="/texts" title="texts"><i class="fa fa-file-text icon-white"></i> </a></li>
-                        <li><a href="/users" title="users"><i class="fa fa-group icon-white"></i></a></li>
+                        <li><a href="/groups" title="groups"><i class="fa fa-folder xicon-white"></i> </a></li>
+                        <li><a href="/works" title="works"><i class="fa fa-paint-brush xicon-white"></i> </a></li>
+                        <li><a href="/texts" title="texts"><i class="fa fa-file-text xicon-white"></i> </a></li>
+                        <li><a href="/users" title="users"><i class="fa fa-group xicon-white"></i></a></li>
 
                     @endif
 
