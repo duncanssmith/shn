@@ -3,7 +3,7 @@
 @extends('...layout.main')
 
 @section('nav')
-    @include('partials.nav_secure')
+    @include('partials.nav')
 @include('users.partials.nav')
 
 @stop

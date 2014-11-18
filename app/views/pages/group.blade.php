@@ -4,11 +4,16 @@
 
 @section('nav')
 
-    @include('partials.nav_public')
+    @include('partials.nav')
 
 @stop
 
 @section('content')
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-6">
 
 	<div class="text-left">
 		<h2>{{ $group->name }}</h2>
@@ -61,9 +66,12 @@
         @endforeach
             </tr>
         </table>
-	</div>
+        </div>
 
-    <div>
+        </div>
+
+        <div class="col-md-3">
+
         @foreach($group->texts as $text)
         <div class="text-container">
         <br>
@@ -73,6 +81,8 @@
             {{ $text->year }} <br>
         </div>
         @endforeach
+    </div>
+    </div>
     </div>
 
 @stop

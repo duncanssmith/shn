@@ -153,8 +153,10 @@ class GroupController extends BaseController {
         // Check the user is logged in...
         if (Auth::check()) {
 
-            // paginate
-            $groups = Group::orderBy('order', 'asc')->paginate(9);
+          // paginate
+            //$groups = Group::all();
+            $groups = Group::orderBy('id', 'asc')->paginate(9);
+            //$group_list = Group::orderBy('order', 'asc')->get();
             $group_list = Group::orderBy('order', 'asc')->get();
 
             return View::make('groups.index')

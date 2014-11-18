@@ -2,7 +2,7 @@
 
 @section('nav')
 
-    @include('...partials.nav_secure')
+    @include('...partials.nav')
 
 @stop
 

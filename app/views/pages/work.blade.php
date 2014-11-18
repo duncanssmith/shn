@@ -4,7 +4,7 @@
 
 @section('nav')
 
-    @include('partials.nav_public')
+    @include('partials.nav')
 
 @stop
 

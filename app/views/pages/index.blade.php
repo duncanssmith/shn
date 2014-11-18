@@ -4,7 +4,7 @@
 
 @section('nav')
 
-    @include('partials.nav_secure')
+    @include('partials.nav')
 
     {{ Auth::check() ?  Auth::user()->username : "" }}
 

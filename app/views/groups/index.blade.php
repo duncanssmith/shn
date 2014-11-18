@@ -4,9 +4,9 @@
 
 @section('nav')
 
-    @include('partials.nav_secure')
+    @include('partials.nav')
 
-    @include('partials.subnav_secure')
+    @include('partials.subnav')
 
 @stop
 
