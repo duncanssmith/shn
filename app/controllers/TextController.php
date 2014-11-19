@@ -5,7 +5,7 @@ class TextController extends BaseController {
     /**
      * The layout that should be used for responses.
      */
-    protected $layout = 'layout.secure';
+    protected $layout = 'layout.main';
 
     /**
      * @return mixed

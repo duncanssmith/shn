@@ -6,7 +6,7 @@ class WorkController extends BaseController {
     /**
      * The layout that should be used for responses.
      */
-    protected $layout = 'layout.secure';
+    protected $layout = 'layout.main';
 
     /**
      * List all the works
@@ -96,11 +96,10 @@ class WorkController extends BaseController {
 
                 if ($photo = Input::file('image')) {
                     // Check we got an uploaded file
-                    if (Input::file('image')->isValid())
+                    if ($photo->isValid())
                     {
-                        //die('Getting here... 100'); 
+                        die('Getting here... 90'); 
                         //Input::file('image')->move($destination_path);
-
 
                         Input::file('image')->move($destination_path, $work->id);
 
@@ -110,13 +109,13 @@ class WorkController extends BaseController {
 
                         $ref = sprintf("%4f", $work->id);
                         $image->resize(640, 640);
-                        $image->save($target_path.'640/large_'.$ref.'.jpg');
+                        $image->save($target_path.'640/sh_'.$ref.'.jpg');
                         $image->resize(320, 320);
-                        $image->save($target_path.'320/medium_'.$ref.'.jpg');
+                        $image->save($target_path.'320/sh_'.$ref.'.jpg');
                         $image->resize(160, 160);
-                        $image->save($target_path.'160/small_'.$ref.'.jpg');
+                        $image->save($target_path.'160/sh_'.$ref.'.jpg');
                         $image->resize(120, 120);
-                        $image->save($target_path.'120/smaller_'.$ref.'.jpg');
+                        $image->save($target_path.'120/sh_'.$ref.'.jpg');
 
                     } else {
                         $work->delete();

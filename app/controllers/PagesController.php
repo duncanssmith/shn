@@ -5,7 +5,7 @@ class PagesController extends \BaseController {
     /**
      * The layout that should be used for responses.
      */
-    protected $layout = 'layout.public';
+    protected $layout = 'layout.main';
 
     /**
      * This is the publicly viewable page, a group of works

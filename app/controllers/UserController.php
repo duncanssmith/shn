@@ -5,7 +5,7 @@ class UserController extends BaseController {
     /**
      * The layout that should be used for responses.
      */
-    protected $layout = 'layout.secure';
+    protected $layout = 'layout.main';
 
     public function index()
     {
