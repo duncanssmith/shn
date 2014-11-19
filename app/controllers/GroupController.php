@@ -153,17 +153,15 @@ class GroupController extends BaseController {
         // Check the user is logged in...
         if (Auth::check()) {
 
-          // paginate
-            //$groups = Group::all();
+            // paginate
             $groups = Group::orderBy('id', 'asc')->paginate(9);
-            //$group_list = Group::orderBy('order', 'asc')->get();
             $group_list = Group::orderBy('order', 'asc')->get();
 
             return View::make('groups.index')
                 ->with('groups', $groups)
                 ->with('group_list', $group_list)
-                ->with('entity', 'group')
-                ->with('title', 'Groups');
+                ->with('entity', 'page')
+                ->with('title', 'Pages');
 
         } else {
 
@@ -188,8 +186,8 @@ class GroupController extends BaseController {
 
             return View::make('groups.create')
                 ->with('group_list', $group_list)
-                ->with('entity', 'group')
-                ->with('title', 'Group create');
+                ->with('entity', 'page')
+                ->with('title', 'Page create');
         } else {
             // User is not logged in
             Session::flash('message', 'Please log in');
@@ -214,7 +212,7 @@ class GroupController extends BaseController {
 
             // process the login
             if ($validator->fails()) {
-                return Redirect::to('groups/create')
+                return Redirect::to('pages/create')
                     ->withErrors($validator)
                     ->withInput(Input::except('password'));
             } else {
@@ -225,8 +223,8 @@ class GroupController extends BaseController {
                 $group->save();
 
                 // redirect
-                Session::flash('message', 'Successfully created group');
-                return Redirect::to('groups');
+                Session::flash('message', 'Successfully created page');
+                return Redirect::to('pages');
             }
         } else {
             // User is not logged in
@@ -253,8 +251,8 @@ class GroupController extends BaseController {
             return View::make('groups.show')
                 ->with('group_list', $group_list)
                 ->with('group', $group)
-                ->with('entity', 'group')
-                ->with('title', 'Group show');
+                ->with('entity', 'page')
+                ->with('title', 'Page show');
         } else {
             // User is not logged in
             Session::flash('message', 'Please log in');
@@ -280,8 +278,8 @@ class GroupController extends BaseController {
             return View::make('groups.edit')
                 ->with('group_list', $group_list)
                 ->with('group', $group)
-                ->with('entity', 'group')
-                ->with('title', 'Group edit');
+                ->with('entity', 'page')
+                ->with('title', 'Page edit');
         } else {
             // User is not logged in
             Session::flash('message', 'Please log in');
@@ -307,7 +305,7 @@ class GroupController extends BaseController {
 
             // process the login
             if ($validator->fails()) {
-                return Redirect::to('groups/' . $id . '/edit')
+                return Redirect::to('pages/' . $id . '/edit')
                     ->withErrors($validator)
                     ->withInput(Input::except('password'));
             } else {
@@ -318,8 +316,8 @@ class GroupController extends BaseController {
                 $group->save();
 
                 // redirect
-                Session::flash('message', 'Successfully updated group');
-                return Redirect::to('groups');
+                Session::flash('message', 'Successfully updated page');
+                return Redirect::to('pages');
             }
         } else {
             // User is not logged in
@@ -342,8 +340,8 @@ class GroupController extends BaseController {
             $group->delete();
 
             // redirect
-            Session::flash('message', 'Successfully deleted the group');
-            return Redirect::to('groups');
+            Session::flash('message', 'Successfully deleted the page');
+            return Redirect::to('pages');
         } else {
             // User is not logged in
             Session::flash('message', 'Please log in');

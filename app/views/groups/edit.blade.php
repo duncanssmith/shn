@@ -17,7 +17,7 @@
 <!-- if there are creation errors, they will show here -->
 {{ HTML::ul($errors->all()) }}
 
-{{ Form::model($group, array('route' => array('groups.update', $group->id), 'method' => 'PUT')) }}
+{{ Form::model($group, array('route' => array('pages.update', $group->id), 'method' => 'PUT')) }}
 
 	<div class="form-group">
 		{{ Form::label('name', 'Name') }}

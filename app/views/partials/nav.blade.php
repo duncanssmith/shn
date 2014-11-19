@@ -35,7 +35,7 @@
 
                     @else
                     
-                        <li><a href="/groups" title="Groups"><i class="fa fa-folder-open xicon-white"></i> Pages</a></li>
+                        <li><a href="/pages" title="Pages"><i class="fa fa-folder-open xicon-white"></i> Pages</a></li>
                         <li><a href="/works" title="Works"><i class="fa fa-paint-brush xicon-white"></i> Works</a></li>
                         <li><a href="/texts" title="Texts"><i class="fa fa-file-text xicon-white"></i> Texts</a></li>
                         <li><a href="/users" title="Users"><i class="fa fa-user xicon-white"></i> Users</a></li>

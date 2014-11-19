@@ -12,7 +12,7 @@
 
 <h1>{{ $user->name }}</h1>
 
-	<div class="jumbotron text-center">
+	<div class="text-left">
 		<h2>{{ $user->username }}</h2>
 		<p>
 			<strong>Id:</strong> {{ $user->id }}

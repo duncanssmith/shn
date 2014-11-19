@@ -12,12 +12,12 @@
 
 @section('content')
 
-<h1>Add group</h1>
+<h1>Add page</h1>
 
 <!-- if there are creation errors, they will show here -->
 {{ HTML::ul($errors->all()) }}
 
-{{ Form::open(array('url' => 'groups')) }}
+{{ Form::open(array('url' => 'pages')) }}
 
 	<div class="form-group">
 		{{ Form::label('name', 'Name') }}

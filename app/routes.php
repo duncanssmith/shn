@@ -52,7 +52,7 @@ Route::controller('password', 'RemindersController');
 // CRUD
 Route::resource('works', 'WorkController');
 
-Route::resource('groups', 'GroupController');
+Route::resource('pages', 'GroupController');
 
 Route::resource('texts', 'TextController');
 

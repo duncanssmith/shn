@@ -64,7 +64,9 @@ class WorkController extends BaseController {
         // Check user is logged in
         if (Auth::check()) {
             // init vars
-            $destination_path = '/Users/duncansmith/Sites/shn.local/public/dsscript/uploads';
+            //$destination_path = '/Users/duncansmith/Sites/shn.local/public/dsscript/uploads';
+            $destination_path = '/home/duncan/Sites/shn.local/public/dsscript/uploads/';
+            $target_path = '/home/duncan/Sites/shn.local/public/media/images/';
             // validate
             // read more on validation at http://laravel.com/docs/validation
             $rules = array(
@@ -75,7 +77,7 @@ class WorkController extends BaseController {
 
             // process the login
             if ($validator->fails()) {
-                var_dump($validator->fails()); die();
+                //var_dump($validator->fails()); die('DUNCAN DEBUG 2000');
                 return Redirect::to('works/create')
                     ->withErrors($validator)
                     ->withInput(Input::except('password'));
@@ -92,20 +94,38 @@ class WorkController extends BaseController {
                 $work->order       = Input::get('order');                
                 $work->save();
 
-                //var_dump($work->id); die();
                 if ($photo = Input::file('image')) {
                     // Check we got an uploaded file
                     if (Input::file('image')->isValid())
                     {
-                        Input::file('image')->move($destinationPath);
-                        //Input::file('image')->move($destinationPath, $work->id);
+                        //die('Getting here... 100'); 
+                        //Input::file('image')->move($destination_path);
+
+
+                        Input::file('image')->move($destination_path, $work->id);
+
+                        $target = $destination_path.$work->id;
+
+                        $image = Image::make($target);
+
+                        $ref = sprintf("%4f", $work->id);
+                        $image->resize(640, 640);
+                        $image->save($target_path.'640/large_'.$ref.'.jpg');
+                        $image->resize(320, 320);
+                        $image->save($target_path.'320/medium_'.$ref.'.jpg');
+                        $image->resize(160, 160);
+                        $image->save($target_path.'160/small_'.$ref.'.jpg');
+                        $image->resize(120, 120);
+                        $image->save($target_path.'120/smaller_'.$ref.'.jpg');
+
+                    } else {
+                        $work->delete();
+                        die('no photo file was uploaded 100'); 
                     }
                 } else {
-                    //$work->delete();
-                    //die('no photo file was uploaded'); 
-
+                    $work->delete();
+                    die('no photo file was uploaded 200'); 
                 }
-
 
                 // redirect
                 Session::flash('message', 'Successfully created work');

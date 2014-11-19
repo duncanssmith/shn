@@ -87,8 +87,8 @@ class UserController extends BaseController {
             // validate
             // read more on validation at http://laravel.com/docs/validation
             $rules = array(
-                'name'       => 'required',
-                'email'      => 'required',
+                'username' => 'required',
+                'email' => 'required',
             );
             $validator = Validator::make(Input::all(), $rules);
 
@@ -100,7 +100,7 @@ class UserController extends BaseController {
             } else {
                 // store
                 $user = User::find($id);
-                $user->name       = Input::get('name');
+                $user->username       = Input::get('username');
                 $user->email      = Input::get('email');
                 $user->save();
 

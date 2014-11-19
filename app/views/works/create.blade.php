@@ -20,8 +20,11 @@
 {{ Form::open(array('url' => 'works', 'files' => true)) }}
 
 	<div class="form-group">
+<?php /*	{{ Form::label('image1', 'Image1') }}
+{{ Form::file('image1', Input::old('image1'), array('class' => 'form-control')) }}
+ */?>
 		{{ Form::label('image', 'Image') }}
-		{{ Form::file('image', Input::old('image'), array('class' => 'form-control')) }}
+		{{ Form::file('image') }}
 	</div>
 
 	<div class="form-group">
