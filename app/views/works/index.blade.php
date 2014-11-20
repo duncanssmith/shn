@@ -22,7 +22,6 @@
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <td>Id</td>
             <td>Image</td>
             <td>Title</td>
             <td>Reference</td>
@@ -39,7 +38,6 @@
     @foreach($works as $key => $work)
         <tr>
 
-        <td>{{ $work->id }}</td>
         <td><a href="{{ URL::to('works/' . $work->id) }}"><img src="/media/images/64/sh_{{ $work->reference }}.jpg"></a></td>
         <td>{{ $work->title }}</td>
         <td>{{ $work->reference }}</td>

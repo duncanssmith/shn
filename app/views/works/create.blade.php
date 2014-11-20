@@ -33,11 +33,6 @@
 	</div>
 
 	<div class="form-group">
-		{{ Form::label('reference', 'Reference') }}
-		{{ Form::text('reference', Input::old('reference'), array('class' => 'form-control')) }}
-	</div>
-
-	<div class="form-group">
 		{{ Form::label('media', 'Media') }}
 		{{ Form::text('media', Input::old('media'), array('class' => 'form-control')) }}
 	</div>

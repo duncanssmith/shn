@@ -31,10 +31,10 @@
 		{{ Form::text('title', null, array('class' => 'form-control')) }}
 	</div>
 
-	<div class="form-group">
+<!-- 	<div class="form-group">
 		{{ Form::label('reference', 'Reference') }}
 		{{ Form::text('reference', null, array('class' => 'form-control')) }}
-	</div>
+	</div> -->
 	<div class="form-group">
 		{{ Form::label('media', 'Media') }}
 		{{ Form::text('media', null, array('class' => 'form-control')) }}

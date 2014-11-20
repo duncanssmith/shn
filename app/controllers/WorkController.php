@@ -102,14 +102,35 @@ class WorkController extends BaseController {
                     // Check we got an uploaded file
                     if ($photo->isValid())
                     {
+                        $ref = sprintf("%04d", $work->id);
+                        
                         $photo->move($destination_path, $work->id);
 
                         $target = $destination_path.$work->id;
 
-                        $image = Image::make($target);
+                        $canvas = Image::canvas(640, 640);
+                        $layer = Image::make($target);
 
-                        $ref = sprintf("%04d", $work->id);
-                        $image->resize(640, 640);
+                        $photo_height = $layer->height();
+                        $photo_width = $layer->width();
+
+                        if ($photo_height > $photo_width) {
+                            //portrait, vertical
+                            $layer->resize(null, 640, function ($constraint) {
+                                $constraint->aspectRatio();
+                                $constraint->upsize();
+                            });
+                        } else {
+                            //landscape, horizontal
+                            $layer->resize(640, null, function ($constraint) {
+                                $constraint->aspectRatio();
+                                $constraint->upsize();
+                            });
+                        }
+                        // add the layer to the canvas, centered
+                        $image = $canvas->insert($layer, 'center', 320, 320);
+                        
+
                         $image->save($target_path.'640/sh_'.$ref.'.jpg');
                         $image->resize(320, 320);
                         $image->save($target_path.'320/sh_'.$ref.'.jpg');
