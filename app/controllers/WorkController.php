@@ -65,19 +65,18 @@ class WorkController extends BaseController {
         if (Auth::check()) {
             // init vars
             //$destination_path = '/Users/duncansmith/Sites/shn.local/public/dsscript/uploads';
-            $destination_path = '/home/duncan/Sites/shn.local/public/dsscript/uploads/';
-            $target_path = '/home/duncan/Sites/shn.local/public/media/images/';
+            $destination_path = getEnv('PUBLIC_BASE_PATH').'uploads/';
+            $target_path = getEnv('PUBLIC_BASE_PATH').'media/images/';
+
             // validate
             // read more on validation at http://laravel.com/docs/validation
             $rules = array(
-                'title'      => 'required',
-                'reference'  => 'required|unique:works'
+                'title'      => 'required'
             );
             $validator = Validator::make(Input::all(), $rules);
 
             // process the login
             if ($validator->fails()) {
-                //var_dump($validator->fails()); die('DUNCAN DEBUG 2000');
                 return Redirect::to('works/create')
                     ->withErrors($validator)
                     ->withInput(Input::except('password'));
@@ -85,7 +84,7 @@ class WorkController extends BaseController {
                 // store
                 $work = new Work;
                 $work->title       = Input::get('title');
-                $work->reference   = Input::get('reference');
+                //$work->reference   = Input::get('reference');
                 $work->media       = Input::get('media');
                 $work->dimensions  = Input::get('dimensions');
                 $work->work_date   = Input::get('work_date');
@@ -94,20 +93,22 @@ class WorkController extends BaseController {
                 $work->order       = Input::get('order');                
                 $work->save();
 
+                // create the image reference
+                $work->reference = sprintf("%04d", $work->id);
+                $work->save();
+
+                // Upload the photo
                 if ($photo = Input::file('image')) {
                     // Check we got an uploaded file
                     if ($photo->isValid())
                     {
-                        die('Getting here... 90'); 
-                        //Input::file('image')->move($destination_path);
-
-                        Input::file('image')->move($destination_path, $work->id);
+                        $photo->move($destination_path, $work->id);
 
                         $target = $destination_path.$work->id;
 
                         $image = Image::make($target);
 
-                        $ref = sprintf("%4f", $work->id);
+                        $ref = sprintf("%04d", $work->id);
                         $image->resize(640, 640);
                         $image->save($target_path.'640/sh_'.$ref.'.jpg');
                         $image->resize(320, 320);
@@ -116,7 +117,8 @@ class WorkController extends BaseController {
                         $image->save($target_path.'160/sh_'.$ref.'.jpg');
                         $image->resize(120, 120);
                         $image->save($target_path.'120/sh_'.$ref.'.jpg');
-
+                        $image->resize(64, 64);
+                        $image->save($target_path.'64/sh_'.$ref.'.jpg');
                     } else {
                         $work->delete();
                         die('no photo file was uploaded 100'); 
@@ -219,15 +221,40 @@ class WorkController extends BaseController {
             } else {
                 // store
                 $work = Work::find($id);
-                $work->title       = Input::get('title');
-                $work->reference       = Input::get('reference');
-                $work->media      = Input::get('media');
+                $work->title = Input::get('title');
+                $work->reference = sprintf("%04d", $id);
+                $work->media = Input::get('media');
                 $work->dimensions = Input::get('dimensions');
                 $work->work_date = Input::get('work_date');
                 $work->description = Input::get('description');
                 $work->notes = Input::get('notes');
-                $work->order       = Input::get('order');                
+                $work->order = Input::get('order');                
                 $work->save();
+
+                // Upload the photo, if one is provided
+                if ($photo = Input::file('image')) {
+                    // Check we got an uploaded file
+                    if ($photo->isValid())
+                    {
+                        $photo->move($destination_path, $work->id);
+
+                        $target = $destination_path.$work->id;
+
+                        $image = Image::make($target);
+
+                        $ref = sprintf("%04d", $work->id);
+                        $image->resize(640, 640);
+                        $image->save($target_path.'640/sh_'.$ref.'.jpg');
+                        $image->resize(320, 320);
+                        $image->save($target_path.'320/sh_'.$ref.'.jpg');
+                        $image->resize(160, 160);
+                        $image->save($target_path.'160/sh_'.$ref.'.jpg');
+                        $image->resize(120, 120);
+                        $image->save($target_path.'120/sh_'.$ref.'.jpg');
+                        $image->resize(64, 64);
+                        $image->save($target_path.'64/sh_'.$ref.'.jpg');
+                    }
+                }
 
                 // redirect
                 Session::flash('message', 'Successfully updated work');
