@@ -108,7 +108,7 @@ class WorkController extends BaseController {
 
                         $target = $destination_path.$work->id;
 
-                        $canvas = Image::canvas(640, 640);
+                        $canvas = Image::canvas(640, 640, '#ffffff');
                         $layer = Image::make($target);
 
                         $photo_height = $layer->height();
