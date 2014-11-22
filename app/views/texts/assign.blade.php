@@ -25,6 +25,7 @@
             @foreach ($groups as $group)
                 {{ Form::checkbox('groups_data[]', $group->id, in_array($group->id, $arr)) }}
                 {{ Form::label('name', $group->name) }}
+                <br>
             @endforeach
         </div>
 

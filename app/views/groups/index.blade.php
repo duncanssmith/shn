@@ -51,6 +51,12 @@
 				<!-- edit this group (uses the edit method found at GET /groups/{id}/edit -->
 				<a class="btn btn-sm btn-info" href="{{ URL::to('pages/' . $group->id . '/edit') }}">Edit</a>
 
+                <!-- edit this group (uses the edit method found at GET /groups/{id}/edit -->
+                <a class="btn btn-sm btn-primary" href="{{ URL::to('sort_page_works/' . $group->id ) }}">Sort works</a>
+
+                <!-- edit this group (uses the edit method found at GET /groups/{id}/edit -->
+                <a class="btn btn-sm btn-primary" href="{{ URL::to('sort_page_texts/' . $group->id ) }}">Sort texts</a>
+
                 <!-- Button trigger modal -->
                 <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#item-delete">Delete</button>
 

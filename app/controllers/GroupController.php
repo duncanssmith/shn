@@ -146,6 +146,74 @@ class GroupController extends BaseController {
     }
 
     /**
+     * 
+     *  
+     */
+    public function sort_page_works($id)
+    {
+        if (Auth::check()) {
+            $group = Group::where('id', '=', $id)->first();
+
+            // paginate
+            $groups = Group::orderBy('id', 'asc')->paginate(9);
+            $group_list = Group::orderBy('order', 'asc')->get();
+            $works = $group->works;
+
+            if (sizeof($works) < 1) {
+                Session::flash('message', 'There are currently no works on the '.$group->name.' page');
+                return Redirect::to('pages');
+            }
+
+            return View::make('works.sort')
+                ->with('group', $group)
+                ->with('works', $works)
+                ->with('groups', $groups)
+                ->with('group_list', $group_list)
+                ->with('entity', 'page works')
+                ->with('title', 'Sort page works');
+
+        } else {
+
+            Session::flash('message', 'Please log in');
+
+            return Redirect::to('/');
+        }
+    }
+
+    /**
+     * 
+     *  
+     */
+    public function sort_page_texts($id)
+    {
+        if (Auth::check()) {
+            $group = Group::where('id', '=', $id)->first();
+
+            // paginate
+            $groups = Group::orderBy('id', 'asc')->paginate(9);
+            $group_list = Group::orderBy('order', 'asc')->get();
+            $texts = $group->texts;
+
+            if (sizeof($texts) < 1) {
+                Session::flash('message', 'There are currently no texts on the '.$group->name.' page');
+                return Redirect::to('pages');
+            }
+
+            return View::make('texts.sort')
+                ->with('group', $group)
+                ->with('texts', $texts)
+                ->with('groups', $groups)
+                ->with('group_list', $group_list)
+                ->with('entity', 'page texts')
+                ->with('title', 'Sort page texts');
+
+        } else {
+            Session::flash('message', 'Please log in');
+            return Redirect::to('/');
+        }
+    }
+    
+    /**
      * @return mixed
      */
     public function index()

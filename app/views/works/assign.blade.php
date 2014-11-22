@@ -13,7 +13,7 @@
 @section('content')
 
 <h1>{{ $work->title }}, {{ $work->work_date }}</h1>
-<p>Select the groups you want this work to appear in.</p>
+<p>Select the pages you want this work to appear on.</p>
 <!-- if there are creation errors, they will show here -->
 {{ HTML::ul($errors->all()) }}
 
@@ -26,7 +26,8 @@
     	<div class="form-group">
             @foreach ($groups as $group)
         		{{ Form::checkbox('groups_data[]', $group->id, in_array($group->id, $arr)) }}
-        		{{ Form::label('name', $group->name) }}
+                {{ Form::label('name', $group->name) }}
+                <br>
             @endforeach
     	</div>
 
@@ -38,11 +39,11 @@
 
 @if (sizeof($links) > 0)
 
-    Work "{{ $work->title }}" is in groups:
+    Work "{{ $work->title }}" will appear on pages:
 
 @else
 
-    This work is not in any groups
+    This work is not on any page.
 
 @endif
 
