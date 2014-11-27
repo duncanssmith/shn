@@ -25,12 +25,12 @@ class GroupController extends BaseController {
             foreach ($text->groups as $link){
                 $arr[] = $link->pivot->group_id;
             }
-            
+
             $groups = Group::all();
 
             // show the edit form and pass the group
             return View::make('texts.assign')
-                ->with('group_list', $group_list)               
+                ->with('group_list', $group_list)
                 ->with('text', $text)
                 ->with('links', $links)
                 ->with('arr', $arr)
@@ -48,8 +48,8 @@ class GroupController extends BaseController {
     }
 
     /**
-     * 
-     *  
+     *
+     *
      */
     public function save_assigned_text()
     {
@@ -93,14 +93,14 @@ class GroupController extends BaseController {
             foreach ($work->groups as $link){
                 $arr[] = $link->pivot->group_id;
             }
-            
+
             $groups = Group::all();
 
             $group_list = Group::orderBy('order', 'asc')->get();
 
             // show the edit form and pass the group
             return View::make('works.assign')
-                ->with('group_list', $group_list)               
+                ->with('group_list', $group_list)
                 ->with('work', $work)
                 ->with('entity', 'work')
                 ->with('links', $links)
@@ -118,8 +118,8 @@ class GroupController extends BaseController {
     }
 
     /**
-     * 
-     *  
+     *
+     *
      */
     public function save_assigned_work()
     {
@@ -146,18 +146,42 @@ class GroupController extends BaseController {
     }
 
     /**
-     * 
-     *  
+     *
+     *
      */
     public function sort_page_works($id)
     {
-        if (Auth::check()) {
-            $group = Group::where('id', '=', $id)->first();
 
-            // paginate
-            $groups = Group::orderBy('id', 'asc')->paginate(9);
+        if (Auth::check()) {
+            $group = Group::with('Works')->where('id', '=', $id)->first();
             $group_list = Group::orderBy('order', 'asc')->get();
-            $works = $group->works;
+            //$groupworks = GroupWork::with('Works')->where('group_id', '=', $id)->orderBy('order', 'asc')->get();
+
+            //if (sizeof($groupworks) < 1){
+            //    $works = $group->works;
+            //} else {
+                //dd("DUNCAN ");
+            //}
+
+            //$works = DB::table('works')->select('name as user_name')->get();
+            // Couldn't figure out how to use Eloquent to get the works ordered by the pivot table order field
+            $works = DB::table('works')
+            ->join('group_work', 'works.id', '=', 'group_work.work_id')
+            ->join('groups', 'groups.id', '=', 'group_work.group_id')
+            ->select('group_work.order', 'works.id', 'works.title', 'works.media', 'works.dimensions', 'works.reference', 'works.work_date', 'works.description', 'works.notes')
+            ->where('groups.id', '=', $group->id)
+            ->orderBy('group_work.order')
+            ->get();
+
+            /*
+            $works = $works->sortBy(function($work)
+            {
+                 return $work->order;
+            });
+            */
+            //$works = $works->sortBy('order', null, false);
+
+            //var_dump($works);
 
             if (sizeof($works) < 1) {
                 Session::flash('message', 'There are currently no works on the '.$group->name.' page');
@@ -167,7 +191,6 @@ class GroupController extends BaseController {
             return View::make('works.sort')
                 ->with('group', $group)
                 ->with('works', $works)
-                ->with('groups', $groups)
                 ->with('group_list', $group_list)
                 ->with('entity', 'page works')
                 ->with('title', 'Sort page works');
@@ -181,8 +204,38 @@ class GroupController extends BaseController {
     }
 
     /**
-     * 
-     *  
+     *
+     *
+     */
+    public function save_page_works_order()
+    {
+
+        if (Request::ajax()){
+
+            $uuid = Input::get('uuid');
+            $id = Input::get('id');
+            $group_id = Input::get('group_id');
+
+            $i = 1;
+
+            foreach($id as $value) {
+                $groupwork = GroupWork::where('work_id', $value)->where('group_id', $group_id)->first();
+
+                $groupwork->order = $i;
+                $groupwork->save();
+
+                $i++;
+
+            }
+
+        }
+
+        return Redirect::to('/');
+    }
+
+    /**
+     *
+     *
      */
     public function sort_page_texts($id)
     {
@@ -212,7 +265,37 @@ class GroupController extends BaseController {
             return Redirect::to('/');
         }
     }
-    
+
+    /**
+     *
+     *
+     */
+    public function save_page_texts_order()
+    {
+
+        if (Request::ajax()){
+
+            $uuid = Input::get('uuid');
+            $id = Input::get('id');
+
+            $i = 1;
+
+            foreach($id as $val) {
+
+                $grouptext = GroupText::where('text_id', $val)->first();
+
+                $grouptext->order = $i;
+                $grouptext->save();
+
+                $i++;
+
+            }
+
+        }
+
+        return Redirect::to('/');
+    }
+
     /**
      * @return mixed
      */

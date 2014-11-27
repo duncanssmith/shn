@@ -59,11 +59,6 @@
 		{{ Form::text('notes', null, array('class' => 'form-control')) }}
 	</div>
 
-    <div class="form-group">
-        {{ Form::label('order', 'Order') }}
-        {{ Form::text('order', null, array('class' => 'form-control')) }}
-    </div>  
-
 	{{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}

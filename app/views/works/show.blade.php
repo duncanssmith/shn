@@ -23,8 +23,7 @@
 			<strong>Dimensions:</strong> {{ $work->dimensions }}<br>
 			<strong>Work date:</strong> {{ $work->work_date }}<br>
 			<strong>Description:</strong> {{ $work->description }}<br>
-			<strong>Notes:</strong> {{ $work->notes }}
-		    <strong>Order:</strong> {{ $work->order }}</p>
+			<strong>Notes:</strong> {{ $work->notes }}</p>
 		</p>
 	</div>
 

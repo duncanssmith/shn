@@ -5,20 +5,20 @@
 @section('nav')
 
     @include('partials.nav')
-
-    @include('partials.subnav')
+    <br>
 
 @stop
 
 @section('content')
-    <h1>Works on "{{ $group->name }}" page</h1>
+
+    <h1>{{ $group->name }} works</h1>
 
 <!-- will be used to show any messages -->
 @if (Session::has('message'))
     <div class="alert alert-info">{{ Session::get('message') }}</div>
 @endif
 
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered group" data-groupid="{{ $group->id}}">
     <thead>
         <tr>
             <td>Image</td>
@@ -29,39 +29,21 @@
             <td>Date</td>
             <td>Description</td>
             <td>Notes</td>
-            <td>Order</td>
-            <td>Actions</td>
         </tr>
     </thead>
-    <tbody>
-    @foreach($works as $key => $work)
-        <tr>
+    <tbody id="sortable" class="sortable">
+    @foreach($works as $work)
+        <tr class="ui-state-default" data-id="{{ $work->id }}">
 
-        <td><a href="{{ URL::to('works/' . $work->id) }}"><img src="/media/images/64/sh_{{ $work->reference }}.jpg"></a></td>
-        <td>{{ $work->title }}</td>
-        <td>{{ $work->reference }}</td>
-        <td>{{ $work->media }}</td>
-        <td>{{ $work->dimensions }}</td>
-        <td>{{ $work->work_date }}</td>
-        <td>{{ $work->description }}</td>
-        <td>{{ $work->notes }}</td>
-        <td>{{ $work->order }}</td>
+            <td><a href="{{ URL::to('works/' . $work->id) }}"><img src="/media/images/64/sh_{{ $work->reference }}.jpg"></a></td>
+            <td>{{ $work->title }}</td>
+            <td>{{ $work->reference }}</td>
+            <td>{{ $work->media }}</td>
+            <td>{{ $work->dimensions }}</td>
+            <td>{{ $work->work_date }}</td>
+            <td>{{ $work->description }}</td>
+            <td>{{ $work->notes }}</td>
 
-            <!-- we will also add show, edit, and delete buttons -->
-            <td>
-                <!-- show the work (uses the show method found at GET /works/{id} -->
-                <a class="btn btn-sm btn-success" href="{{ URL::to('works/' . $work->id) }}">Show</a>
-
-                <!-- edit this work (uses the edit method found at GET /works/{id}/edit -->
-                <a class="btn btn-sm btn-info" href="{{ URL::to('works/' . $work->id . '/edit') }}">Edit</a>
-
-                <!-- edit this work (uses the edit method found at GET /works/{id}/edit -->
-                <a class="btn btn-sm btn-primary" href="{{ URL::to('assign_work/' . $work->id) }}">Assign</a>
-
-                <!-- Button trigger modal -->
-                <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#item-delete">Delete</button>
-
-            </td>
         </tr>
     @endforeach
     </tbody>

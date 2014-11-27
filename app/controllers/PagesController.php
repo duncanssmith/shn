@@ -47,6 +47,14 @@ class PagesController extends \BaseController {
            ->orderBy('order', 'asc')
            ->find($id);
 
+        foreach($group->works as $work) {
+           echo($work->pivot->order.', ');
+        }
+        echo "<br>";
+        foreach($group->texts as $text) {
+           echo($text->pivot->order.', ');
+        }
+
         $group_list = Group::orderBy('order', 'asc')->get();        
         $i = 0;
         $columns = 3;

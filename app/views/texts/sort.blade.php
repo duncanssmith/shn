@@ -5,23 +5,22 @@
 @section('nav')
 
     @include('partials.nav')
-
-    @include('partials.subnav')
+    <br>
 
 @stop
 
 @section('content')
-    <h1>Texts on "{{ $group->name }}" page</h1>
+
+    <h1>{{ $group->name }} texts</h1>
 
 <!-- will be used to show any messages -->
 @if (Session::has('message'))
 	<div class="alert alert-info">{{ Session::get('message') }}</div>
 @endif
 
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered group" data-groupid="{{ $group->id}}">
 	<thead>
 		<tr>
-			<td>Id</td>
 			<td>Title</td>
 			<td>Author</td>
 			<td>Description</td>
@@ -29,15 +28,13 @@
 			<td>Content</td>
 			<td>Publication</td>
 			<td>Publication date</td>
-            <td>Order</td>
 			<td>Actions</td>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody id="text-sortable" class="text-sortable">
 	@foreach($texts as $key => $text)
-		<tr>
+		<tr class="ui-state-default" data-id="{{ $text->id }}">
 
-            <td>{{ $text->id }}</td>
             <td>{{ $text->title }}</td>
             <td>{{ $text->author }}</td>
             <td>{{ $text->description }}</td>
@@ -45,7 +42,6 @@
             <td title="{{ $text->content }}"><i class="fa fa-list"></i></td>
             <td>{{ $text->publication }}</td>
             <td>{{ $text->publication_date }}</td>
-            <td>{{ $text->order }}</td>
 
 			<!-- we will also add show, edit, and delete buttons -->
 			<td>

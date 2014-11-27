@@ -1,46 +1,45 @@
 <?php
 
-# Home
+# Secure page
 Route::get('/secure', ['as' => 'home', 'uses' => 'PagesController@index']);
 
+// Home and public pages
 Route::get('/', ['as' => 'public',  'uses' => 'PagesController@home']);
-
 Route::get('/page/{id}', ['as' => 'public',  'uses' => 'PagesController@pagegroup']);
-
 Route::get('/pagework/{id}', ['as' => 'public',  'uses' => 'PagesController@pagework']);
-
 Route::get('/pagetexts', ['as' => 'pagetexts',  'uses' => 'PagesController@pagetexts']);
-
 Route::get('/pagetext/{id}', ['as' => 'pagetext',  'uses' => 'PagesController@pagetext']);
-
 Route::get('/pagecv', ['as' => 'pagetext',  'uses' => 'PagesController@pagecv']);
 
+// Assign items to Groups
 Route::get('/assign_work/{id}', ['as' => 'assign_work',  'uses' => 'GroupController@assign_work']);
+Route::post('/save_assigned_work', ['as' => 'save_assigned_work',  'uses' => 'GroupController@save_assigned_work']);
+Route::get('/assign_text/{id}', ['as' => 'assign_text',  'uses' => 'GroupController@assign_text']);
+Route::post('/save_assigned_text', ['as' => 'save_assigned_text',  'uses' => 'GroupController@save_assigned_text']);
 
+# Ordering items in Groups
 Route::get('/sort_page_works/{id}', ['as' => 'sort_page_works',  'uses' => 'GroupController@sort_page_works']);
-
 Route::get('/sort_page_texts/{id}', ['as' => 'sort_page_texts',  'uses' => 'GroupController@sort_page_texts']);
 
-Route::post('/save_assigned_work', ['as' => 'save_assigned_work',  'uses' => 'GroupController@save_assigned_work']);
-
-Route::get('/assign_text/{id}', ['as' => 'assign_text',  'uses' => 'GroupController@assign_text']);
-
-Route::post('/save_assigned_text', ['as' => 'save_assigned_text',  'uses' => 'GroupController@save_assigned_text']);
+# Ajax routes to save orders
+Route::post('/save_page_works_order', ['as' => 'save_page_works_order',  'uses' => 'GroupController@save_page_works_order']);
+Route::post('/save_page_texts_order', ['as' => 'save_page_texts_order',  'uses' => 'GroupController@save_page_texts_order']);
 
 # Registration
 Route::get('/register', 'RegistrationController@create')->before('guest');
-
 Route::post('/register', ['as' => 'registration.store', 'uses' => 'RegistrationController@store']);
 
 # Authentication
 Route::get('login', ['as' => 'login', 'uses' => 'SessionsController@create']);
-
 Route::get('logout', ['as' => 'logout', 'uses' => 'SessionsController@destroy']);
-
 Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store', 'destroy']]);
-
 Route::controller('password', 'RemindersController');
 
+// CRUD
+Route::resource('works', 'WorkController');
+Route::resource('pages', 'GroupController');
+Route::resource('texts', 'TextController');
+Route::resource('users', 'UserController');
 
 //Route::get('profile', array('before' => 'auth.basic', function()
 //{
@@ -51,13 +50,3 @@ Route::controller('password', 'RemindersController');
 //{
 //    return Auth::basic('username');
 //});
-
-
-// CRUD
-Route::resource('works', 'WorkController');
-
-Route::resource('pages', 'GroupController');
-
-Route::resource('texts', 'TextController');
-
-Route::resource('users', 'UserController');
