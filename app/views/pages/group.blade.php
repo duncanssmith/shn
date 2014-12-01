@@ -21,7 +21,7 @@
 
 	<div>
         <table>
-	    @foreach($group->works as $work)
+	    @foreach($works as $work)
 
             @if ($i % $columns == 0)
                 @if ($i==0)
@@ -72,7 +72,7 @@
 
         <div class="col-md-3">
 
-        @foreach($group->texts as $text)
+        @foreach($texts as $text)
         <div class="text-container">
         <br>
             <h4>{{ $text->title }}</h4> <br>

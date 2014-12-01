@@ -29,14 +29,20 @@
                         </ul>
                     </li>
 
+                    <li class="dropdown" role="presentation">
+                        <a href="/page/19" title="CV" class="header-link">
+                            CV
+                        </a>
+                    </li>                     
+
                     @if (Auth::guest())
 
                     @else
                     
-                        <li><a href="/pages" title="Pages" class="header-link">Pages</a></li>
-                        <li><a href="/works" title="Works" class="header-link">Works</a></li>
-                        <li><a href="/texts" title="Texts" class="header-link">Texts</a></li>
-                        <li><a href="/users" title="Users" class="header-link">Users</a></li>
+                        <li><a href="/pages" title="Pages" class="header-link-secure">Pages</a></li>
+                        <li><a href="/works" title="Works" class="header-link-secure">Works</a></li>
+                        <li><a href="/texts" title="Texts" class="header-link-secure">Texts</a></li>
+                        <li><a href="/users" title="Users" class="header-link-secure">Users</a></li>
 
                     @endif
 
@@ -53,7 +59,7 @@
                 @else
 
                     <li class="dropdown" role="presentation">
-                        <a href="#" data-toggle="dropdown" title="Logged in as" class="header-link"><i class="fa fa-user xicon-white"></i> {{ Auth::check() ?  Auth::user()->username : "" }}</a>
+                        <a href="#" data-toggle="dropdown" title="Logged in as" class="header-link-secure"><i class="fa fa-user xicon-white"></i> {{ Auth::check() ?  Auth::user()->username : "" }}</a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dlabel">
                             <li class="dropdown" role="presentation"><a href="/logout" title="Log out" class="header-dropdown-link">Log out</a></li>
                         </ul>

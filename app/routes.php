@@ -1,7 +1,7 @@
 <?php
 
 # Secure page
-Route::get('/secure', ['as' => 'home', 'uses' => 'PagesController@index']);
+Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
 
 // Home and public pages
 Route::get('/', ['as' => 'public',  'uses' => 'PagesController@home']);

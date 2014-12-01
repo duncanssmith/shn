@@ -43,9 +43,25 @@ class PagesController extends \BaseController {
     {
         // get the groups and the works in them
         $group = Group::with('Works')
-           ->with('Texts')
-           ->orderBy('order', 'asc')
-           ->find($id);
+            ->with('Texts')
+            ->orderBy('order', 'asc')
+            ->find($id);
+
+        $works = DB::table('works')
+            ->join('group_work', 'works.id', '=', 'group_work.work_id')
+            ->join('groups', 'groups.id', '=', 'group_work.group_id')
+            ->select('group_work.order', 'works.id', 'works.title', 'works.media', 'works.dimensions', 'works.reference', 'works.work_date', 'works.description', 'works.notes')
+            ->where('groups.id', '=', $group->id)
+            ->orderBy('group_work.order')
+            ->get();
+
+        $texts = DB::table('texts')
+            ->join('group_text', 'texts.id', '=', 'group_text.text_id')
+            ->join('groups', 'groups.id', '=', 'group_text.group_id')
+            ->select('group_text.order', 'texts.id', 'texts.title', 'texts.author', 'texts.year', 'texts.description', 'texts.publication', 'texts.publication_date', 'texts.content')
+            ->where('groups.id', '=', $group->id)
+            ->orderBy('group_text.order')
+            ->get();
 
         $group_list = Group::orderBy('order', 'asc')->get();        
         $i = 0;
@@ -54,6 +70,8 @@ class PagesController extends \BaseController {
         // show the view and pass the group to it
         return View::make('pages.group')
             ->with('group', $group)
+            ->with('works', $works)
+            ->with('texts', $texts)
             ->with('group_list', $group_list)
             ->with('i', $i)
             ->with('columns', $columns)
@@ -74,7 +92,9 @@ class PagesController extends \BaseController {
             ->with('title', $work->title);
     }
 
-
+    /**
+     *
+     */
     public function pagetexts()
     {
         // get the groups

@@ -25,6 +25,10 @@ a, a:visited {
     text-decoration:none;
 }
 
+a.header-link-secure {
+    color: #c6c;
+}
+
 a.header-link {
     color: #666;
 }
