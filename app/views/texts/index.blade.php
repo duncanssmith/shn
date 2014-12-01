@@ -22,7 +22,6 @@
 <table class="table table-striped table-bordered">
 	<thead>
 		<tr>
-			<td>Id</td>
 			<td>Title</td>
 			<td>Author</td>
 			<td>Description</td>
@@ -36,8 +35,6 @@
 	<tbody>
 	@foreach($texts as $key => $text)
 		<tr>
-
-            <td>{{ $text->id }}</td>
             <td>{{ $text->title }}</td>
             <td>{{ $text->author }}</td>
             <td>{{ $text->description }}</td>

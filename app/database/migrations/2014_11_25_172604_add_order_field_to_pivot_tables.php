@@ -16,7 +16,7 @@ class AddOrderFieldToPivotTables extends Migration {
 		{
 		    $table->smallInteger('order')->nullable();	
 		});
-		Schema::table('text_work', function(Blueprint $table)
+		Schema::table('group_text', function(Blueprint $table)
 		{
 		    $table->smallInteger('order')->nullable();	
 		});
@@ -45,7 +45,7 @@ class AddOrderFieldToPivotTables extends Migration {
 		{
 		    $table->smallInteger('order')->nullable();	
 		});
-		Schema::table('text_work', function(Blueprint $table)
+		Schema::table('group_text', function(Blueprint $table)
 		{
 			$table->dropColumn('order');
 		});

@@ -9,7 +9,8 @@
 @stop
 
 @section('content')
-    <h1> {{ $users->getTotal() }} Users </h1>
+    <h1>  Users </h1>
+    <p>{{ $users->getTotal() }}</p>
 
 <!-- will be used to show any messages -->
 @if (Session::has('message'))
@@ -19,7 +20,6 @@
 <table class="table table-striped table-bordered">
 	<thead>
 		<tr>
-			<td>Id</td>
 			<td>Username</td>
 			<td>Email</td>
 			<td>Actions</td>
@@ -28,8 +28,6 @@
 	<tbody>
 	@foreach($users as $key => $user)
 		<tr>
-
-        <td>{{ $user->id }}</td>
         <td>{{ $user->username }}</td>
         <td>{{ $user->email }}</td>
 

@@ -14,12 +14,8 @@
 
 	<div class="text-left">
 		<h2>{{ $user->username }}</h2>
-		<p>
-			<strong>Id:</strong> {{ $user->id }}
-		</p>
 
-		<p>
-        	<strong>Email:</strong> {{ $user->email }}
+		<p>{{ $user->email }}
         </p>
 
 

@@ -1,6 +1,7 @@
 #!/bin/bash
 
-IMGPATH=/Users/duncansmith/Sites/shn.local/public/media/images
+#IMGPATH=/Users/duncansmith/Sites/shn.local/public/media/images
+IMGPATH=/home/duncan/Sites/shn.local/public/media/images
 
 cd $IMGPATH
 
