@@ -1,13 +1,8 @@
 $(function () {
-    //console.log("DUNCAN here");
-
     $('#text-sortable').sortable().bind('sortupdate', function(e, ui) {
-        //console.log("DUNCAN sortupdate function");
-
         var id = $('tbody.text-sortable tr').map(function(){ 
             return $(this).data("id");
         }).get();
-
         
         var group_id = $('table.group').map(function(){
             return $(this).data("groupid");
@@ -15,10 +10,10 @@ $(function () {
 
         var uuid = "<?php echo$uuid; ?>";
 
-        console.log("id, group_id, uuid: ") ;
-        console.log(id);
-        console.log(group_id);
-        console.log(uuid);
+        //console.log("id, group_id, uuid: ") ;
+        //console.log(id);
+        //console.log(group_id);
+        //console.log(uuid);
 
         $.ajax({
             type: "POST",

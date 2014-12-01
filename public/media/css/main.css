@@ -69,8 +69,11 @@ h1 {
 }
 
 .top-photo {
-    background: #282828 url('../images/Home/sh_0300.jpg') no-repeat top center;
+    background: #282828 url('../images/Home/sh_0300s.jpg') no-repeat top center;
     min-height: 285px;
     background-size: cover;
     color: rgba(100,100,100,.9);
+}
+.white-gb {
+    background: rgba(255,255,255,.9);
 }

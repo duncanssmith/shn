@@ -1,5 +1,4 @@
 $(function () {
-
     $('#sortable').sortable().bind('sortupdate', function(e, ui) {
 
         var id = $('tbody.sortable tr').map(function(){ 

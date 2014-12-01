@@ -23,7 +23,7 @@
         
     </head>
 
-    <body>
+    <body class="top-photo">
 
         @section('nav')
         @show
