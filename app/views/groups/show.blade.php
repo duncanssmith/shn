@@ -12,16 +12,11 @@
 
 @section('content')
 
-<h1>{{ $group->name }}</h1>
+<h1>Page name: {{ $group->name }}</h1>
 
 	<div class="text-left">
-		<h2>{{ $group->name }}</h2>
 		<p>
-			<strong>Id:</strong> {{ $group->id }}
-		</p>
-		<h2>{{ $group->order }}</h2>
-		<p>
-			<strong>Order:</strong> {{ $group->order }}
+			<strong>Order:</strong> {{ $group->order }} of {{ $group->count() }}
 		</p>
 	</div>
 

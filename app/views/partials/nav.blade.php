@@ -46,10 +46,10 @@
 
                     @else
                     
-                        <li><a href="/pages" title="Pages" class="header-link-secure"><i class="fa fa-bookmark"></i> Pages</a></li>
-                        <li><a href="/works" title="Works" class="header-link-secure"><i class="fa fa-paint-brush"></i> Works</a></li>
-                        <li><a href="/texts" title="Texts" class="header-link-secure"><i class="fa fa-align-left"></i> Texts</a></li>
-                        <li><a href="/users" title="Users" class="header-link-secure"><i class="fa fa-users"></i> Users</a></li>
+                        <li><a href="/pages" class="header-link-secure"><i class="fa fa-bookmark"></i> Pages</a></li>
+                        <li><a href="/works" class="header-link-secure"><i class="fa fa-paint-brush"></i> Works</a></li>
+                        <li><a href="/texts" class="header-link-secure"><i class="fa fa-align-left"></i> Texts</a></li>
+                        <li><a href="/users" class="header-link-secure"><i class="fa fa-users"></i> Users</a></li>
 
                     @endif
 
