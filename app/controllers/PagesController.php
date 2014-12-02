@@ -88,9 +88,12 @@ class PagesController extends \BaseController {
         $work = Work::find($id);
         $group_list = Group::orderBy('order', 'asc')->get();
 
+        $group = Group::find($_GET['group']);
+
         return View::make('pages.work')
             ->with('work', $work)
             ->with('group_list', $group_list)
+            ->with('group', $group)
             ->with('title', $work->title);
     }
 
