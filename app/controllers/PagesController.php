@@ -67,7 +67,7 @@ class PagesController extends \BaseController {
 
         $group_list = Group::orderBy('order', 'asc')->get();        
         $i = 0;
-        $columns = 3;
+        $columns = 1;
 
         // show the view and pass the group to it
         return View::make('pages.group')

@@ -1,4 +1,4 @@
-    <nav class="navbar navbar-fixed-top <?php echo isset($body_class) ? 'navbar-default' : ''?>" role="navigation">
+    <nav class="navbar navbar-fixed-top nav-bottom-line <?php echo isset($body_class) ? '' : ''?>" role="navigation">
 
         <div class="navbar-header">
 
