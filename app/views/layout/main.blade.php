@@ -23,7 +23,7 @@
         
     </head>
 
-    <body>
+    <body <?php echo isset($body_class) ? 'class="'.$body_class.'"' : ''?>>
 
         @section('nav')
         @show

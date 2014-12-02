@@ -1,25 +1,32 @@
-    <nav class="navbar navbar navbar-fixed-top">
+    <nav class="navbar navbar-fixed-top <?php echo isset($body_class) ? 'navbar-default' : ''?>" role="navigation">
 
         <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button> 
 
             <div class="navbar-collapse collapse " role="navigation">
 
                 <ul class="nav navbar-nav">
 
                     <li class="dropdown" role="presentation">
-                        <a href="/" title="Home" class="header-link">
+                        <a href="/" class="navbar-brand header-link">
                             <strong>Sharon Hall</strong>
                         </a>
                     </li> 
 
                     <li class="dropdown" role="presentation">
-                        <a href="/page/17" title="Current work" class="header-link">
+                        <a href="/page/17" class="header-link">
                             Current work
                         </a>
                     </li> 
 
                     <li class="dropdown" role="presentation">
-                        <a href="#" data-toggle="dropdown" title="All work" class="header-link">
+                        <a href="#" data-toggle="dropdown" class="header-link">
                             All work
                         </a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
@@ -39,10 +46,10 @@
 
                     @else
                     
-                        <li><a href="/pages" title="Pages" class="header-link-secure">Pages</a></li>
-                        <li><a href="/works" title="Works" class="header-link-secure">Works</a></li>
-                        <li><a href="/texts" title="Texts" class="header-link-secure">Texts</a></li>
-                        <li><a href="/users" title="Users" class="header-link-secure">Users</a></li>
+                        <li><a href="/pages" title="Pages" class="header-link-secure"><i class="fa fa-bookmark"></i> Pages</a></li>
+                        <li><a href="/works" title="Works" class="header-link-secure"><i class="fa fa-paint-brush"></i> Works</a></li>
+                        <li><a href="/texts" title="Texts" class="header-link-secure"><i class="fa fa-align-left"></i> Texts</a></li>
+                        <li><a href="/users" title="Users" class="header-link-secure"><i class="fa fa-users"></i> Users</a></li>
 
                     @endif
 
@@ -54,7 +61,7 @@
 
                 @if (Auth::guest())
 
-                    <li><a href="/login" title="Log in"><i class="fa fa-key icon-white"></i> </a></li>
+                    <li><a href="/login" title="Log in" class="<?php echo isset($body_class) ? 'header-link-secure' : 'header-link'?>"><i class="fa fa-key icon-white"></i> </a></li>
 
                 @else
 
@@ -67,3 +74,4 @@
             </ul>
         </div>
     </nav>
+<hr class="navbar-end">

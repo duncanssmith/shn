@@ -20,6 +20,7 @@ class PagesController extends \BaseController {
         // get the groups
         $groups = Group::all();
         $texts = Text::all();
+        $body_class = 'top-photo';
 
             $group_list = Group::orderBy('order', 'asc')->get();
 
@@ -28,6 +29,7 @@ class PagesController extends \BaseController {
             ->with('groups', $groups)
             ->with('texts', $texts)
             ->with('group_list', $group_list)
+            ->with('body_class', $body_class)
             ->with('title', 'Sharon Hall');
     }
 
