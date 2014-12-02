@@ -12,10 +12,9 @@
 
 @section('content')
 
-<h1>{{ $work->name }}</h1>
-
 	<div class="text-left">
-		<h2>{{ $work->title }}</h2>
+		<h2><strong>Title:</strong> {{ $work->title }}</h2>
+		<strong>Image: </strong>
 		<img src="/media/images/320/sh_{{$work->reference}}.jpg">
 		<p>
 			<strong>Reference:</strong> {{ $work->reference }}<br>

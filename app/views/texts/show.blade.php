@@ -13,16 +13,15 @@
 
 @section('content')
 
-<h1>{{ $text->name }}</h1>
-
 	<div class="text-left">
-		<h2>{{ $text->title }}</h2>
-		<p>{{ $text->author }}</p>
-		<p>{{ $text->description }}</p>
-		<p>{{ $text->year }}</p>
-		<p>{{ $text->publication }}</p>
-		<p>{{ $text->publication_date }}</p>
-		<p><blockquote>{{ $text->content }}</blockquote></p>
+		<h2><strong>Title: </strong> {{ $text->title }}</h2>
+		<p>
+		<strong>Author:</strong> {{ $text->author }}<br>
+		<strong>Description:</strong> {{ $text->description }}<br>
+		<strong>Year:</strong> {{ $text->year }}<br>
+		<strong>Publication:</strong> {{ $text->publication }}<br>
+		<strong>Publication date:</strong> {{ $text->publication_date }}<br>
+		<strong>Content:</strong> <blockquote>{{ $text->content }}</blockquote></p>
 	</div>
 
 </div>

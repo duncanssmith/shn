@@ -25,12 +25,12 @@
     </div>
 
     <div class="form-text">
-        {{ Form::label('author', 'author') }}
+        {{ Form::label('author', 'Author') }}
         {{ Form::text('author', null, array('class' => 'form-control')) }}
     </div>
 
     <div class="form-text">
-        {{ Form::label('content', 'content') }}
+        {{ Form::label('content', 'Content') }}
         {{ Form::textarea('content', null, array('class' => 'form-control ckeditor')) }}
     </div>
 

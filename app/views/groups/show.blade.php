@@ -12,12 +12,10 @@
 
 @section('content')
 
-<h1>Page name: {{ $group->name }}</h1>
 
 	<div class="text-left">
-		<p>
-			<strong>Order:</strong> {{ $group->order }} of {{ $group->count() }}
-		</p>
+        <h1>Page name: {{ $group->name }}</h1>
+		<p> <strong>Order:</strong> {{ $group->order }} of {{ $group->count() }} </p>
 	</div>
 
 </div>
