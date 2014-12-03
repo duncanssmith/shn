@@ -20,18 +20,20 @@
 <table class="table table-striped table-bordered">
 	<thead>
 		<tr>
+            <td>Id</td>
 			<td>Username</td>
 			<td>Email</td>
 			<td>Actions</td>
 		</tr>
 	</thead>
 	<tbody>
-	@foreach($users as $key => $user)
+	@foreach($users as $user)
 		<tr>
-        <td>{{ $user->username }}</td>
-        <td>{{ $user->email }}</td>
+            <td>{{ $user->id }}</td>
+            <td>{{ $user->username }}</td>
+            <td>{{ $user->email }}</td>
 
-			<!-- we will also add show, edit, and delete buttons -->
+		    <!-- we will also add show, edit, and delete buttons -->
 			<td>
 
 				<!-- show the user (uses the show method found at GET /users/{id} -->
@@ -41,7 +43,31 @@
 				<a class="btn btn-sm btn-info" href="{{ URL::to('users/' . $user->id . '/edit') }}">Edit</a>
 
 				<!-- Button trigger modal -->
-                <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#item-delete">Delete</button>
+                <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#item-delete-{{ $user->id }}">Delete</button>
+
+                <!-- Are you sure you want to delete this? modal /////////////////////////////////// -->
+                <div id="item-delete-{{$user->id}}" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">Delete</h4>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to delete the user '{{$user->username}}'?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+                                <!-- delete the group (uses the destroy method DESTROY /groups/{id} -->
+                                <!-- we will add this later since its a little more complicated than the other two buttons -->
+                                {{ Form::open(['url' => 'users/'.$user->id, 'class' => 'pull-right']) }}
+                                {{ Form::hidden('_method', 'DELETE') }}
+                                {{ Form::submit('Delete', array('class' => 'btn btn-sm btn-danger ')) }}
+                                {{ Form::close() }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 			</td>
 		</tr>
@@ -53,28 +79,6 @@
 
 </div>
 
-<!-- Are you sure you want to delete this? modal /////////////////////////////////// -->
-<div id="item-delete" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Delete</h4>
-            </div>
-            <div class="modal-body">
-                Are you sure you want to delete this user?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
-                <!-- delete the group (uses the destroy method DESTROY /groups/{id} -->
-                <!-- we will add this later since its a little more complicated than the other two buttons -->
-                {{ Form::open(array('url' => 'users/' . $user->id, 'class' => 'pull-right')) }}
-                {{ Form::hidden('_method', 'DELETE') }}
-                {{ Form::submit('Delete', array('class' => 'btn btn-sm btn-danger ')) }}
-                {{ Form::close() }}
-            </div>
-        </div>
-    </div>
-</div>
+
 
 @stop

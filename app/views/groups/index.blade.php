@@ -31,7 +31,7 @@
 		</tr>
 	</thead>
 	<tbody>
-	@foreach($groups as $key => $group)
+	@foreach($groups as $group)
 		<tr>
 
             <td>{{ $group->id }}</td>
@@ -58,8 +58,31 @@
                 <a class="btn btn-sm btn-primary" href="{{ URL::to('sort_page_texts/' . $group->id ) }}">Sort texts</a>
 
                 <!-- Button trigger modal -->
-                <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#item-delete">Delete</button>
+                <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#item-delete-{{$group->id}}">Delete</button>
 
+                <!-- Are you sure you want to delete this? modal /////////////////////////////////// -->
+                <div id="item-delete-{{$group->id}}" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">Delete</h4>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to delete the page '{{$group->name}}'?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+                                <!-- delete the group (uses the destroy method DESTROY /groups/{id} -->
+                                <!-- we will add this later since its a little more complicated than the other two buttons -->
+                                {{ Form::open(array('url' => 'pages/' . $group->id, 'class' => 'pull-right')) }}
+                                    {{ Form::hidden('_method', 'DELETE') }}
+                                {{ Form::submit('Delete', array('class' => 'btn btn-sm btn-danger ')) }}
+                                {{ Form::close() }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 			</td>
 		</tr>
@@ -71,29 +94,6 @@
 
 </div>
 
-<!-- Are you sure you want to delete this? modal /////////////////////////////////// -->
-<div id="item-delete" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Delete</h4>
-            </div>
-            <div class="modal-body">
-                Are you sure you want to delete this item?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
-				<!-- delete the group (uses the destroy method DESTROY /groups/{id} -->
-				<!-- we will add this later since its a little more complicated than the other two buttons -->
-		        {{ Form::open(array('url' => 'pages/' . $group->id, 'class' => 'pull-right')) }}
-                    {{ Form::hidden('_method', 'DELETE') }}
-                {{ Form::submit('Delete', array('class' => 'btn btn-sm btn-danger ')) }}
-                {{ Form::close() }}
-            </div>
-        </div>
-    </div>
-</div>
 
 <script type="text/javascript">
 $(document).ready(function(){

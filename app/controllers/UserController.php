@@ -12,8 +12,8 @@ class UserController extends BaseController {
         if (Auth::check()) {
 
             $group_list = Group::orderBy('order', 'asc')->get();
-            $users = User::paginate(3);
-            
+            $users = User::paginate(5);
+
             return View::make('users.index')
                 ->with('users', $users)
                 ->with('group_list', $group_list)
@@ -124,6 +124,7 @@ class UserController extends BaseController {
     public function destroy($id)
     {
         if (Auth::check()) {
+
             $user = User::find($id);
             $user->delete();
 
