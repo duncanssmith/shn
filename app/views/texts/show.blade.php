@@ -1,6 +1,5 @@
 <!-- app/views/texts/show.blade.php -->
 
-
 @extends('...layout.main')
 
 @section('nav')
@@ -25,7 +24,5 @@
 	</div>
 
 </div>
-
-
 
 @stop

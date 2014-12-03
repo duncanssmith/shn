@@ -84,7 +84,6 @@ class WorkController extends BaseController {
                 // store
                 $work = new Work;
                 $work->title       = Input::get('title');
-                //$work->reference   = Input::get('reference');
                 $work->media       = Input::get('media');
                 $work->dimensions  = Input::get('dimensions');
                 $work->work_date   = Input::get('work_date');
@@ -102,7 +101,7 @@ class WorkController extends BaseController {
                     if ($photo->isValid())
                     {
                         $ref = sprintf("%04d", $work->id);
-                        
+
                         $photo->move($destination_path, $work->id);
 
                         $target = $destination_path.$work->id;
@@ -128,7 +127,6 @@ class WorkController extends BaseController {
                         }
                         // add the layer to the canvas, centered
                         $image = $canvas->insert($layer, 'center', 320, 320);
-                        
 
                         $image->save($target_path.'640/sh_'.$ref.'.jpg');
                         $image->resize(320, 320);
@@ -141,11 +139,13 @@ class WorkController extends BaseController {
                         $image->save($target_path.'64/sh_'.$ref.'.jpg');
                     } else {
                         $work->delete();
-                        die('no photo file was uploaded 100'); 
+                        Session::flash('message', 'The photo file was invalid');
+                        return Redirect::to('works');
                     }
                 } else {
                     $work->delete();
-                    die('no photo file was uploaded 200'); 
+                    Session::flash('message', 'No photo file was uploaded');
+                    return Redirect::to('works');
                 }
 
                 // redirect
@@ -251,18 +251,39 @@ class WorkController extends BaseController {
                 $work->save();
 
                 // Upload the photo, if one is provided
+                // Upload the photo
                 if ($photo = Input::file('image')) {
                     // Check we got an uploaded file
                     if ($photo->isValid())
                     {
+                        $ref = sprintf("%04d", $work->id);
+
                         $photo->move($destination_path, $work->id);
 
                         $target = $destination_path.$work->id;
 
-                        $image = Image::make($target);
+                        $canvas = Image::canvas(640, 640, '#ffffff');
+                        $layer = Image::make($target);
 
-                        $ref = sprintf("%04d", $work->id);
-                        $image->resize(640, 640);
+                        $photo_height = $layer->height();
+                        $photo_width = $layer->width();
+
+                        if ($photo_height > $photo_width) {
+                            //portrait, vertical
+                            $layer->resize(null, 640, function ($constraint) {
+                                $constraint->aspectRatio();
+                                $constraint->upsize();
+                            });
+                        } else {
+                            //landscape, horizontal
+                            $layer->resize(640, null, function ($constraint) {
+                                $constraint->aspectRatio();
+                                $constraint->upsize();
+                            });
+                        }
+                        // add the layer to the canvas, centered
+                        $image = $canvas->insert($layer, 'center', 320, 320);
+
                         $image->save($target_path.'640/sh_'.$ref.'.jpg');
                         $image->resize(320, 320);
                         $image->save($target_path.'320/sh_'.$ref.'.jpg');
@@ -272,7 +293,15 @@ class WorkController extends BaseController {
                         $image->save($target_path.'120/sh_'.$ref.'.jpg');
                         $image->resize(64, 64);
                         $image->save($target_path.'64/sh_'.$ref.'.jpg');
+                    } else {
+                        $work->delete();
+                        Session::flash('message', 'The photo file was invalid');
+                        return Redirect::to('works');
                     }
+                } else {
+                    $work->delete();
+                    Session::flash('message', 'No photo file was uploaded');
+                    return Redirect::to('works');
                 }
 
                 // redirect

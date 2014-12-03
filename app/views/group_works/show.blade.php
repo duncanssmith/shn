@@ -3,14 +3,6 @@
 @extends('...layout.main')
 
 @section('nav')
-
-    {{--<nav class="navbar navbar-inverse">--}}
-        {{--<ul class="nav navbar-nav">--}}
-            {{--<li><a href="{{ URL::to('works') }}">List works</a></li>--}}
-            {{--<li><a href="{{ URL::to('works/create') }}">Add work</a>--}}
-        {{--</ul>--}}
-    {{--</nav>--}}
-
 @stop
 
 @section('content')

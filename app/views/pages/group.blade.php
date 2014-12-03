@@ -53,7 +53,10 @@
                                                 <p class="modal-title pull-left">
                                                 {{ $work->media }}&nbsp;
                                                 {{ $work->dimensions }}&nbsp;
-                                                {{ $work->work_date }}</p>
+                                                {{ $work->work_date }}
+                                                {{ $work->description }}&nbsp;
+                                                {{ $work->notes }}&nbsp;
+                                                </p>
                                                 <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
                                             </div>
                                         </div>
@@ -69,16 +72,15 @@
 
             <div class="col-md-6">
                 <div class="text-container">
-
-            @foreach($texts as $text)
-                <div class="text-left">
-                    <h4>{{ $text->title }}</h4>
-                </div>
-                {{ $text->content }}<br>
-                {{ $text->author }} <br>
-                {{ $text->year }} <br>
-                <hr>
-                @endforeach
+                    @foreach($texts as $text)
+                    <div class="text-left">
+                        <h5>{{ $text->title }}</h5>
+                    </div>
+                    {{ $text->content }}<br>
+                    {{ $text->author }} <br>
+                    {{ $text->year }} <br>
+                    <hr>
+                    @endforeach
                 </div>
             </div>
 

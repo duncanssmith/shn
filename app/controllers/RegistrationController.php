@@ -12,7 +12,6 @@ class RegistrationController extends \BaseController {
     function __construct(RegistrationForm $registrationForm)
     {
         $this->registrationForm = $registrationForm;
-
     }
 
 	/**
@@ -23,7 +22,8 @@ class RegistrationController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('registration.create');
+		return View::make('registration.create')
+            ->with('title', 'Sharon Hall: register');
 	}
 
 	/**
