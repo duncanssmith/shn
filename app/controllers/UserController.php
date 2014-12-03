@@ -124,6 +124,8 @@ class UserController extends BaseController {
     public function destroy($id)
     {
         if (Auth::check()) {
+            // TODO:
+            // Check the Auth user_id is not the same as the $id as this would mean user could delete their own user record!!!
 
             $user = User::find($id);
             $user->delete();
