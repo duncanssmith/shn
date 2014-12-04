@@ -19,11 +19,9 @@ class WorkController extends BaseController {
         if (Auth::check()) {
 
             $works = Work::paginate(6);
-            $group_list = Group::orderBy('order', 'asc')->get();
 
             return View::make('works.index')
                 ->with('works', $works)
-                ->with('group_list', $group_list)
                 ->with('entity', 'work')
                 ->with('title', 'Works');
         } else {
@@ -42,9 +40,7 @@ class WorkController extends BaseController {
     {
         // Check user is logged in
         if (Auth::check()) {
-            $group_list = Group::orderBy('order', 'asc')->get();
             return View::make('works.create')
-                ->with('group_list', $group_list)
                 ->with('entity', 'work')
                 ->with('title', 'Work create');
         } else {
@@ -173,11 +169,9 @@ class WorkController extends BaseController {
             $work = Work::find($id);
 
             $groups = Group::all();
-            $group_list = Group::orderBy('order', 'asc')->get();
 
             // show the view and pass the work to it
             return View::make('works.show')
-                ->with('group_list', $group_list)
                 ->with('work', $work)
                 ->with('entity', 'work')
                 ->with('groups', $groups)
@@ -202,12 +196,9 @@ class WorkController extends BaseController {
             // get the work
             $work = Work::find($id);
 
-            $group_list = Group::orderBy('order', 'asc')->get();
-
             // show the edit form and pass the work
             return View::make('works.edit')
                 ->with('work', $work)
-                ->with('group_list', $group_list)
                 ->with('entity', 'work')
                 ->with('title', 'Work edit');
         } else {
