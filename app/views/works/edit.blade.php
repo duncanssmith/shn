@@ -23,7 +23,7 @@
 
 	<div class="form-group">
 		{{ Form::label('image', 'Image') }}
-		{{ Form::file('image', Input::old('image'), array('class' => ' btn btn-primary')) }}
+		{{ Form::file('image', ['class' => 'btn btn-default']) }}
 	</div>
 
 	<div class="form-group">
@@ -57,8 +57,9 @@
 
 	{{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
 
-{{ Form::close() }}
+	<a href="/works" class="btn btn-sm btn-default">Cancel</a>
 
+{{ Form::close() }}
 </div>
 
 @stop

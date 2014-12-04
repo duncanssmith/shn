@@ -12,15 +12,14 @@
 
 <h1>{{ $user->name }}</h1>
 
-	<div class="text-left">
-		<h2>{{ $user->username }}</h2>
+    <div class="text-left">
+        <h2>{{ $user->username }}</h2>
 
-		<p>{{ $user->email }}
-        </p>
+        <p>{{ $user->email }}</p>
 
 
-	</div>
-
+    </div>
+    <a href="/users" class="btn btn-sm btn-default"><i class="fa fa-arrow-left" style="color:#999;"></i> Back</a>
 </div>
 
 @stop

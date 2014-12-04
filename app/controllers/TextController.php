@@ -112,10 +112,12 @@ class TextController extends BaseController {
 
             // show the view and pass the text to it
             return View::make('texts.show')
-                ->with('group_list', $group_list)
-                ->with('text', $text)
-                ->with('entity', 'text')
-                ->with('title', 'Text show');
+                ->with([
+                    'group_list' => $group_list,
+                    'text' => $text,
+                    'entity' => 'text',
+                    'title' => 'Text show'
+                    ]);
         } else {
             // User is not logged in
             Session::flash('message', 'Please log in');

@@ -35,7 +35,7 @@
 	<tbody>
 	@foreach($texts as $text)
 		<tr>
-            <td>{{ $text->title }}</td>
+            <td><a href="{{ URL::to('texts/' . $text->id) }}">{{ $text->title }}</a></td>
             <td>{{ $text->author }}</td>
             <td>{{ $text->description }}</td>
             <td>{{ $text->year }}</td>

@@ -44,6 +44,7 @@
 	</tbody>
 </table>
 
+    <a href="/pages" class="btn btn-sm btn-default"><i class="fa fa-arrow-left" style="color:#999;"></i> Back</a>
 
 </div>
 
