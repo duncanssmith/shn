@@ -151,19 +151,10 @@ class GroupController extends BaseController {
      */
     public function sort_page_works($id)
     {
-
         if (Auth::check()) {
             $group = Group::with('Works')->where('id', '=', $id)->first();
             $group_list = Group::orderBy('order', 'asc')->get();
-            //$groupworks = GroupWork::with('Works')->where('group_id', '=', $id)->orderBy('order', 'asc')->get();
 
-            //if (sizeof($groupworks) < 1){
-            //    $works = $group->works;
-            //} else {
-                //dd("DUNCAN ");
-            //}
-
-            //$works = DB::table('works')->select('name as user_name')->get();
             // Couldn't figure out how to use Eloquent to get the works ordered by the pivot table order field
             $works = DB::table('works')
             ->join('group_work', 'works.id', '=', 'group_work.work_id')
@@ -173,18 +164,12 @@ class GroupController extends BaseController {
             ->orderBy('group_work.order')
             ->get();
 
-            /*
-            $works = $works->sortBy(function($work)
-            {
-                 return $work->order;
-            });
-            */
-            //$works = $works->sortBy('order', null, false);
-
-            //var_dump($works);
-
             if (sizeof($works) < 1) {
                 Session::flash('message', 'There are currently no works on the '.$group->name.' page');
+                return Redirect::to('pages');
+            }
+            if (sizeof($works) == 1) {
+                Session::flash('message', 'There is currently only one work on the '.$group->name.' page');
                 return Redirect::to('pages');
             }
 
@@ -225,9 +210,7 @@ class GroupController extends BaseController {
                 $groupwork->save();
 
                 $i++;
-
             }
-
         }
 
         return Redirect::to('/');
@@ -249,6 +232,10 @@ class GroupController extends BaseController {
 
             if (sizeof($texts) < 1) {
                 Session::flash('message', 'There are currently no texts on the '.$group->name.' page');
+                return Redirect::to('pages');
+            }
+            if (sizeof($texts) == 1) {
+                Session::flash('message', 'There is currently only one text on the '.$group->name.' page');
                 return Redirect::to('pages');
             }
 

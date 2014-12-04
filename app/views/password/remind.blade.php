@@ -10,15 +10,15 @@
 
     <h1>Reset your password</h1>
 
-    {{ Form::open() }}
+    {{ Form::open(['class' => 'well']) }}
 
-        <div>
+        <div class="form-group">
             {{ Form::label('email', 'Email address:') }}
-            {{ Form::email('email') }}
+            {{ Form::email('email', null, array('class' => 'form-control')) }}
         </div>
 
         <div>
-            {{ Form::submit('Reset') }}
+            {{ Form::submit('Reset', array('class' => 'btn btn-success')) }}
         </div>
 
     {{ Form::close() }}

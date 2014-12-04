@@ -9,6 +9,7 @@ class RemindersController extends Controller {
 	 */
 	public function getRemind()
 	{
+
 		$group_list = Group::orderBy('order', 'asc')->get();
 
 		return View::make('password.remind')
@@ -23,13 +24,14 @@ class RemindersController extends Controller {
 	 */
 	public function postRemind()
 	{
+		$group_list = Group::orderBy('order', 'asc')->get();
 		switch ($response = Password::remind(Input::only('email')))
 		{
 			case Password::INVALID_USER:
-				return Redirect::back()->with('error', Lang::get($response));
+				return Redirect::back()->with('error', Lang::get($response))->with('group_list', $group_list);
 
 			case Password::REMINDER_SENT:
-				return Redirect::back()->with('status', Lang::get($response));
+				return Redirect::back()->with('status', Lang::get($response))->with('group_list', $group_list);
 		}
 	}
 

@@ -9,7 +9,6 @@ Route::get('/page/{id}', ['as' => 'public',  'uses' => 'PagesController@pagegrou
 Route::get('/pagework/{id}', ['as' => 'public',  'uses' => 'PagesController@pagework']);
 Route::get('/pagetexts', ['as' => 'pagetexts',  'uses' => 'PagesController@pagetexts']);
 Route::get('/pagetext/{id}', ['as' => 'pagetext',  'uses' => 'PagesController@pagetext']);
-Route::get('/pagecv', ['as' => 'pagetext',  'uses' => 'PagesController@pagecv']);
 
 // Assign items to Groups
 Route::get('/assign_work/{id}', ['as' => 'assign_work',  'uses' => 'GroupController@assign_work']);

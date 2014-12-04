@@ -43,11 +43,14 @@ class PagesController extends \BaseController {
      */
     public function pagegroup($id)
     {
-        // get the groups and the works in them
-        $group = Group::with('Works')
-            ->with('Texts')
-            ->orderBy('order', 'asc')
+        // get the groups and the works and texts in them
+        $group = Group::orderBy('order', 'asc')
             ->find($id);
+            // now that we are ordering the works and texts by the
+            // order fields in the pivot tables, we no longer need
+            // to get the works and texts with the groups.
+            //->with('Works')
+            //->with('Texts')
 
         $works = DB::table('works')
             ->join('group_work', 'works.id', '=', 'group_work.work_id')
@@ -65,23 +68,25 @@ class PagesController extends \BaseController {
             ->orderBy('group_text.order')
             ->get();
 
-        $group_list = Group::orderBy('order', 'asc')->get();        
+        $group_list = Group::orderBy('order', 'asc')->get();
         $i = 0;
         $columns = 1;
 
         // show the view and pass the group to it
         return View::make('pages.group')
-            ->with('group', $group)
-            ->with('works', $works)
-            ->with('texts', $texts)
-            ->with('group_list', $group_list)
-            ->with('i', $i)
-            ->with('columns', $columns)
-            ->with('title', 'Sharon Hall: '.$group->name);
+            ->with([
+                'group' => $group,
+                'works' => $works,
+                'texts' => $texts,
+                'group_list' => $group_list,
+                'i' => $i,
+                'columns' => $columns,
+                'title' => 'Sharon Hall: '.$group->name
+                ]);
     }
 
     /**
-     * 
+     *
      */
     public function pagework($id)
     {
@@ -113,53 +118,4 @@ class PagesController extends \BaseController {
             ->with('title', 'Sharon Hall Texts');
     }
 
-    /**
-     *
-     */
-    public function pagetext($id)
-    {
-        $text = Text::find($id);
-        $group_list = Group::orderBy('order', 'asc')->get();
-
-        return View::make('pages.text')
-        ->with('text', $text)
-        ->with('group_list', $group_list)
-        ->with('title', $text->title);
-    }
-
-    public function pagecv()
-    {
-        $group_list = Group::orderBy('order', 'asc')->get();
-
-        return View::make('pages.cv')
-        ->with('group_list', $group_list)
-        ->with('title', 'CV');
-    }
-
-    /**
-     * Display a listing of the resource.
-     * GET /pages
-     *
-     * @return Response
-     */
-    public function index()
-    {
-        $group_list = Group::orderBy('order', 'asc')->get();
-        
-        return View::make('pages.index')
-        ->with('group_list', $group_list)
-        ->with('title', 'SHN');
-    }
-
-    /**
-     * Display the specified resource.
-     * GET /pages/{id}
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
 }
