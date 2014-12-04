@@ -22,13 +22,11 @@ class PagesController extends \BaseController {
         $texts = Text::all();
         $body_class = 'top-photo';
 
-            $group_list = Group::orderBy('order', 'asc')->get();
 
         // show the view and pass the group to it
         return View::make('pages.home')
             ->with('groups', $groups)
             ->with('texts', $texts)
-            ->with('group_list', $group_list)
             ->with('body_class', $body_class)
             ->with('title', 'Sharon Hall');
     }
@@ -68,7 +66,6 @@ class PagesController extends \BaseController {
             ->orderBy('group_text.order')
             ->get();
 
-        $group_list = Group::orderBy('order', 'asc')->get();
         $i = 0;
         $columns = 1;
 
@@ -78,7 +75,6 @@ class PagesController extends \BaseController {
                 'group' => $group,
                 'works' => $works,
                 'texts' => $texts,
-                'group_list' => $group_list,
                 'i' => $i,
                 'columns' => $columns,
                 'title' => 'Sharon Hall: '.$group->name
@@ -91,13 +87,11 @@ class PagesController extends \BaseController {
     public function pagework($id)
     {
         $work = Work::find($id);
-        $group_list = Group::orderBy('order', 'asc')->get();
 
         $group = Group::find($_GET['group']);
 
         return View::make('pages.work')
             ->with('work', $work)
-            ->with('group_list', $group_list)
             ->with('group', $group)
             ->with('title', $work->title);
     }
@@ -109,12 +103,10 @@ class PagesController extends \BaseController {
     {
         // get the groups
         $texts = Text::all();
-        $group_list = Group::orderBy('order', 'asc')->get();
 
         // show the view and pass the group to it
         return View::make('pages.texts')
             ->with('texts', $texts)
-            ->with('group_list', $group_list)
             ->with('title', 'Sharon Hall Texts');
     }
 

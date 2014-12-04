@@ -15,11 +15,9 @@ class TextController extends BaseController {
         // If the user is logged in...
         if (Auth::check()) {
             $texts = Text::paginate(3);
-            $group_list = Group::orderBy('order', 'asc')->get();
 
             return View::make('texts.index')
                 ->with('texts', $texts)
-                ->with('group_list', $group_list)
                 ->with('entity', 'text')
                 ->with('title', 'Texts');
         } else {
@@ -39,9 +37,7 @@ class TextController extends BaseController {
         // If the user is logged in...
         // load the create form (app/views/texts/create.blade.php)
         if (Auth::check()) {
-            $group_list = Group::orderBy('order', 'asc')->get();
             return View::make('texts.create')
-                ->with('group_list', $group_list)
                 ->with('entity', 'text')
                 ->with('title', 'Text create');
         } else {
@@ -108,12 +104,10 @@ class TextController extends BaseController {
         if (Auth::check()) {
             // get the text
             $text = Text::find($id);
-            $group_list = Group::orderBy('order', 'asc')->get();
 
             // show the view and pass the text to it
             return View::make('texts.show')
                 ->with([
-                    'group_list' => $group_list,
                     'text' => $text,
                     'entity' => 'text',
                     'title' => 'Text show'
@@ -137,11 +131,9 @@ class TextController extends BaseController {
         if (Auth::check()) {
             // get the text
             $text = Text::find($id);
-            $group_list = Group::orderBy('order', 'asc')->get();
 
             // show the edit form and pass the text
             return View::make('texts.edit')
-                ->with('group_list', $group_list)
                 ->with('text', $text)
                 ->with('entity', 'text')
                 ->with('title', 'Text edit');

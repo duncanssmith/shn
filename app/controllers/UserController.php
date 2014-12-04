@@ -11,12 +11,10 @@ class UserController extends BaseController {
     {
         if (Auth::check()) {
 
-            $group_list = Group::orderBy('order', 'asc')->get();
             $users = User::paginate(5);
 
             return View::make('users.index')
                 ->with('users', $users)
-                ->with('group_list', $group_list)
                 ->with('title', 'Users');
         } else {
             // User is not logged in
@@ -36,12 +34,10 @@ class UserController extends BaseController {
         if (Auth::check()) {
             // get the user
             $user = User::find($id);
-            $group_list = Group::orderBy('order', 'asc')->get();
 
             // show the view and pass the user to it
             return View::make('users.show')
                 ->with('user', $user)
-                ->with('group_list', $group_list)
                 ->with('title', 'User show');
         } else {
             // User is not logged in
@@ -61,12 +57,10 @@ class UserController extends BaseController {
         if (Auth::check()) {
             // get the user
             $user = User::find($id);
-            $group_list = Group::orderBy('order', 'asc')->get();
 
             // show the edit form and pass the user
             return View::make('users.edit')
                 ->with('user', $user)
-                ->with('group_list', $group_list)
                 ->with('title', 'User edit');
         } else {
             // User is not logged in

@@ -16,10 +16,7 @@ class SessionsController extends \BaseController {
 	 */
 	public function create()
 	{
-        $group_list = Group::orderBy('order', 'asc')->get();
-        
 		return View::make('sessions.create')
-		    ->with('group_list', $group_list)
             ->with('title', 'Log in');
 	}
 

@@ -7,11 +7,11 @@ class NavServiceProvider extends ServiceProvider
 
 	public function register()
 	{
-        //$nav_data = \Group::all();
+		 \View::composer('partials.nav', 'Acme\View\Composer\NavigationComposer');
+	}
 
-//        var_dump($nav_data); die();
-
-		\View::composer('layout.public', 'Acme\View\Composer\NavigationComposer');
+	public function boot()
+	{
 	}
 }
 

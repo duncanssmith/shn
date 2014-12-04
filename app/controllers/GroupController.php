@@ -19,8 +19,6 @@ class GroupController extends BaseController {
 
             $links = $text->groups;
 
-            $group_list = Group::orderBy('order', 'asc')->get();
-
             $arr = array();
             foreach ($text->groups as $link){
                 $arr[] = $link->pivot->group_id;
@@ -30,7 +28,6 @@ class GroupController extends BaseController {
 
             // show the edit form and pass the group
             return View::make('texts.assign')
-                ->with('group_list', $group_list)
                 ->with('text', $text)
                 ->with('links', $links)
                 ->with('arr', $arr)
@@ -87,8 +84,6 @@ class GroupController extends BaseController {
 
             $links = $work->groups;
 
-            $group_list = Group::orderBy('order', 'asc')->get();
-
             $arr = array();
             foreach ($work->groups as $link){
                 $arr[] = $link->pivot->group_id;
@@ -96,11 +91,8 @@ class GroupController extends BaseController {
 
             $groups = Group::all();
 
-            $group_list = Group::orderBy('order', 'asc')->get();
-
             // show the edit form and pass the group
             return View::make('works.assign')
-                ->with('group_list', $group_list)
                 ->with('work', $work)
                 ->with('entity', 'work')
                 ->with('links', $links)
@@ -153,7 +145,6 @@ class GroupController extends BaseController {
     {
         if (Auth::check()) {
             $group = Group::with('Works')->where('id', '=', $id)->first();
-            $group_list = Group::orderBy('order', 'asc')->get();
 
             // Couldn't figure out how to use Eloquent to get the works ordered by the pivot table order field
             $works = DB::table('works')
@@ -176,7 +167,6 @@ class GroupController extends BaseController {
             return View::make('works.sort')
                 ->with('group', $group)
                 ->with('works', $works)
-                ->with('group_list', $group_list)
                 ->with('entity', 'page works')
                 ->with('title', 'Sort page works');
 
@@ -227,7 +217,6 @@ class GroupController extends BaseController {
 
             // paginate
             $groups = Group::orderBy('id', 'asc')->paginate(9);
-            $group_list = Group::orderBy('order', 'asc')->get();
             $texts = $group->texts;
 
             if (sizeof($texts) < 1) {
@@ -243,7 +232,6 @@ class GroupController extends BaseController {
                 ->with('group', $group)
                 ->with('texts', $texts)
                 ->with('groups', $groups)
-                ->with('group_list', $group_list)
                 ->with('entity', 'page texts')
                 ->with('title', 'Sort page texts');
 
@@ -293,11 +281,9 @@ class GroupController extends BaseController {
 
             // paginate
             $groups = Group::orderBy('id', 'asc')->paginate(9);
-            $group_list = Group::orderBy('order', 'asc')->get();
 
             return View::make('groups.index')
                 ->with('groups', $groups)
-                ->with('group_list', $group_list)
                 ->with('entity', 'page')
                 ->with('title', 'Pages');
 
@@ -320,10 +306,8 @@ class GroupController extends BaseController {
         // load the create form (app/views/groups/create.blade.php)
         if (Auth::check()) {
 
-            $group_list = Group::orderBy('order', 'asc')->get();
 
             return View::make('groups.create')
-                ->with('group_list', $group_list)
                 ->with('entity', 'page')
                 ->with('title', 'Page create');
         } else {
@@ -383,11 +367,8 @@ class GroupController extends BaseController {
             // get the group
             $group = Group::find($id);
 
-            $group_list = Group::orderBy('order', 'asc')->get();
-
             // show the view and pass the group to it
             return View::make('groups.show')
-                ->with('group_list', $group_list)
                 ->with('group', $group)
                 ->with('entity', 'page')
                 ->with('title', 'Page show');
@@ -410,11 +391,8 @@ class GroupController extends BaseController {
             // get the group
             $group = Group::find($id);
 
-            $group_list = Group::orderBy('order', 'asc')->get();
-
             // show the edit form and pass the group
             return View::make('groups.edit')
-                ->with('group_list', $group_list)
                 ->with('group', $group)
                 ->with('entity', 'page')
                 ->with('title', 'Page edit');

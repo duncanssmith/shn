@@ -124,7 +124,7 @@ return array(
         'Way\Generators\GeneratorsServiceProvider',
         'Laracasts\Validation\ValidationServiceProvider',
         'Intervention\Image\ImageServiceProvider',
-    //    'Acme\View\Composer\NavServiceProvider',
+        'Acme\View\Composer\NavServiceProvider',
 	),
 
 	/*
