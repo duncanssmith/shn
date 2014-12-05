@@ -118,11 +118,17 @@ class UserController extends BaseController {
     public function destroy($id)
     {
         if (Auth::check()) {
-            // TODO:
             // Check the Auth user_id is not the same as the $id as this would mean user could delete their own user record!!!
+            $currently_logged_in_user = Auth::user();
 
             $user = User::find($id);
-            $user->delete();
+
+            if ($user->id == $currently_logged_in_user->id) {
+                Session::flash('message', 'You can\'t delete your own user account. Sorry.');
+                return Redirect::to('users');
+            } else {
+                //$user->delete();
+            }
 
             // redirect
             Session::flash('message', 'Successfully deleted the user');

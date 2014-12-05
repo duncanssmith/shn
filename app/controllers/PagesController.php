@@ -22,7 +22,6 @@ class PagesController extends \BaseController {
         $texts = Text::all();
         $body_class = 'top-photo';
 
-
         // show the view and pass the group to it
         return View::make('pages.home')
             ->with('groups', $groups)
