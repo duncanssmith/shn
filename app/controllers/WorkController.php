@@ -285,13 +285,13 @@ class WorkController extends BaseController {
                         $image->resize(64, 64);
                         $image->save($target_path.'64/sh_'.$ref.'.jpg');
                     } else {
-                        $work->delete();
+                        //$work->delete();
                         Session::flash('message', 'The photo file was invalid');
                         return Redirect::to('works');
                     }
                 } else {
-                    $work->delete();
-                    Session::flash('message', 'No photo file was uploaded');
+                    //$work->delete();
+                    Session::flash('message', 'No new photo file was uploaded');
                     return Redirect::to('works');
                 }
 
