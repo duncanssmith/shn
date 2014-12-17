@@ -10,3 +10,4 @@ class RegistrationForm extends FormValidator {
         'password' => 'required|confirmed'
     ];
 }
+

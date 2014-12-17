@@ -42,6 +42,12 @@
                         </a>
                     </li>                     
 
+                    <li class="dropdown" role="presentation">
+                        <a href="/page/20" class="header-link">
+                            All texts
+                        </a>
+                    </li>                     
+
                     @if (Auth::guest())
 
                     @else

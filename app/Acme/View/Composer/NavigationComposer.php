@@ -2,10 +2,12 @@
 
 class NavigationComposer {
 	
-	public function compose($view)
-	{
+    public function compose($view)
+    {
         $group_list = \Group::orderBy('order', 'asc')->get();
 
         $view->with('group_list', $group_list);
-	}
+    }
+
 }
+
