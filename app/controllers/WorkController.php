@@ -134,12 +134,12 @@ class WorkController extends BaseController {
                         $image->resize(64, 64);
                         $image->save($target_path.'64/sh_'.$ref.'.jpg');
                     } else {
-                        $work->delete();
+                        //$work->delete();
                         Session::flash('message', 'The photo file was invalid');
                         return Redirect::to('works');
                     }
                 } else {
-                    $work->delete();
+                    //$work->delete();
                     Session::flash('message', 'No photo file was uploaded');
                     return Redirect::to('works');
                 }
@@ -218,6 +218,10 @@ class WorkController extends BaseController {
     {
         // Check user is logged in
         if (Auth::check()) {
+            //init vars
+            $destination_path = getEnv('PUBLIC_BASE_PATH').'uploads/';
+            $target_path = getEnv('PUBLIC_BASE_PATH').'media/images/';
+
             // validate
             // read more on validation at http://laravel.com/docs/validation
             $rules = array(
