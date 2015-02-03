@@ -21,13 +21,13 @@
 
                     <li class="dropdown" role="presentation">
                         <a href="/page/17" class="header-link">
-                            Current work
+                            Current
                         </a>
                     </li> 
 
                     <li class="dropdown" role="presentation">
                         <a href="#" data-toggle="dropdown" class="header-link">
-                            All work
+                            All
                         </a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                             @foreach($group_list as $item)
@@ -37,16 +37,24 @@
                     </li>
 
                     <li class="dropdown" role="presentation">
+                        <a href="/page/20" class="header-link">
+                            Texts
+                        </a>
+                    </li>                     
+
+                    <li class="dropdown" role="presentation">
                         <a href="/page/19" title="CV" class="header-link">
                             CV
                         </a>
                     </li>                     
 
                     <li class="dropdown" role="presentation">
-                        <a href="/page/20" class="header-link">
-                            All texts
+                        <a href="/page/24" title="Contact" class="header-link">
+                            Contact
                         </a>
                     </li>                     
+
+
 
                     @if (Auth::guest())
 
