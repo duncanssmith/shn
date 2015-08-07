@@ -18,7 +18,7 @@
         </div>
 
         <div>
-            {{ Form::submit('Reset', array('class' => 'btn btn-success')) }}
+            {{ Form::submit('Reset', array('class' => 'btn btn-xs btn-success')) }}
         </div>
 
     {{ Form::close() }}
