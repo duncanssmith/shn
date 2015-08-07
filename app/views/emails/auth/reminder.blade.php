@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en-US">
-	<head>
-		<meta charset="utf-8">
-	</head>
-	<body>
-		<h2>Password Reset</h2>
+<!-- app/views/groups/show.blade.php -->
+
+@extends('...layout.main')
+
+@section('nav')
+
+    @include('partials.nav')
+
+@stop
+
+@section('content')
 
 		<div>
 			To reset your password, complete this form: {{ URL::to('password/reset', array($token)) }}.<br/>

@@ -4,7 +4,11 @@
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+        "twitter/bootstrap":"*",
+		"laracasts/validation": "~1.0",
+        "intervention/image": "dev-master",
+        "doctrine/dbal": "v2.4.2"
 	},
 	"autoload": {
 		"classmap": [
@@ -14,7 +18,11 @@
 			"app/database/migrations",
 			"app/database/seeds",
 			"app/tests/TestCase.php"
-		]
+		],
+        "files": ["app/Acme/helpers.php"],
+        "psr-4": {
+            "Acme\\": "app/Acme"
+        }
 	},
 	"scripts": {
 		"post-install-cmd": [
@@ -32,5 +40,8 @@
 	"config": {
 		"preferred-install": "dist"
 	},
-	"minimum-stability": "stable"
+	"minimum-stability": "stable",
+	"require-dev": {
+		"way/generators": "2.*"
+	}
 }
