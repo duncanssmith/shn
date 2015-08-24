@@ -32,7 +32,7 @@
         {{ errors_for('password_confirmation', $errors) }}
     </div>
 
-    {{ Form::submit('Create account', array('class' => 'btn btn-primary')) }}
+    {{ Form::submit('Create account', array('class' => 'btn btn-xs btn-primary')) }}
 
 {{ Form::close() }}
 
