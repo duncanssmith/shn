@@ -52,3 +52,4 @@ Route::resource('users', 'UserController');
 //{
 //    return Auth::basic('username');
 //});
+//
