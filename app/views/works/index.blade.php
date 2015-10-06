@@ -22,15 +22,15 @@
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <td>Image</td>
-            <td>Title</td>
-            <td>Reference</td>
-            <td>Media</td>
-            <td>Dimensions</td>
-            <td>Date</td>
-            <td>Description</td>
-            <td>Notes</td>
-            <td>Actions</td>
+            <td>Image </td>
+            <td>Title </td>
+            <td>Reference </td>
+            <td>Media </td>
+            <td>Dimensions </td>
+            <td>Date </td>
+            <td>Description </td>
+            <td>Notes </td>
+            <td>Actions </td>
         </tr>
     </thead>
     <tbody>
