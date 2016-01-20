@@ -55,7 +55,7 @@
                     </li>
 
                     <li class="dropdown" role="presentation">
-                        <a href="http://sharonhallartist.blogspot.co.uk/" title="Blog" class="header-link">
+                        <a href="http://sharonhallartist.blogspot.co.uk/" target="_blank" title="Blog" class="header-link">
                             Sharon Hall Artist Blog (recent updates)
                         </a>
                     </li>                     
