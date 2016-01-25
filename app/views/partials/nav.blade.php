@@ -46,11 +46,17 @@
                         <a href="/page/19" title="CV" class="header-link">
                             CV
                         </a>
-                    </li>                     
+                    </li>
 
                     <li class="dropdown" role="presentation">
                         <a href="/page/24" title="Contact" class="header-link">
                             Contact
+                        </a>
+                    </li>
+
+                    <li class="dropdown" role="presentation">
+                        <a href="http://sharonhallartist.blogspot.co.uk/" target="_blank" title="Blog" class="header-link">
+                            Sharon Hall Artist Blog (recent updates)
                         </a>
                     </li>                     
 

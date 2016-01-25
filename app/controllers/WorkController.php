@@ -60,7 +60,6 @@ class WorkController extends BaseController {
         // Check user is logged in
         if (Auth::check()) {
             // init vars
-            //$destination_path = '/Users/duncansmith/Sites/dart.local/public/dsscript/uploads';
             $destination_path = getEnv('PUBLIC_BASE_PATH').'uploads/';
             $target_path = getEnv('PUBLIC_BASE_PATH').'media/images/';
             $action = 'store';            
