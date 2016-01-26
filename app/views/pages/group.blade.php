@@ -34,7 +34,7 @@
                             <br>
                             <!-- Modal trigger button -->
                             <br>
-                            <a id="modal-{{ $work->reference }}" href="/pagework/{{$work->id}}?group={{ $group->id}}" class="btn btn-xs btn-default" style="color:#999;"><i class="fa fa-arrow-right" style="color:#aaa;"></i> {{ $work->title }}</a>
+                            <a id="modal-{{ $work->reference }}" href="/pagework/{{$work->id}}?group={{ $group->id}}" class="work-caption-link"> {{ $work->title }}</a>
                             <!-- Image display modal ////////////////////////////////////////////////////////// -->
                             <div id="item-show-{{ $work->reference }}" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
                                 <div class="modal-dialog">

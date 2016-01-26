@@ -21,8 +21,16 @@ body {
     margin-top: -100px;
 }
 
-a, a:visited {
+a, a:hover, a:visited {
     text-decoration:none;
+}
+
+a.work-caption-link {
+    color: #666;
+}
+
+a.work-caption-link:hover {
+    color: #888;
 }
 
 a.header-link-secure {
@@ -55,6 +63,7 @@ h1 {
     font-size: 0.8em;
     color: #444;
 }
+
 
 .text-left {
     padding-bottom: 20px;
