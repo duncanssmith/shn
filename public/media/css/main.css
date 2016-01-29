@@ -21,6 +21,18 @@ body {
     margin-top: -100px;
 }
 
+.selected img {
+    opacity: 0.5;
+}
+
+.active {
+    margin: auto;
+    width: 60%; 
+    padding: 0px;
+    border: 0px dotted red;
+    background: rgba(205,255,255,.31) ;
+}
+
 a, a:hover, a:visited {
     text-decoration:none;
 }

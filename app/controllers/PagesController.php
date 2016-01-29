@@ -68,8 +68,14 @@ class PagesController extends \BaseController {
         $i = 0;
         $columns = (empty($group->columns) || (0 == $group->columns)) ? 1 : $group->columns;
 
+        $template = 'pages.group';
+
+        if ($group->layout == 1) {
+            $template = 'pages.groupcarousel';
+        }
+
         // show the view and pass the group to it
-        return View::make('pages.group')
+        return View::make($template)
             ->with([
                 'group' => $group,
                 'works' => $works,

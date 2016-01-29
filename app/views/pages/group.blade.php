@@ -12,17 +12,6 @@
 
     <div class="container">
 
-        @if ($group->layout == 1)
-            <div class="row">
-                @foreach($works as $work)
-                    <div class="col-md-1">
-                        <img src="/media/images/64/{{ $work->reference }}.jpg">
-                    </div>
-                @endforeach
-            </div>
-
-        @elseif ($group->layout == 0)
-
         <div class="row">
             <div class="col-md-6">
 
@@ -94,8 +83,6 @@
             </div>
 
         </div>
-
-        @endif
 
     </div> <?php // end container?>
 
