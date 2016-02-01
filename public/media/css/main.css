@@ -22,15 +22,18 @@ body {
 }
 
 .selected img {
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 .active {
     margin: auto;
     width: 60%; 
     padding: 0px;
-    border: 0px dotted red;
-    background: rgba(205,255,255,.31) ;
+    background: rgba(255,255,255,.999) ;
+}
+.carousel-control.left,
+.carousel-control.right {
+    background-image: none;
 }
 
 a, a:hover, a:visited {

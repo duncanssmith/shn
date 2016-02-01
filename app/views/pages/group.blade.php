@@ -21,7 +21,7 @@
 
 
                 <table>
-                @foreach($works as $work)
+                @foreach($works as $i => $work)
 
                     @if ($i % $columns == 0)
                         @if ($i == 0)
@@ -62,7 +62,6 @@
                             </div>
                             <hr>
                         </td>
-                    <?php $i++ ?>
                 @endforeach
                     </tr>
                 </table>

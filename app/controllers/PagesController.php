@@ -65,7 +65,6 @@ class PagesController extends \BaseController {
             ->orderBy('group_text.order')
             ->get();
 
-        $i = 0;
         $columns = (empty($group->columns) || (0 == $group->columns)) ? 1 : $group->columns;
 
         $template = 'pages.group';
@@ -80,7 +79,6 @@ class PagesController extends \BaseController {
                 'group' => $group,
                 'works' => $works,
                 'texts' => $texts,
-                'i' => $i,
                 'columns' => $columns,
                 'title' => 'Sharon Hall: '.$group->name
                 ]);
