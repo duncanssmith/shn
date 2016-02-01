@@ -30,24 +30,25 @@
                         @else
                             <div class="item" data-slide-number="{{ $i }}">
                         @endif
-                                <img src="/media/images/640/{{ $work->reference }}.jpg" title="{{ $work->title }}" class="img-responsive">
+                                <img src="/media/images/640/{{ $work->reference }}.jpg" title="{{ $work->title,', ', $work->media,', ', $work->work_date }}" class="img-responsive">
+                                <div class="carousel-caption">
+                                    <p>{{ $work->title, ', ', $work->media, ', ', $work->work_date }}</p>
+                                </div>
                             </div>
 
                     @endforeach
-                    </div>
+                     </div>
 
-                    <!-- main slider carousel nav controls --> 
-                    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                        <!-- main slider carousel nav controls -->
+                        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
 
-                    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
     <!--/main slider carousel-->
-
-    <br>
 
     <div class="row">
 
