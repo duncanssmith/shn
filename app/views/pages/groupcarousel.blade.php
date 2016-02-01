@@ -32,6 +32,7 @@
                         @endif
                                 <img src="/media/images/640/{{ $work->reference }}.jpg" title="{{ $work->title }}" class="img-responsive">
                             </div>
+
                     @endforeach
                     </div>
 

@@ -21,21 +21,6 @@ body {
     margin-top: -100px;
 }
 
-.selected img {
-    opacity: 0.6;
-}
-
-.active {
-    margin: auto;
-    width: 60%; 
-    padding: 0px;
-    background: rgba(255,255,255,.999) ;
-}
-.carousel-control.left,
-.carousel-control.right {
-    background-image: none;
-}
-
 a, a:hover, a:visited {
     text-decoration:none;
 }
