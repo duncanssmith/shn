@@ -13,17 +13,17 @@
 @section('content')
 
 <h1>Add work</h1>
+<br>
 
 <!-- if there are creation errors, they will show here -->
 {{ HTML::ul($errors->all()) }}
 
 {{ Form::open(array('url' => 'works', 'files' => true)) }}
 
-
-
     <div class="form-group">
-        {{ Form::label('image', 'Image') }}
-        {{ Form::file('image', ['class' => 'btn btn-default']) }}
+        {{ Form::label('image', 'Select JPG image to upload') }}
+        {{ Form::file('image', ['class' => 'btn btn-success']) }}
+        Note: max file size 4MB
     </div>
 
     <div class="form-group">
@@ -57,7 +57,7 @@
     </div>
 
     {{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
-    <a href="/works" class="btn btn-xs btn-default">Cancel</a>
+    <a href="/works" class="btn btn-default">Cancel</a>
 {{ Form::close() }}
 
 </div>
