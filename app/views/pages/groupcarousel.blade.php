@@ -30,9 +30,9 @@
                         @else
                             <div class="item" data-slide-number="{{ $i }}">
                         @endif
-                                <img src="/media/images/640/{{ $work->reference }}.jpg" title="{{ $work->title,', ', $work->media,', ', $work->work_date }}" class="img-responsive">
+                                <img src="/media/images/640/{{ $work->reference }}.jpg" title="{{ $work->title,', ', $work->media,', ', $work->dimensions,', ', $work->work_date }}" class="img-responsive">
                                 <div class="carousel-caption">
-                                    <p>{{ $work->title, ', ', $work->media, ', ', $work->work_date }}</p>
+                                    <p>{{ $work->title, ', ', $work->media, ', ', $work->dimensions,', ', $work->work_date }}</p>
                                 </div>
                             </div>
 
@@ -64,7 +64,7 @@
                     @else
                         <a id="carousel-selector-{{ $i }}" class="">
                     @endif
-                        <img src="/media/images/64/{{ $work->reference }}.jpg" title="{{ $work->title }}" class="img-responsive">
+                        <img src="/media/images/120/{{ $work->reference }}.jpg" title="{{ $work->title,', ', $work->media,', ', $work->dimensions,', ', $work->work_date  }}" class="img-responsive">
                     </a>
                 </li>
                 @endforeach
