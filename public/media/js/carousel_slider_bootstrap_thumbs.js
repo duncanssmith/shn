@@ -1,5 +1,5 @@
 $('#myCarousel').carousel({
-    interval: 5000
+    interval: 9000
 });
 
 // handles the carousel thumbnails
@@ -17,7 +17,7 @@ $('[id^=carousel-selector-]').click( function(){
 // when the carousel slides, update the thumbnail
 $('#myCarousel').on('slide.bs.carousel', function (e) {
     var id = $('.item.active').data('slide-number');
-    id = parseInt(id);
+    id = parseInt(id) + 1;
 
     $('[id^=carousel-selector-]').removeClass('selected');
     $('[id=carousel-selector-'+id+']').addClass('selected');
