@@ -21,14 +21,22 @@
 }
 .carousel-control {
     color: #999 !important;
-    background: none !important; filter: none !important; progid:none !important;
     text-shadow: none;
-    font-size: 3em;
+    font-size: 2.8em;
     margin: 0 auto;
+    position: absolute;
 }
 
-.carousel-control.left,
-.carousel-control.right {
+.carousel-control.left
+{
+    color: #f11 !important;
+    background: none !important;
+    filter: none !important;
+    progid: none !important;
+}
+.carousel-control.right
+{
+    color: #11f !important;
     background: none !important;
     filter: none !important;
     progid: none !important;
