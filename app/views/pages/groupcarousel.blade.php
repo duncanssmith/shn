@@ -35,7 +35,6 @@
                                     <p>{{ $work->title, ', ', $work->media, ', ', $work->dimensions,', ', $work->work_date }}</p>
                                 </div>
                             </div>
-
                     @endforeach
                      </div>
 
@@ -64,8 +63,8 @@
                     @else
                         <a id="carousel-selector-{{ $i }}" class="">
                     @endif
-                        <img src="/media/images/120/{{ $work->reference }}.jpg" title="{{ $work->title,', ', $work->media,', ', $work->dimensions,', ', $work->work_date  }}" class="img-responsive">
-                    </a>
+                            <img src="/media/images/120/{{ $work->reference }}.jpg" title="{{ $work->title,', ', $work->media,', ', $work->dimensions,', ', $work->work_date  }}" class="img-responsive">
+                        </a>
                 </li>
                 @endforeach
             </ul>
@@ -74,3 +73,4 @@
 
     </div>
 </div>
+

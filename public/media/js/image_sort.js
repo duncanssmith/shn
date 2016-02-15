@@ -1,5 +1,6 @@
 $(function () {
-    $('#sortable').sortable().bind('sortupdate', function(e, ui) {
+
+    $('.sortable').sortable().bind('sortupdate', function(e, ui) {
 
         var id = $('tbody.sortable tr').map(function(){ 
             return $(this).data("id");
@@ -11,10 +12,10 @@ $(function () {
 
         var uuid = "<?php echo$uuid; ?>";
 
-        //console.log("id, group_id, uuid: ") ;
-        //console.log(id);
-        //console.log(group_id);
-        //console.log(uuid);
+        console.log("id, group_id, uuid: ") ;
+        console.log(id);
+        console.log(group_id);
+        console.log(uuid);
 
         $.ajax({
             type: "POST",
