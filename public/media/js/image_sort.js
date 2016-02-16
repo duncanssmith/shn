@@ -12,10 +12,10 @@ $(function () {
 
         var uuid = "<?php echo$uuid; ?>";
 
-        console.log("id, group_id, uuid: ") ;
-        console.log(id);
-        console.log(group_id);
-        console.log(uuid);
+        //console.log("id, group_id, uuid: ") ;
+        //console.log(id);
+        //console.log(group_id);
+        //console.log(uuid);
 
         $.ajax({
             type: "POST",
@@ -23,7 +23,7 @@ $(function () {
             dataType: "json",
             data: {id: id, group_id: group_id, uuid: uuid},
             success: function(order){
-                console.log(group_id, id)
+                //console.log(group_id, id)
             }
         });
     });
