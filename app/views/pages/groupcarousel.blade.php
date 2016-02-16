@@ -1,6 +1,6 @@
 <!-- app/views/pages/groupcarousel.blade.php -->
 
-@extends('...layout.main')
+@extends('...layout.main_carousel')
 
 @section('nav')
 
