@@ -36,7 +36,7 @@
 	<tbody>
 	@foreach($texts as $text)
 		<tr>
-            <td><a href="{{ URL::to('texts/' . $text->id) }}">{{ $text->title }}</a></td>
+            <td><a href="{{ URL::to('texts/' . $text->id) }}" title="Click to view text and details about it" target="_blank">{{ $text->title }}</a></td>
             <td>{{ $text->author }}</td>
             <td>{{ $text->description }}</td>
             <td>{{ $text->year }}</td>
@@ -46,9 +46,6 @@
 
 			<!-- we will also add show, edit, and delete buttons -->
 			<td>
-				<!-- show the text (uses the show method found at GET /texts/{id} -->
-				<a class="btn btn-xs btn-success" href="{{ URL::to('texts/' . $text->id) }}">Show</a>
-
 				<!-- edit this text (uses the edit method found at GET /texts/{id}/edit -->
 				<a class="btn btn-xs btn-info" href="{{ URL::to('texts/' . $text->id . '/edit') }}">Edit</a>
 

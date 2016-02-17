@@ -22,7 +22,9 @@
 			{{ $work->description }}<br>
 			{{ $work->notes }}
 		</p>
-		<a href="/page/{{ $_GET['group'] }}" class="work-caption-link">Back to {{ $group->name }}</a>
+		@if (!empty($_GET['group']))
+		    <a href="/page/{{ $_GET['group'] }}" class="work-caption-link">Back to {{ $group->name }}</a>
+		@endif
 	</div>
 
 @stop

@@ -91,12 +91,21 @@ class PagesController extends \BaseController {
     {
         $work = Work::find($id);
 
-        $group = Group::find($_GET['group']);
+        if (!empty($_GET['group'])) {
+            $group = Group::find($_GET['group']);
 
-        return View::make('pages.work')
-            ->with('work', $work)
-            ->with('group', $group)
-            ->with('title', $work->title);
+            $view = View::make('pages.work')
+                ->with('work', $work)
+                ->with('group', $group)
+                ->with('title', $work->title);
+        } else {
+
+            $view = View::make('pages.work')
+                ->with('work', $work)
+                ->with('title', $work->title);
+        }
+
+        return $view;
     }
 
     /**

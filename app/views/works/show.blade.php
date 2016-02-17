@@ -13,16 +13,39 @@
 @section('content')
 
     <div class="text-left">
-        <h2><strong>Title:</strong> {{ $work->title }}</h2>
+        <h2>Title: {{ $work->title }}</h2>
 
-        <img src="/media/images/320/{{$work->reference}}.jpg">
-        <p>
-            <strong>Reference:</strong> {{ $work->reference }}<br>
-            <strong>Media:</strong> {{ $work->media }}<br>
-            <strong>Dimensions:</strong> {{ $work->dimensions }}<br>
-            <strong>Work date:</strong> {{ $work->work_date }}<br>
-            <strong>Description:</strong> {{ $work->description }}<br>
-            <strong>Notes:</strong> {{ $work->notes }}</p>
+        <img src="/media/images/640/{{$work->reference}}.jpg">
+        <table class="work-data work-data-1">
+            <tr>
+                <th> Title </th>
+                <td> {{ $work->title }} </td>
+            </tr>
+            <tr>
+                <th> Reference </th>
+                <td> {{ $work->reference }} </td>
+            </tr>
+            <tr>
+                <th> Media </th>
+                <td> {{ $work->media }} </td>
+            </tr>
+            <tr>
+                <th> Dimensions </th>
+                <td> {{ $work->dimensions }} </td>
+            </tr>
+            <tr>
+                <th> Date </th>
+                <td> {{ $work->work_date }} </td>
+            </tr>
+            <tr>
+                <th> Description </th>
+                <td> {{ $work->description }} </td>
+            </tr>
+            <tr>
+                <th> Notes </th>
+                <td> {{ $work->notes }} </td>
+            </tr>
+        </table>
         </p>
     <a href="/works" class="btn btn-xs btn-default"><i class="fa fa-arrow-left" style="color:#999;"></i> Back</a>
     </div>

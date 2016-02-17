@@ -39,8 +39,8 @@
     @foreach($works as $key => $work)
         <tr>
 
-        <td><a href="{{ URL::to('works/' . $work->id) }}"><img src="/media/images/64/{{ $work->reference }}.jpg"></a></td>
-        <td>{{ $work->title }}</td>
+        <td><a href="{{ URL::to('pagework/' . $work->id) }}" title="Click to view this work" target="_blank"><img src="/media/images/64/{{ $work->reference }}.jpg"></a></td>
+        <td><a href="{{ URL::to('works/' . $work->id) }}" title="Click to view details for this work" target="_blank">{{ $work->title }}</a></td>
         <td>{{ $work->reference }}</td>
         <td>{{ $work->media }}</td>
         <td>{{ $work->dimensions }}</td>
@@ -50,9 +50,6 @@
 
             <!-- we will also add show, edit, and delete buttons -->
             <td>
-                <!-- show the work (uses the show method found at GET /works/{id} -->
-                <a class="btn btn-xs btn-success" href="{{ URL::to('works/' . $work->id) }}">Show</a>
-
                 <!-- edit this work (uses the edit method found at GET /works/{id}/edit -->
                 <a class="btn btn-xs btn-info" href="{{ URL::to('works/' . $work->id . '/edit') }}">Edit</a>
 
