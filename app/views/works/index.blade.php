@@ -12,7 +12,9 @@
 
 @section('content')
     <h1>Works</h1>
-    <p> {{ $works->getTotal() }} </p>
+    <br>
+    <p>{{ $works->getTotal() }} works</p>
+
 
 <!-- will be used to show any messages -->
 @if (Session::has('message'))
