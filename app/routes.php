@@ -39,6 +39,8 @@ Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store',
 Route::resource('works', 'WorkController');
 Route::resource('pages', 'GroupController');
 Route::resource('texts', 'TextController');
+Route::resource('covers', 'CoverController');
+
 // COMMENTED FOR PRODUCTION
 Route::resource('users', 'UserController');
 //Route::get('users', ['as' => 'home', 'uses' => 'PagesController@home']);

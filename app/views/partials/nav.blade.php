@@ -72,9 +72,10 @@
 
                     @else
                     
-                        <li><a href="/pages" class="header-link-secure">Pages</a></li>
-                        <li><a href="/works" class="header-link-secure">Works</a></li>
-                        <li><a href="/texts" class="header-link-secure">Texts</a></li>
+                        <li><a href="/pages" class="header-link-secure" title="Create, update or delete pages">Pages</a></li>
+                        <li><a href="/works" class="header-link-secure" title="Create, update or delete works">Works</a></li>
+                        <li><a href="/texts" class="header-link-secure" title="Create, update or delete texts">Texts</a></li>
+                        <li><a href="/covers" class="header-link-secure" title="Set, add, or change the cover image">Covers</a></li>
                         {{--<li><a href="/users" class="header-link-secure"><i class="fa fa-users"></i> Users</a></li>--}}
 
                     @endif
