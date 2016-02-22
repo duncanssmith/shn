@@ -22,6 +22,7 @@ class CreateCoversTable extends Migration {
                 $table->string('description', 255)->nullable();
                 $table->string('notes', 255)->nullable();
                 $table->string('cover_date', 32)->nullable();
+                $table->boolean('is_current')->default(false);
                 $table->timestamps();
             });
 	}
