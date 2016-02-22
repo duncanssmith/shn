@@ -15,8 +15,8 @@
     <div class="text-left">
         <h2>Title: {{ $cover->title }}</h2>
 
-        <img src="/media/images/640/{{$cover->reference}}.jpg">
-        <table class="cover-data cover-data-1">
+        <img src="/media/images/covers/{{$cover->reference}}.jpg" width="800px">
+        <table class="work-data work-data-1">
             <tr>
                 <th> Title </th>
                 <td> {{ $cover->title }} </td>

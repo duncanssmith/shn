@@ -19,7 +19,7 @@
 
 {{ Form::model($cover, array('route' => array('covers.update', $cover->id), 'files' => true, 'method' => 'PUT')) }}
 
-    <img src="/media/images/160/{{$cover->reference}}.jpg">
+    <img src="/media/images/covers/{{$cover->reference}}.jpg">
 
 	<div class="form-group">
 		{{ Form::label('image', 'Image') }}

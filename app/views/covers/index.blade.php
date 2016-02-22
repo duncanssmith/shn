@@ -11,7 +11,11 @@
 @stop
 
 @section('content')
-    <h1>Covers</h1>
+    <h1>Current cover</h1>
+    <img src="/media/images/covers/current.jpg" width="240px">
+    <br>
+
+    <h1>Available covers</h1>
     <br>
     <p>{{ $covers->getTotal() }} covers</p>
 
@@ -39,7 +43,8 @@
     @foreach($covers as $key => $cover)
         <tr>
 
-        <td><a href="{{ URL::to('covers/' . $cover->id) }}" title="Click to view details for this cover" target="_blank"><img src="/media/images/covers/{{ $cover->reference }}.jpg"></a></td>
+        <td><a href="{{ URL::to('covers/' . $cover->id) }}" title="Click to view details for this cover" target="_blank"><img src="/media/images/covers/{{ $cover->reference }}.jpg" width="160px"></a></td>
+        <td>{{ $cover->title }}</td>
         <td>{{ $cover->reference }}</td>
         <td>{{ $cover->media }}</td>
         <td>{{ $cover->dimensions }}</td>
@@ -53,7 +58,7 @@
                 <a class="btn btn-xs btn-info" href="{{ URL::to('covers/' . $cover->id . '/edit') }}">Edit</a>
 
                 <!-- edit this cover (uses the edit method found at GET /covers/{id}/edit -->
-                <a class="btn btn-xs btn-primary" href="{{ URL::to('assign_cover/' . $cover->id) }}">Assign</a>
+                <a class="btn btn-xs btn-primary" href="{{ URL::to('set_cover/' . $cover->id) }}">Set as cover</a>
 
                 <!-- Button trigger modal -->
                 <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#item-delete-{{$cover->id}}">Delete</button>
