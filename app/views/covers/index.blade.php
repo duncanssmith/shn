@@ -28,6 +28,7 @@
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
+            <td>Current? </td>
             <td>Image </td>
             <td>Title </td>
             <td>Reference </td>
@@ -42,7 +43,7 @@
     <tbody>
     @foreach($covers as $key => $cover)
         <tr>
-
+        <td>{{ $cover->is_current }}</td>
         <td><a href="{{ URL::to('covers/' . $cover->id) }}" title="Click to view details for this cover" target="_blank"><img src="/media/images/covers/{{ $cover->reference }}.jpg" width="160px"></a></td>
         <td>{{ $cover->title }}</td>
         <td>{{ $cover->reference }}</td>
