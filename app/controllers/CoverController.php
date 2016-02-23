@@ -92,7 +92,7 @@ class CoverController extends BaseController {
                 $cover->save();
 
                 // Try to upload the photo
-                $this->file_upload_resize_cut(Input::file('image'), $cover, $destination_path, $target_path, $action);                
+                $this->file_upload_cover(Input::file('image'), $cover, $destination_path, $target_path, $action);
 
                 // redirect
                 Session::flash('message', 'Successfully created cover');
@@ -202,7 +202,7 @@ class CoverController extends BaseController {
                     // Check we got an uploaded file
                     if ($photo->isValid())
                     {
-                        $this->file_upload_resize_cut($photo, $cover, $destination_path, $target_path, $action);                
+                        $this->file_upload_cover($photo, $cover, $destination_path, $target_path, $action);
                     } else {
                         //$cover->delete();
                         Session::flash('message', 'The photo file was invalid');
@@ -251,7 +251,7 @@ class CoverController extends BaseController {
     /**
      *
      */
-    public function file_upload_resize_cut($photo, $cover, $destination_path, $target_path)
+    public function file_upload_cover($photo, $cover, $destination_path, $target_path)
     {
         // name the ref field after the cover id
         $ref = sprintf("%04d", $cover->id);
@@ -259,6 +259,9 @@ class CoverController extends BaseController {
         $photo->move($destination_path, $cover->id);
 
         $target = $destination_path.$cover->id;
+
+        dump(getimagesize($target));
+        die;
 
         $canvas = Image::canvas(640, 640, '#ffffff');
         $layer = Image::make($target);
@@ -284,4 +287,54 @@ class CoverController extends BaseController {
 
         $image->save($target_path.'/'.$ref.'.jpg');
     }
+
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function set_cover($id)
+    {
+        if (Auth::check()) {
+            // store
+            $cover = Cover::find($id);
+
+            // show the edit form and pass the group
+            return View::make('covers.set')
+                ->with('cover', $cover)
+                ->with('entity', 'cover')
+                ->with('title', 'Set the cover');
+
+            // redirect
+            Session::flash('message', 'Successfully set cover');
+            return Redirect::to('covers');
+        } else {
+            Session::flash('message', 'Please log in');
+            return Redirect::to('/');
+        }
+    }
+
+    /**
+     *
+     *
+     */
+    public function save_set_cover()
+    {
+        if (Auth::check()) {
+
+            $cover = Cover::find($_POST['cover_id']);
+
+            var_dump($cover);die;
+
+            Session::flash('message', 'Cover image successfully set');
+            return Redirect::to('covers');
+
+        } else {
+
+            Session::flash('message', 'Please log in');
+
+            return Redirect::to('/');
+        }
+    }
+
 }

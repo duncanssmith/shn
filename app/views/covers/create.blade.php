@@ -12,7 +12,7 @@
 
 @section('content')
 
-<h1>Add cover</h1>
+<h1>Add a new cover</h1>
 <br>
 
 <!-- if there are creation errors, they will show here -->
@@ -22,7 +22,7 @@
 
     <div class="form-group">
         {{ Form::label('image', 'Select JPG image to upload') }}
-        {{ Form::file('image', ['class' => 'btn btn-success']) }}
+        {{ Form::file('image', ['class' => 'btn btn-warning']) }}
         Note: max file size 4MB
     </div>
 

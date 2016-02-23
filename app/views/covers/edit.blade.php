@@ -12,18 +12,18 @@
 
 @section('content')
 
-<h1>Edit {{ $cover->title }}</h1>
+<h1>Edit "{{ $cover->title }}"</h1>
 
 <!-- if there are creation errors, they will show here -->
 {{ HTML::ul($errors->all()) }}
 
 {{ Form::model($cover, array('route' => array('covers.update', $cover->id), 'files' => true, 'method' => 'PUT')) }}
 
-    <img src="/media/images/covers/{{$cover->reference}}.jpg">
+    <img src="/media/images/covers/{{$cover->reference}}.jpg" width="800px">
 
 	<div class="form-group">
 		{{ Form::label('image', 'Image') }}
-		{{ Form::file('image', ['class' => 'btn btn-default']) }}
+		{{ Form::file('image', ['class' => 'btn btn-warning']) }}
 	</div>
 
 	<div class="form-group">

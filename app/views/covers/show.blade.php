@@ -13,9 +13,11 @@
 @section('content')
 
     <div class="text-left">
-        <h2>Title: {{ $cover->title }}</h2>
+        <h2>{{ $cover->title }}</h2>
 
         <img src="/media/images/covers/{{$cover->reference}}.jpg" width="800px">
+        <br>
+        <br>
         <table class="work-data work-data-1">
             <tr>
                 <th> Title </th>
@@ -44,6 +46,10 @@
             <tr>
                 <th> Notes </th>
                 <td> {{ $cover->notes }} </td>
+            </tr>
+            <tr>
+                <th> Current? </th>
+                <td> {{ $cover->is_current }} </td>
             </tr>
         </table>
         </p>
