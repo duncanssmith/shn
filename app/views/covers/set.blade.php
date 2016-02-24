@@ -7,7 +7,7 @@
     @include('partials.nav')
 
     @include('partials.subnav')
-    
+
 @stop
 
 @section('content')

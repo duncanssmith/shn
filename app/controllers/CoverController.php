@@ -166,6 +166,8 @@ class CoverController extends BaseController {
      */
     public function update($id)
     {
+
+        var_dump("GETS HERE 20000 update()"); die;
         // Check user is logged in
         if (Auth::check()) {
             // init vars
@@ -251,16 +253,16 @@ class CoverController extends BaseController {
     /**
      *
      */
-    public function file_upload_cover($photo, $cover, $destination_path, $target_path)
+    public function file_upload_cover($photo, $cover, $destination_path)
     {
         // name the ref field after the cover id
-        $ref = sprintf("%04d", $cover->id);
+        $ref = $cover->reference);
 
         $photo->move($destination_path, $cover->id);
 
         $target = $destination_path.$cover->id;
 
-        dump(getimagesize($target));
+        var_dump(getimagesize($target));
         die;
 
         $canvas = Image::canvas(640, 640, '#ffffff');
