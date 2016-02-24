@@ -11,11 +11,7 @@
 @stop
 
 @section('content')
-    <h1>Current cover</h1>
-    <img src="/media/images/covers/current.jpg" width="240px">
-    <br>
-
-    <h1>Available covers</h1>
+    <h1>Covers</h1>
     <br>
     <p>{{ $covers->getTotal() }} covers</p>
 
@@ -43,7 +39,11 @@
     <tbody>
     @foreach($covers as $key => $cover)
         <tr>
-        <td>{{ $cover->is_current }}</td>
+        <td>
+            @if($cover->is_current)
+                <span class="fa fa-check"></span>
+            @endif
+        </td>
         <td><a href="{{ URL::to('covers/' . $cover->id) }}" title="Click to view details for this cover" target="_blank"><img src="/media/images/covers/{{ $cover->reference }}.jpg" width="160px"></a></td>
         <td>{{ $cover->title }}</td>
         <td>{{ $cover->reference }}</td>

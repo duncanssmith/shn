@@ -12,36 +12,22 @@
 
 @section('content')
 
-<h1>{{ $cover->title }}</h1>
+<h1>Set "{{ $cover->title }}" as the cover image?</h1>
 <br>
 <!-- if there are creation errors, they will show here -->
 {{ HTML::ul($errors->all()) }}
-
 
 {{ Form::model($cover, array('route' => array('save_set_cover'), 'method' => 'POST')) }}
 
     {{ Form::hidden('cover_id', $cover->id) }}
 
-    <img src="/media/images/covers/{{$cover->reference}}.jpg" width="600px">
-
+    <img src="/media/images/covers/{{ $cover->reference }}.jpg" width="600px">
     <br>
     <br>
-
-    	<div class="form-group">
-        		{{ Form::checkbox('cover[]', $cover->id, $cover->is_current) }}
-                {{ Form::label('title', $cover->title) }}
-                <br>
-    	</div>
-
-	{{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
+	{{ Form::submit('Confirm', array('class' => 'btn btn-primary')) }}
 
     <a href="/covers" class="btn btn-default">Cancel</a>
 
 {{ Form::close() }}
-
-<br>
-    Check the box and press 'Save' to set "{{ $cover->title }}" as the cover image
-<br>
-</div>
 
 @stop

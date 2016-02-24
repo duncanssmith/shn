@@ -322,9 +322,28 @@ class CoverController extends BaseController {
     {
         if (Auth::check()) {
 
-            $cover = Cover::find($_POST['cover_id']);
+            $path = getEnv('PUBLIC_BASE_PATH').'media/images/covers/';
+            $currentCover = 'current.jpg';
 
-            var_dump($cover);die;
+            // Here we reset all the cover images to is_current = false
+            $covers = Cover::all();
+
+            foreach ($covers as $cover){
+                $cover->is_current = false;
+                $cover->save();
+            }
+
+            // Here we set the selected cover image to is_current = true
+            $current = Cover::find($_POST['cover_id']);
+
+            $current->is_current = true;
+            $current->save();
+
+            $fileName = $current->reference.'.jpg';
+
+            //var_dump($fileName, $currentCover); die;
+
+            copy($path.$fileName, $path.$currentCover);
 
             Session::flash('message', 'Cover image successfully set');
             return Redirect::to('covers');
