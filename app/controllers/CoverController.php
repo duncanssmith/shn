@@ -254,7 +254,9 @@ class CoverController extends BaseController {
 
         $target = $destinationPath.$cover->reference;
 
-        $canvas = Image::canvas(1200, 900, '#999999');
+        list($width, $height, $type, $attr) = array_values(getimagesize($target));
+
+        $canvas = Image::canvas($width, $height, '#333333');
         $layer = Image::make($target);
 
         $photoWidth = $layer->width();
@@ -266,7 +268,7 @@ class CoverController extends BaseController {
             });
         }
         // add the layer to the canvas, at the top
-        $image = $canvas->insert($layer, 'center', 1200, 900);
+        $image = $canvas->insert($layer, 'center', $width, $height);
 
         $image->save($targetPath.$cover->reference.'.jpg');
     }
