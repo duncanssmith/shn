@@ -1,5 +1,4 @@
 <?php
-//use Cover\Repositories\Cover\CoverRepository;
 
 class CoverController extends BaseController {
 
@@ -60,9 +59,8 @@ class CoverController extends BaseController {
         // Check user is logged in
         if (Auth::check()) {
             // init vars
-            $destination_path = getEnv('PUBLIC_BASE_PATH').'uploads/covers';
-            $target_path = getEnv('PUBLIC_BASE_PATH').'media/images/covers';
-            $action = 'store';            
+            $destinationPath = getEnv('PUBLIC_BASE_PATH').'uploads/covers/';
+            $targetPath = getEnv('PUBLIC_BASE_PATH').'media/images/covers/';
 
             // validate
             // read more on validation at http://laravel.com/docs/validation
@@ -79,20 +77,20 @@ class CoverController extends BaseController {
             } else {
                 // store
                 $cover = new Cover;
-                $cover->title       = Input::get('title');
-                $cover->media       = Input::get('media');
-                $cover->dimensions  = Input::get('dimensions');
+                $cover->title        = Input::get('title');
+                $cover->media        = Input::get('media');
+                $cover->dimensions   = Input::get('dimensions');
                 $cover->cover_date   = Input::get('cover_date');
-                $cover->description = Input::get('description');
-                $cover->notes       = Input::get('notes');
+                $cover->description  = Input::get('description');
+                $cover->notes        = Input::get('notes');
                 $cover->save();
 
                 // create the image reference
                 $cover->reference = sprintf("%04d", $cover->id);
                 $cover->save();
 
-                // Try to upload the photo
-                $this->file_upload_cover(Input::file('image'), $cover, $destination_path, $target_path, $action);
+                // upload the photo
+                $this->file_upload_cover(Input::file('image'), $cover, $destinationPath, $targetPath);
 
                 // redirect
                 Session::flash('message', 'Successfully created cover');
@@ -166,15 +164,12 @@ class CoverController extends BaseController {
      */
     public function update($id)
     {
-
-        var_dump("GETS HERE 20000 update()"); die;
         // Check user is logged in
         if (Auth::check()) {
             // init vars
-            //$destination_path = '/Users/duncansmith/Sites/dart.local/public/dsscript/uploads';
-            $destination_path = getEnv('PUBLIC_BASE_PATH').'uploads/covers';
-            $target_path = getEnv('PUBLIC_BASE_PATH').'media/images/covers';
-            $action = 'update';
+            $destinationPath = getEnv('PUBLIC_BASE_PATH').'uploads/covers/';
+            $targetPath = getEnv('PUBLIC_BASE_PATH').'media/images/covers/';
+
             $rules = array(
                 'title'       => 'required',
             );
@@ -197,14 +192,13 @@ class CoverController extends BaseController {
                 $cover->notes = Input::get('notes');
                 $cover->save();
 
-
                 // Check the file exists and is valid
                 if ($photo = Input::file('image')) {
                     // Try to upload the photo
                     // Check we got an uploaded file
                     if ($photo->isValid())
                     {
-                        $this->file_upload_cover($photo, $cover, $destination_path, $target_path, $action);
+                        $this->file_upload_cover($photo, $cover, $destinationPath, $targetPath);
                     } else {
                         //$cover->delete();
                         Session::flash('message', 'The photo file was invalid');
@@ -253,41 +247,28 @@ class CoverController extends BaseController {
     /**
      *
      */
-    public function file_upload_cover($photo, $cover, $destination_path)
+    public function file_upload_cover($photo, $cover, $destinationPath, $targetPath)
     {
-        // name the ref field after the cover id
-        $ref = $cover->reference);
+        // name the ref field after the cover reference
+        $photo->move($destinationPath, $cover->reference);
 
-        $photo->move($destination_path, $cover->id);
+        $target = $destinationPath.$cover->reference;
 
-        $target = $destination_path.$cover->id;
-
-        var_dump(getimagesize($target));
-        die;
-
-        $canvas = Image::canvas(640, 640, '#ffffff');
+        $canvas = Image::canvas(1200, 900, '#999999');
         $layer = Image::make($target);
 
-        $photo_height = $layer->height();
-        $photo_width = $layer->width();
+        $photoWidth = $layer->width();
 
-        if ($photo_height > $photo_width) {
-            //portrait, vertical
-            $layer->resize(null, 640, function ($constraint) {
-                $constraint->aspectRatio();
-                $constraint->upsize();
-            });
-        } else {
-            //landscape, horizontal
-            $layer->resize(640, null, function ($constraint) {
+        if ($photoWidth > 1200) {
+            $layer->resize(1200, null, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
             });
         }
-        // add the layer to the canvas, centered
-        $image = $canvas->insert($layer, 'center', 320, 320);
+        // add the layer to the canvas, at the top
+        $image = $canvas->insert($layer, 'center', 1200, 900);
 
-        $image->save($target_path.'/'.$ref.'.jpg');
+        $image->save($targetPath.$cover->reference.'.jpg');
     }
 
 
@@ -323,7 +304,6 @@ class CoverController extends BaseController {
     public function save_set_cover()
     {
         if (Auth::check()) {
-
             $path = getEnv('PUBLIC_BASE_PATH').'media/images/covers/';
             $currentCover = 'current.jpg';
 
@@ -343,8 +323,6 @@ class CoverController extends BaseController {
 
             $fileName = $current->reference.'.jpg';
 
-            //var_dump($fileName, $currentCover); die;
-
             copy($path.$fileName, $path.$currentCover);
 
             Session::flash('message', 'Cover image successfully set');
@@ -357,5 +335,5 @@ class CoverController extends BaseController {
             return Redirect::to('/');
         }
     }
-
 }
+
