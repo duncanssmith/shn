@@ -280,7 +280,12 @@ class CoverController extends BaseController {
                 $constraint->aspectRatio();
                 $constraint->upsize();
             });
+            $canvas->resize($maxWidth, null, function($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
         }
+
         // add the layer to the canvas, at the top
         $image = $canvas->insert($layer, 'center', $width, $height);
 
