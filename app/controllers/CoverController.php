@@ -245,24 +245,38 @@ class CoverController extends BaseController {
     }
 
     /**
-     *
+     * @param $photo
+     * @param $cover
+     * @param $destinationPath
+     * @param $targetPath
      */
     public function file_upload_cover($photo, $cover, $destinationPath, $targetPath)
     {
-        // name the ref field after the cover reference
+        // init vars
+        $maxWidth = 1200;
+        $bgColor = '#333333';
+
+        $fileTypes = array(
+            IMAGETYPE_JPEG => 'jpg',
+            IMAGETYPE_PNG => 'png',
+            IMAGETYPE_GIF => 'gif',
+        );
+        // name the file as the cover reference
         $photo->move($destinationPath, $cover->reference);
 
         $target = $destinationPath.$cover->reference;
 
         list($width, $height, $type, $attr) = array_values(getimagesize($target));
 
-        $canvas = Image::canvas($width, $height, '#333333');
+        $extension = $fileTypes[$type];
+
+        $canvas = Image::canvas($width, $height, $bgColor);
         $layer = Image::make($target);
 
         $photoWidth = $layer->width();
 
-        if ($photoWidth > 1200) {
-            $layer->resize(1200, null, function ($constraint) {
+        if ($photoWidth > $maxWidth) {
+            $layer->resize($maxWidth, null, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
             });
@@ -270,9 +284,8 @@ class CoverController extends BaseController {
         // add the layer to the canvas, at the top
         $image = $canvas->insert($layer, 'center', $width, $height);
 
-        $image->save($targetPath.$cover->reference.'.jpg');
+        $image->save($targetPath.$cover->reference.'.'.$extension);
     }
-
 
     /**
      * @param $id
