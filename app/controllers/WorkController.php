@@ -60,9 +60,9 @@ class WorkController extends BaseController {
         // Check user is logged in
         if (Auth::check()) {
             // init vars
-            $destination_path = getEnv('PUBLIC_BASE_PATH').'uploads/works';
-            $target_path = getEnv('PUBLIC_BASE_PATH').'media/images/';
-            $action = 'store';            
+            $destinationPath = getEnv('PUBLIC_BASE_PATH').'uploads/works/';
+            $targetPath = getEnv('PUBLIC_BASE_PATH').'media/images/';
+            $action = 'store';
 
             // validate
             // read more on validation at http://laravel.com/docs/validation
@@ -92,7 +92,7 @@ class WorkController extends BaseController {
                 $work->save();
 
                 // Try to upload the photo
-                $this->file_upload_resize_cut(Input::file('image'), $work, $destination_path, $target_path, $action);                
+                $this->file_upload_work(Input::file('image'), $work, $destinationPath, $targetPath, $action);
 
                 // redirect
                 Session::flash('message', 'Successfully created work');
@@ -169,8 +169,8 @@ class WorkController extends BaseController {
         // Check user is logged in
         if (Auth::check()) {
             // init vars
-            $destination_path = getEnv('PUBLIC_BASE_PATH').'uploads/works';
-            $target_path = getEnv('PUBLIC_BASE_PATH').'media/images/';
+            $destinationPath = getEnv('PUBLIC_BASE_PATH').'uploads/works/';
+            $targetPath = getEnv('PUBLIC_BASE_PATH').'media/images/';
             $action = 'update';
             $rules = array(
                 'title'       => 'required',
@@ -201,7 +201,7 @@ class WorkController extends BaseController {
                     // Check we got an uploaded file
                     if ($photo->isValid())
                     {
-                        $this->file_upload_resize_cut($photo, $work, $destination_path, $target_path, $action);                
+                        $this->file_upload_work($photo, $work, $destinationPath, $targetPath, $action);
                     } else {
                         //$work->delete();
                         Session::flash('message', 'The photo file was invalid');
@@ -238,7 +238,7 @@ class WorkController extends BaseController {
             $work->delete();
 
             // redirect
-            Session::flash('message', 'Successfully deleted the work');
+            Session::flash('message', 'Successfully deleted work');
             return Redirect::to('works');
         } else {
             // User is not logged in
@@ -250,14 +250,14 @@ class WorkController extends BaseController {
     /**
      *
      */
-    public function file_upload_resize_cut($photo, $work, $destination_path, $target_path)
+    public function file_upload_work($photo, $work, $destinationPath, $targetPath)
     {
         // name the ref field after the work id
         $ref = sprintf("%04d", $work->id);
 
-        $photo->move($destination_path, $work->id);
+        $photo->move($destinationPath, $work->id);
 
-        $target = $destination_path.$work->id;
+        $target = $destinationPath.$work->id;
 
         $canvas = Image::canvas(640, 640, '#ffffff');
         $layer = Image::make($target);
@@ -281,14 +281,14 @@ class WorkController extends BaseController {
         // add the layer to the canvas, centered
         $image = $canvas->insert($layer, 'center', 320, 320);
 
-        $image->save($target_path.'640/'.$ref.'.jpg');
+        $image->save($targetPath.'640/'.$ref.'.jpg');
         $image->resize(320, 320);
-        $image->save($target_path.'320/'.$ref.'.jpg');
+        $image->save($targetPath.'320/'.$ref.'.jpg');
         $image->resize(160, 160);
-        $image->save($target_path.'160/'.$ref.'.jpg');
+        $image->save($targetPath.'160/'.$ref.'.jpg');
         $image->resize(120, 120);
-        $image->save($target_path.'120/'.$ref.'.jpg');
+        $image->save($targetPath.'120/'.$ref.'.jpg');
         $image->resize(64, 64);
-        $image->save($target_path.'64/'.$ref.'.jpg');
+        $image->save($targetPath.'64/'.$ref.'.jpg');
     }
 }
