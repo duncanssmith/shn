@@ -47,7 +47,7 @@
             </tr>
         </table>
         </p>
-    <a href="/works" class="btn btn-xs btn-default"><i class="fa fa-arrow-left" style="color:#999;"></i> Back</a>
+    <a href="/works" class="btn btn-default"><i class="fa fa-arrow-left" style="color:#999;"></i> Back</a>
     </div>
 
 @stop

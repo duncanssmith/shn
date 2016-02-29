@@ -57,7 +57,7 @@
 
 	{{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
 
-	<a href="/covers" class="btn btn-xs btn-default">Cancel</a>
+	<a href="/covers" class="btn btn-default">Cancel</a>
 
 {{ Form::close() }}
 </div>
