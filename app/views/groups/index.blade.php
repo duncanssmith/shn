@@ -31,6 +31,7 @@
             <td>Layout</td>
             <td>Works</td>
             <td>Texts</td>
+            <td>Display?</td>
             <td>Actions</td>
         </tr>
     </thead>
@@ -46,6 +47,11 @@
             <td>{{ $group->layout }}</td>
             <td>{{ $group->works()->count() }}</a></td>
             <td>{{ $group->texts()->count() }}</a></td>
+            <td>
+                @if($group->display)
+                    <span class="fa fa-check"></span>
+                @endif
+            </td>
 
             <td>
                 <a class="btn btn-xs btn-info" href="{{ URL::to('pages/' . $group->id . '/edit') }}">Edit</a>
