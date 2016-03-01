@@ -42,7 +42,7 @@
             <td>{{ $navigation->id }}</td>
             <td><a href="/navigations/{{$navigation->id}}" title="Click to view this navigation" target="">{{ $navigation->name }}</a></td>
             <td>{{ $navigation->alias }}</td>
-            <td>{{ $navigation->url }}</td>
+            <td><a href="{{ $navigation->url }}">{{$navigation->url}}</a></td>
             <td>{{ $navigation->level }}</td>
             <td>{{ $navigation->layout }}</td>
             <td>{{ $navigation->order }}</td>
