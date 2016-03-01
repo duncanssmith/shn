@@ -41,6 +41,7 @@ Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store',
 
 // CRUD
 Route::resource('works', 'WorkController');
+Route::resource('navigations', 'NavigationController');
 Route::resource('pages', 'GroupController');
 Route::resource('texts', 'TextController');
 Route::resource('covers', 'CoverController');
