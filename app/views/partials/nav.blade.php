@@ -21,7 +21,7 @@
 
                     <li class="dropdown" role="presentation">
                         <a href="/page/17" class="header-link">
-                            Current work
+                            Recent paintings
                         </a>
                     </li>
 
@@ -61,10 +61,10 @@
                     </li>
 
                     <li class="dropdown" role="presentation">
-                        <a href="http://sharonhallartist.blogspot.co.uk/" target="_blank" title="Blog" class="header-link">
-                            Blog
+                        <a href="https://instagram.com/sharonhallartist" target="_blank" title="Instagram" class="header-link">
+                            Instagram
                         </a>
-                    </li>                     
+                    </li>
 
 
 
