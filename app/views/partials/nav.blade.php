@@ -60,13 +60,11 @@
                         </a>
                     </li>
 
-                    <li class="dropdown" role="presentation">
-                        <a href="https://instagram.com/sharonhallartist" target="_blank" title="Instagram" class="header-link">
-                            Instagram
-                        </a>
-                    </li>
-
-
+{{--                    <li class="dropdown" role="presentation">--}}
+{{--                        <a href="https://instagram.com/sharonhallartist" target="_blank" title="Instagram" class="header-link">--}}
+{{--                            Instagram--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
 
                     @if (Auth::guest())
 
