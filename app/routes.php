@@ -1,6 +1,8 @@
 <?php
-
-# Secure page
+/**
+ * Secure page 
+ * 
+ */
 Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
 
 // Home and public pages
@@ -20,19 +22,20 @@ Route::post('/save_assigned_text', ['as' => 'save_assigned_text',  'uses' => 'Gr
 Route::get('/set_cover/{id}', ['as' => 'set_cover',  'uses' => 'CoverController@set_cover']);
 Route::post('/save_set_cover', ['as' => 'save_set_cover',  'uses' => 'CoverController@save_set_cover']);
 
-# Ordering items in Groups
+// Ordering items in Groups
 Route::get('/sort_page_works/{id}', ['as' => 'sort_page_works',  'uses' => 'GroupController@sort_page_works']);
 Route::get('/sort_page_texts/{id}', ['as' => 'sort_page_texts',  'uses' => 'GroupController@sort_page_texts']);
 
-# Ajax routes to save orders
+// Ajax routes to save orders
 Route::post('/save_page_works_order', ['as' => 'save_page_works_order',  'uses' => 'GroupController@save_page_works_order']);
 Route::post('/save_page_texts_order', ['as' => 'save_page_texts_order',  'uses' => 'GroupController@save_page_texts_order']);
 
-# Registration COMMENTED FOR PRODUCTION
-//Route::get('/register', 'RegistrationController@create')->before('guest');
-//Route::post('/register', ['as' => 'registration.store', 'uses' => 'RegistrationController@store']);
+// Registration COMMENTED FOR PRODUCTION
+// Route::get('/register', 'RegistrationController@create')->before('guest');
+// Route::post('/register', 
+//     ['as' => 'registration.store', 'uses' => 'RegistrationController@store']);
 
-# Authentication
+// Authentication
 Route::get('login', ['as' => 'login', 'uses' => 'SessionsController@create']);
 Route::get('logout', ['as' => 'logout', 'uses' => 'SessionsController@destroy']);
 Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store', 'destroy']]);
@@ -50,13 +53,13 @@ Route::resource('covers', 'CoverController');
 Route::resource('users', 'UserController');
 //Route::get('users', ['as' => 'home', 'uses' => 'PagesController@home']);
 
-//Route::get('profile', array('before' => 'auth.basic', function()
-//{
+// Route::get('profile', array('before' => 'auth.basic', function()
+// {
 //    // Only authenticated users may enter...
-//}));
+// }));
 //
-//Route::filter('auth.basic', function()
-//{
-//    return Auth::basic('username');
-//});
+// Route::filter('auth.basic', function()
+// {
+//     return Auth::basic('username');
+// });
 //

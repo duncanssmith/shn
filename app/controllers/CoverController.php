@@ -196,8 +196,7 @@ class CoverController extends BaseController {
                 if ($photo = Input::file('image')) {
                     // Try to upload the photo
                     // Check we got an uploaded file
-                    if ($photo->isValid())
-                    {
+                    if ($photo->isValid()) {
                         $this->file_upload_cover($photo, $cover, $destinationPath, $targetPath);
                     } else {
                         //$cover->delete();
