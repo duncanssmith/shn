@@ -47,6 +47,9 @@ Route::resource('covers', 'CoverController');
 
 // COMMENTED FOR PRODUCTION
 Route::resource('users', 'UserController');
+
+
+
 //Route::get('users', ['as' => 'home', 'uses' => 'PagesController@home']);
 
 //Route::get('profile', array('before' => 'auth.basic', function()
@@ -59,3 +62,4 @@ Route::resource('users', 'UserController');
 //    return Auth::basic('username');
 //});
 //
+

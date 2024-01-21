@@ -38,6 +38,12 @@
                     </li>
 
                     <li class="dropdown" role="presentation">
+                        <a href="/page/23" class="header-link">
+                            Photographs
+                        </a>
+                    </li>
+
+                    <li class="dropdown" role="presentation">
                         <a href="#" data-toggle="dropdown" class="header-link">
                             Archive
                         </a>
