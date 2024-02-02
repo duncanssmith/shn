@@ -42,31 +42,36 @@ class PagesController extends \BaseController {
         // get the group and its works and/or texts
         $group = Group::find($id);
 
-        if ($group->display || Auth::check()) {
+	if ($group) {
+		if ($group->display || Auth::check()) {
 
-            $works = DB::table('works')
-                ->join('group_work', 'works.id', '=', 'group_work.work_id')
-                ->join('groups', 'groups.id', '=', 'group_work.group_id')
-                ->select('group_work.order', 'works.id', 'works.title', 'works.media', 'works.dimensions', 'works.reference', 'works.work_date', 'works.description', 'works.notes')
-                ->where('groups.id', '=', $group->id)
-                ->orderBy('group_work.order')
-                ->get();
+		    $works = DB::table('works')
+			->join('group_work', 'works.id', '=', 'group_work.work_id')
+			->join('groups', 'groups.id', '=', 'group_work.group_id')
+			->select('group_work.order', 'works.id', 'works.title', 'works.media', 'works.dimensions', 'works.reference', 'works.work_date', 'works.description', 'works.notes')
+			->where('groups.id', '=', $group->id)
+			->orderBy('group_work.order')
+			->get();
 
-            $texts = DB::table('texts')
-                ->join('group_text', 'texts.id', '=', 'group_text.text_id')
-                ->join('groups', 'groups.id', '=', 'group_text.group_id')
-                ->select('group_text.order', 'texts.id', 'texts.title', 'texts.author', 'texts.year', 'texts.description', 'texts.publication', 'texts.publication_date', 'texts.content')
-                ->where('groups.id', '=', $group->id)
-                ->orderBy('group_text.order')
-                ->get();
+		    $texts = DB::table('texts')
+			->join('group_text', 'texts.id', '=', 'group_text.text_id')
+			->join('groups', 'groups.id', '=', 'group_text.group_id')
+			->select('group_text.order', 'texts.id', 'texts.title', 'texts.author', 'texts.year', 'texts.description', 'texts.publication', 'texts.publication_date', 'texts.content')
+			->where('groups.id', '=', $group->id)
+			->orderBy('group_text.order')
+			->get();
 
-            $columns = (empty($group->columns) || (0 == $group->columns)) ? 1 : $group->columns;
+		    $columns = (empty($group->columns) || (0 == $group->columns)) ? 1 : $group->columns;
 
-            $template = 'pages.group';
+		    $template = 'pages.group';
 
-            if ($group->layout == 1) {
-                $template = 'pages.groupcarousel';
-            }
+		    if ($group->layout == 1) {
+			$template = 'pages.groupcarousel';
+		    }
+		} else {
+			Session::flash('message', "That page doesn't exist");
+			return Redirect::to('/');
+		}
 
             // show the view and pass the group to it
             return View::make($template)
