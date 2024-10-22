@@ -51,6 +51,11 @@ h1 {
     margin: 16px 0 0 0;
 }
 
+.dropdown-menu {
+	max-height: 450px;
+	overflow-y: scroll;
+}
+
 .error {color:red; font-style:italic; font-size:.9em;}
 
 .container {
