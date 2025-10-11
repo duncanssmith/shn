@@ -1,6 +1,8 @@
 <?php namespace Acme\View\Composer;
 
 class NavigationComposer {
+
+    private array $exhibitions = [];
 	
     public function compose($view)
     {
