@@ -8,8 +8,8 @@
         {{--<script src="/../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>--}}
         {{--<link rel="stylesheet" href="/../bower_components/bootstrap/dist/css/bootstrap.min.css"></link>--}}
 
-        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <link rel="stylesheet" href="/media/css/font-awesome.css">
         <link rel="stylesheet" href="/media/css/main.css">
@@ -19,8 +19,18 @@
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
         {{--<script src="{{ asset('/media/js/vendor/jquery/jquery-2.1.1.min.js') }}"></script>--}}
         <script src="{{ asset('/media/js/vendor/twitter/bootstrap/js/bootstrap.min.js') }}"></script>
-{{--        <script src="//cdn.ckeditor.com/4.4.5/basic/ckeditor.js"></script>--}}
-        <script src="{{ asset('/media/js/ckeditor/ckeditor.js') }}"></script>
+        <script src="{{ asset('/media/js/vendor/tinymce/tinymce.min.js') }}"></script>
+        <script>
+            tinymce.init({
+            selector: '#myeditor',
+            licence_key: 'gpl',
+            plugins: 'link image lists code table',
+            toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright | bullist numlist | link image | code',
+            menubar: false,
+            branding: false // removes "Powered by Tiny"
+        });
+        </script>
+
         <script src="{{ asset('/media/js/image_sort.js')}}"></script>
         <script src="{{ asset('/media/js/text_sort.js')}}"></script>
         {{--<script src="{{ asset('/media/js/carousel_slider_bootstrap_thumbs.js') }}"></script>--}}
