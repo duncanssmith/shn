@@ -43,16 +43,16 @@
                         </a>
                     </li>
 
-                    <!-- <li class="dropdown" role="presentation"> -->
-                        <!-- <a href="#" data-toggle="dropdown" class="header-link"> -->
-                            <!-- Exhibitions -->
-                        <!-- </a> -->
-                        <!-- <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel"> -->
-                            <!-- @foreach($exhibitions as $exhibition) -->
-                                <!-- <li><a href="/page/{{$item->id}}" class="header-dropdown-link">{{ $exhibition->name }}</a></li> -->
-                            <!-- @endforeach -->
-                        <!-- </ul> -->
-                    <!-- </li> -->
+                    <li class="dropdown" role="presentation">
+                        <a href="#" data-toggle="dropdown" class="header-link">
+                            Exhibitions
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            @foreach($exhibition_list as $exhibition)
+                                <li><a href="/page/{{$exhibition->id}}" class="header-dropdown-link">{{ $exhibition->name }}</a></li>
+                            @endforeach
+                        </ul>
+                    </li>
 
                     <li class="dropdown" role="presentation">
                         <a href="#" data-toggle="dropdown" class="header-link">
