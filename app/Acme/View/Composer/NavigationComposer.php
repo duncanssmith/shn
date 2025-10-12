@@ -8,7 +8,7 @@ class NavigationComposer {
         $exhibition_list = \Group::where('exhibitions', '=', 1)->orderBy('order', 'asc')->get();
 
         $view->with('group_list', $group_list);
-        $view->with('exhibitions_list', $exhibitions_list);
+        $view->with('exhibition_list', $exhibition_list);
     }
 
 }
