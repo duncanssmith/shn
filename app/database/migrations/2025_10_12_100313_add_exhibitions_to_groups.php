@@ -15,6 +15,7 @@ class AddExhibitionsToGroups extends Migration {
 		Schema::table('groups', function(Blueprint $table)
 		{
 			//
+			$table->boolean('exhibitions')->default(false);
 		});
 	}
 
@@ -28,6 +29,7 @@ class AddExhibitionsToGroups extends Migration {
 		Schema::table('groups', function(Blueprint $table)
 		{
 			//
+		    $table->dropColumn('exhibitions');
 		});
 	}
 
