@@ -43,6 +43,12 @@
                         <span class="fa fa-check"></span>
                     @endif
                 </td>
+                <th>Exhibition ? </th>
+                <td>
+                    @if($group->exhibitions)
+                        <span class="fa fa-check"></span>
+                    @endif
+                </td>
 
             </tr>
 

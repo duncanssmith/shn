@@ -32,6 +32,7 @@
             <td>Works</td>
             <td>Texts</td>
             <td>Display?</td>
+            <td>Exhibition?</td>
             <td>Actions</td>
         </tr>
     </thead>
@@ -52,7 +53,11 @@
                     <span class="fa fa-check"></span>
                 @endif
             </td>
-
+            <td>
+                @if($group->exhibitions)
+                    <span class="fa fa-check"></span>
+                @endif
+            </td>
             <td>
                 <a class="btn btn-xs btn-info" href="{{ URL::to('pages/' . $group->id . '/edit') }}">Edit</a>
                 <a class="btn btn-xs btn-primary" href="{{ URL::to('sort_page_works/' . $group->id ) }}">Sort works</a>
