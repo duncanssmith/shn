@@ -338,6 +338,7 @@ class GroupController extends BaseController {
                 $group->image_size = Input::get('image_size');
                 $group->layout     = Input::get('layout');
                 $group->display    = (Input::get('display') == 'on') ? 1 : 0;
+                $group->exhibitions= (Input::get('exhibitions') == 'on') ? 1 : 0;
                 $group->save();
 
                 // redirect
@@ -432,6 +433,7 @@ class GroupController extends BaseController {
                 $group->image_size  = Input::get('image_size');
                 $group->layout      = Input::get('layout');
                 $group->display     = (Input::get('display') == 'on') ? 1 : 0;
+                $group->exhibitions = (Input::get('exhibitions') == 'on') ? 1 : 0;
                 $group->save();
 
                 // redirect
