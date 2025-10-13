@@ -18,7 +18,7 @@
                 <div class="text-left">
                     <h4>{{ $group->name }}</h4>
                     @if(!$group->display)
-                        @include('partials.hidden')
+                        <!-- @include('partials.hidden') -->
                     @endif
                 </div>
 
