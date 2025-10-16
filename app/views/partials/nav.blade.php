@@ -33,7 +33,7 @@
 
                     <li class="dropdown" role="presentation">
                         <a href="/page/34" class="header-link">
-                            Artist Books
+                            Artist books
                         </a>
                     </li>
 
@@ -45,7 +45,7 @@
 
                     <li class="dropdown" role="presentation">
                         <a href="#" data-toggle="dropdown" class="header-link">
-                            Exhibitions
+                            Selected exhibitions
                         </a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                             @foreach($exhibition_list as $exhibition)
